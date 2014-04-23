@@ -1,0 +1,196 @@
+@font-face {
+  font-family: '../../fonts/futura';
+  src: url("futura.eot");
+  /* IE9 Compat Modes */
+  src: url("../../fonts/futura.eot?#iefix") format("embedded-opentype"), url("../../fonts/futura.woff") format("woff"), url("../../fonts/futura.ttf") format("truetype"), url("../../fonts/futura.svg#svgFontName") format("svg");
+  /* Legacy iOS */;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: "futura", sans-serif;
+  font-weight: 400;
+  background-color: black;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  width: 84%;
+  overflow: hidden;
+  margin: auto;
+  height: 100%;
+}
+
+#container #left {
+  width: 56%;
+  height: 100%;
+  float: left;
+  background-image: url("../../img/logo_large.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 100%;
+}
+
+#container #right {
+  width: 35%;
+  float: left;
+  padding: 2%;
+  margin-left: 1%;
+}
+
+#container #right #title {
+  margin-top: 20%;
+  margin-bottom: 5%;
+}
+
+#container #right #description {
+  font-size: 17px;
+  margin-bottom: 10%;
+}
+
+#container #right #controls {
+  overflow: hidden;
+}
+
+#container #right #controls.margin {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+#container #right #controls #login {
+  width: 120px;
+  background-image: url("../../img/login.png");
+  background-repeat: no-repeat;
+  background-size: 120px 57px;
+  display: block;
+  padding-top: 60px;
+  text-align: center;
+  font-size: 25px;
+  float: left;
+}
+
+#container #right #controls #login.active {
+  border-left: 8px solid white;
+}
+
+#container #right #controls #signup {
+  width: 90px;
+  background-image: url("../../img/signup.png");
+  background-repeat: no-repeat;
+  background-size: 65px 57px;
+  background-position: top center;
+  display: block;
+  padding-top: 60px;
+  text-align: center;
+  font-size: 25px;
+  float: left;
+  margin-left: 35px;
+}
+
+#container #right #controls #signup.active {
+  border-right: 8px solid white;
+}
+
+#container #right .form {
+  color: silver;
+  width: 100%;
+}
+
+#container #right .form ::-webkit-input-placeholder {
+        /* WebKit browsers */
+  color: silver;
+}
+
+#container #right .form :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+  color: silver;
+}
+
+#container #right .form ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+  color: silver;
+}
+
+#container #right .form :-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+  color: silver;
+}
+
+#container #right .form input[type='text'], #container #right .form input[type='password'] {
+  color: black;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+  border-bottom: 2px solid silver;
+}
+
+#container #right .form .bottom {
+  width: 100%;
+  background-color: white;
+  font-size: 24px;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+#container #right .form .bottom input[type='submit'] {
+  width: 100%;
+  margin: auto;
+  font-size: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+#container #right .form a {
+  color: silver;
+  border-bottom: 1px solid silver;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+input {
+  border: none;
+  font-family: "futura", sans-serif;
+  margin: 0;
+  font-weight: 400;
+}
+
+input:focus {
+  outline: none;
+}

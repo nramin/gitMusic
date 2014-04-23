@@ -15,3 +15,18 @@ Route::get('/', function()
 {
 	return View::make('homepage/loggedin/homepage');
 });
+
+Route::get('/loggedout', function()
+{
+	return View::make('homepage/loggedout/homepage');
+});
+
+Route::get('/signup', function()
+{
+	return View::make('signup');
+});
+
+Route::get('/login', function()
+{
+	return View::make('login');
+});
