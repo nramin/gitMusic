@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'futura';
+  src: url("futura.eot");
+  /* IE9 Compat Modes */
+  src: url("futura.eot?#iefix") format("embedded-opentype"), url("futura.woff") format("woff"), url("futura.ttf") format("truetype"), url("futura.svg#svgFontName") format("svg");
+  /* Legacy iOS */;
+}
+
+body {
+  background-color: #f3f3f4;
+  font-family: "futura", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+section#topbar {
+  height: 75px;
+  background-color: black;
+  overflow: hidden;
+}
+
+section#topbar #logo {
+  background-image: url("../../img/logo_small.png");
+  background-repeat: no-repeat;
+  width: 66px;
+  height: 75px;
+  display: block;
+  float: left;
+}
+
+section#topbar #username {
+  font-size: 35px;
+  float: left;
+  color: #f3f3f4;
+  margin-left: 40px;
+  margin-top: 28px;
+}
+
+section#topbar nav {
+  overflow: hidden;
+  float: right;
+}
+
+section#topbar nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+section#topbar nav ul li {
+  float: left;
+  color: #f3f3f4;
+  font-size: 18px;
+}
+
+section#topbar nav ul li a {
+  display: block;
+  color: #f3f3f4;
+  text-decoration: none;
+  margin-right: 100px;
+  padding-top: 25px;
+}
+
+section#content {
+  width: 960px;
+  margin: auto;
+  margin-top: 40px;
+}

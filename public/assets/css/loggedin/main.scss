@@ -1,0 +1,67 @@
+$white: #f3f3f4;
+$black: #000;
+$font_main: 'futura', sans-serif;
+
+@font-face {
+  font-family: 'futura';
+  src: url('futura.eot'); /* IE9 Compat Modes */
+  src: url('futura.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('futura.woff') format('woff'), /* Modern Browsers */
+  url('futura.ttf')  format('truetype'), /* Safari, Android, iOS */
+  url('futura.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+body {
+  background-color: $white;
+  font-family: $font_main;
+  margin: 0;
+  padding: 0;
+}
+
+section#topbar {
+  height: 75px;
+  background-color: $black;
+  overflow: hidden;
+  #logo {
+    background-image: url('../img/logo_small.png');
+    background-repeat: no-repeat;
+    width: 66px;
+    height: 75px;
+    display: block;
+    float: left;
+  }
+  #username {
+    font-size: 35px;
+    float: left;
+    color: $white;
+    margin-left: 40px;
+    margin-top: 28px;
+  }
+  nav {
+    overflow: hidden;
+    float: right;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        float: left;
+        color: $white;
+        font-size: 18px;
+        a {
+          display: block;
+          color: $white;
+          text-decoration: none;
+          margin-right: 100px;
+          padding-top: 25px;
+        }
+      }
+    }
+  }
+}
+
+section#content {
+  width: 960px;
+  margin: auto;
+  margin-top: 40px;
+}
