@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'futura';
-  src: url("futura.eot");
+  src: url("../../fonts/futura.eot");
   /* IE9 Compat Modes */
-  src: url("futura.eot?#iefix") format("embedded-opentype"), url("futura.woff") format("woff"), url("futura.ttf") format("truetype"), url("futura.svg#svgFontName") format("svg");
+  src: url("../../fonts/futura.eot?#iefix") format("embedded-opentype"), url("../../fonts/futura.woff") format("woff"), url("../../fonts/futura.ttf") format("truetype"), url("../../fonts/futura.svg#svgFontName") format("svg");
   /* Legacy iOS */;
 }
 
