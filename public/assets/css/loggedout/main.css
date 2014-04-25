@@ -22,6 +22,7 @@ body {
 #container {
   width: 84%;
   overflow: hidden;
+  margin-left: 4%;
   margin: auto;
   height: 100%;
 }
@@ -40,7 +41,7 @@ body {
   width: 35%;
   float: left;
   padding: 2%;
-  margin-left: 1%;
+  margin-left: 4%;
 }
 
 #container #right #title {
@@ -97,41 +98,50 @@ body {
 }
 
 #container #right .form {
-  color: silver;
   width: 100%;
 }
 
-#container #right .form ::-webkit-input-placeholder {
-        /* WebKit browsers */
+#container #right .form input ::-webkit-input-placeholder {
   color: silver;
+  -webkit-transition: color .8s; /* For Safari 3.1 to 6.0 */
+  transition: color .8s;
 }
 
-#container #right .form :-moz-placeholder {
+#container #right .form input:hover ::-webkit-input-placeholder {
+        /* Webkit browsers */
+  color: white;
+}
+
+#container #right .form input:hover :-moz-placeholder {
         /* Mozilla Firefox 4 to 18 */
-  color: silver;
+  color: white;
 }
 
-#container #right .form ::-moz-placeholder {
+#container #right .form input:hover ::-moz-placeholder {
         /* Mozilla Firefox 19+ */
-  color: silver;
+  color: white;
 }
 
-#container #right .form :-ms-input-placeholder {
+#container #right .form input:hover :-ms-input-placeholder {
         /* Internet Explorer 10+ */
-  color: silver;
+  color: white;
 }
 
 #container #right .form input[type='text'], #container #right .form input[type='password'] {
-  color: black;
-  padding-left: 30px;
-  padding-right: 30px;
+  color: white;
+  padding-left: 0px;
+  padding-right: 0px;
   padding-top: 15px;
   padding-bottom: 15px;
-  width: 100%;
-  text-align: center;
-  font-size: 25px;
+  width: 316px;
+  text-align: left;
+  font-size: 24pt;
   border-bottom: 2px solid silver;
+  background-color: #6D6E70;
+  
 }
+
+
 
 #container #right .form .bottom {
   width: 100%;
@@ -156,6 +166,23 @@ body {
 #container #right .form a {
   color: silver;
   border-bottom: 1px solid silver;
+}
+
+#signup {
+  width: 100%;
+  font-size: 24pt;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#signup, #container #right .form input[type='text'], #container #right .form input[type='password']{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#userName{
+  border-bottom: none !important;
+  margin-bottom: 10px;
 }
 
 h1, h2, h3, h4 {

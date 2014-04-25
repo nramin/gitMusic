@@ -8,9 +8,7 @@
 <section class="form">
     <input type="text" placeholder="Email address">
     <input type="password" placeholder="Password">
-    <input type="text" placeholder="Username">
-    <div class="bottom">
-        <input type="submit" value="Login">
-    </div>
+    <input id='userName' type="text" placeholder="Username">
+    <input id='signup' type="submit" value="Login">
 </section>
 @stop
