@@ -30,3 +30,5 @@ Route::get('/login', function()
 {
 	return View::make('login');
 });
+
+Route::get('/user/{name}', 'UserController@showProfile');
