@@ -31,6 +31,6 @@ Route::get('/login', function()
 	return View::make('login');
 });
 
-Route::get('/user/{username}', 'UserController@showProfile');
+Route::get('/{username}', 'UserController@showProfile');
 
 Route::get('/{username}/{songname}', 'SongController@showSong');
