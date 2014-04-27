@@ -15,6 +15,5 @@ class SongController extends BaseController {
             }
         }
         return View::make('songNotFound', array('songname' =>$songname));
-        
     }
 }
