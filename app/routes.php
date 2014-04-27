@@ -36,6 +36,10 @@ Route::get('/about', function()
 	return View::make('about');
 });
 
+Route::get('/stream/{type}', 'StreamController@showStream');
+
 Route::get('/{username}', 'UserController@showProfile');
 
 Route::get('/{username}/{songname}', 'SongController@showSong');
+
+Route::get('/stream/{type}', 'StreamController@showStream');
