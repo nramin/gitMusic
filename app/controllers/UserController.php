@@ -7,12 +7,11 @@ class UserController extends BaseController {
      */
     public function showProfile($username)
     {
-        if($user = DB::table('users')->where('username', $username)->first()) 
+        if($user = User::where('username', '=', $username)->first()) 
         {
-    		$songs = DB::table('songs')->where('user_id', $user->id)->get();
-        	return View::make('user', array('user' => $user, 'songs' => $songs));
+        	return View::make('user')->with('user', $user);
         }else{
-            return View::make('userNotFound', array('name' =>$username));
+            return View::make('userNotFound', array('name' => $username));
         }
     }
 }
