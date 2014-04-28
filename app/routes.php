@@ -42,4 +42,3 @@ Route::get('/{username}', 'UserController@showProfile');
 
 Route::get('/{username}/{songname}', 'SongController@showSong');
 
-Route::get('/stream/{type}', 'StreamController@showStream');
