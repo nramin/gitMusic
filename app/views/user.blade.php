@@ -1,7 +1,11 @@
 <html>
     <body>
-        <h1>Hello, <?php echo $user->username; ?></h1>
-        <p><?php echo serialize($user) ?></p>
-        <p><?php echo serialize($songs) ?></p>
+        <h1>Artist: {{ $user->username }}</h1>
+        <h3>Songs:</h3>
+        <ul>
+  			@foreach ($user->songs as $song)
+    			<li>{{ $song->songname }}</li>
+  			@endforeach
+		</ul>
     </body>
 </html>

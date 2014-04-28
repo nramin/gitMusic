@@ -19,6 +19,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password');
 
+	protected $guarded = array('id');
+
 	/**
 	 * Get the unique identifier for the user.
 	 *
@@ -78,6 +80,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	public function songs()
+	{
+		return $this->hasMany('Song');
 	}
 
 }
