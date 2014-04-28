@@ -6,6 +6,8 @@ class Song extends Eloquent {
 
     protected $hidden = array('user_id');
 
+    protected $guarded = array('id');
+
     public function user() 
     {
     	return $this->belongsTo('User');

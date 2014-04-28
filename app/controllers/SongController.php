@@ -7,10 +7,13 @@ class SongController extends BaseController {
      */
     public function showSong($username, $songname)
     {
-        if($song = Song::where('songname', '=', $songname)->first())
+        if($user = User::where('username', '=', $username)->first())
         {
-    	   return View::make('song')->with('song', $song);
+            if($song = Song::where('songname', '=', $songname)->first())
+            {
+        	   return View::make('song')->with('song', $song);
+            }
         }
-        return View::make('songNotFound', array('songname' =>$songname));
+        return View::make('songNotFound', array('songname' => $songname));
     }
 }

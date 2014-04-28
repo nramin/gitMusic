@@ -9,7 +9,7 @@ class StreamController extends BaseController {
     {
         if($type === 'new')
         {
-            $songs = DB::table('songs')->orderBy('created_at', 'desc')->take(10)->get();
+            $songs = Song::where('id', '>', 0)->orderBy('created_at', 'desc')->get()->take(10);
             return View::make('stream', array('songs' => $songs, 'type' => $type));
         }
     }
