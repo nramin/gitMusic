@@ -3,13 +3,17 @@
 class StreamController extends BaseController {
 
     /**
-     * Show the profile for the given user.
+     * Show the stream based on parameter
      */
     public function showStream($type)
     {
         if($type === 'new')
         {
-            $songs = Song::where('id', '>', 0)->orderBy('created_at', 'desc')->get()->take(10);
+            $songs = Song::getNewestSongs(10);
+            return View::make('stream', array('songs' => $songs, 'type' => $type));
+        } else if($type === 'liked')
+        {
+            $songs = Song::getLikedSongs(10);
             return View::make('stream', array('songs' => $songs, 'type' => $type));
         }
     }

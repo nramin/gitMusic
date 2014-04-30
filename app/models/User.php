@@ -73,4 +73,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Song');
 	}
 
+	public static function getUserByName($username)
+	{
+		if($user = User::where('username', '=', $username)->first())
+		{
+			return $user;
+		} 
+		else 
+		{
+			return false;
+		}
+	}
+
 }
