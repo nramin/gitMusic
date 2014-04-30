@@ -20,6 +20,8 @@ Route::get('/', function()
 	}
 });
 
+Route::get('/stream/{type}', 'StreamController@showStream');
+
 Route::get('/signup', function()
 {
 	return View::make('signup');
@@ -96,9 +98,6 @@ Route::group(array('before' => 'guest'), function() {
 		'uses' => 'AccountController@getCreate'
 	));
 });
-
-
-Route::get('/stream/{type}', 'StreamController@showStream');
 
 Route::get('/{username}', 'UserController@showProfile');
 

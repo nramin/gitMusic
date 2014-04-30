@@ -7,7 +7,7 @@ class UserController extends BaseController {
      */
     public function showProfile($username)
     {
-        if($user = User::where('username', '=', $username)->first()) 
+        if($user = User::getUserByName($username)) 
         {
         	return View::make('user')->with('user', $user);
         }else{
