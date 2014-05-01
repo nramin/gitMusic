@@ -14,4 +14,5 @@ class UserController extends BaseController {
             return View::make('userNotFound', array('name' => $username));
         }
     }
+
 }

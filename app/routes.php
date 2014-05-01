@@ -11,31 +11,19 @@
 |
 */
 
-Route::get('/', function()
-{
-    if (Auth::check()) {
-		return View::make('homepage/loggedin/homepage');
-	} else {
-		return View::make('homepage/loggedout/homepage');
-	}
-});
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHomepage'));
 
-Route::get('/stream/{type}', 'StreamController@showStream');
+Route::get('/stream/{type?}', 'StreamController@showStream');
 
-Route::get('/signup', function()
-{
-	return View::make('signup');
-});
+Route::get('/signup', array('as' => 'signup', 'uses' => 'AccountController@getCreate'));
 
-Route::get('/login', array('as' => 'login', function()
-{
-	return View::make('login');
-}));
+Route::get('/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
 
-Route::get('/about', function()
-{
-	return View::make('about');
-});
+Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
+
+Route::get('/settings', array('as' => 'settings', 'uses' => 'SettingsController@showSettings'));
+
+Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
 
 /*
@@ -102,3 +90,11 @@ Route::group(array('before' => 'guest'), function() {
 Route::get('/{username}', 'UserController@showProfile');
 
 Route::get('/{username}/{songname}', 'SongController@showSong');
+
+App::missing(function($exception)
+	{
+
+		// shows an error page (app/views/error.blade.php)
+		// returns a page not found error
+		return Response::view('error', array(), 404);
+	});

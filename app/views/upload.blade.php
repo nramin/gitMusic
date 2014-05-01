@@ -1,5 +1,5 @@
 @extends('layouts.loggedin.master')
 
 @section('content')
-	<h1>Welcome {{ $current_user->username }}</h1>
+	<h2> Yo you could upload here</h2>
 @stop

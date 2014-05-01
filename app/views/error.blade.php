@@ -1,5 +1,5 @@
 @extends('layouts.loggedin.master')
 
 @section('content')
-	<h1>Welcome {{ $current_user->username }}</h1>
+	<h3> We Could not find that page, we are very sorry</h3>
 @stop

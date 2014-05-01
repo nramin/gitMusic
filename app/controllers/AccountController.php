@@ -81,7 +81,7 @@ class AccountController extends BaseController {
 				'email' => $email,
 				'password' => Hash::make($password),
 				'temp_code' => $code,
-				'is_active' => 0
+				'is_active' => 'Y'
 			));
 			
 			if ($create_user) {
