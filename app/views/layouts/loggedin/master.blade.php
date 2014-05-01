@@ -15,7 +15,7 @@
 
 <body>
 <section id="topbar">
-    <a href="home" id="logo"></a>
+    <a href="{{ route('home') }}" id="logo"></a>
     <div id="username"></div>
 
     @section('topnav')

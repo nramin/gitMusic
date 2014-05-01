@@ -5,7 +5,10 @@
         <title>Git Music</title>
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="stylesheet" href="assets/css/loggedout/main.css">
+
+
+        {{ HTML::style('assets/css/loggedout/main.css') }}
+
     </head>
     <body>
         <div id="container">
