@@ -5,22 +5,42 @@
     <title>Git Music</title>
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="assets/css/loggedin/main.css">
+    
+    
+    {{ HTML::style('assets/css/loggedin/main.css') }}
+    
+
+    
 </head>
+
 <body>
 <section id="topbar">
-    <a href="#" id="logo"></a>
-    <div id="username">Mikhail $wagetherick</div>
+    <a href="home" id="logo"></a>
+    <div id="username"></div>
+
+    @section('topnav')
     <nav>
         <ul>
-            <li><a href="#">Upload</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="logout">Logout</a></li>
+            <li><a href="{{ route('upload') }}">Upload</a></li>
+            <li><a href="{{ route('settings') }}">Settings</a></li>
+            <li><a href="{{ route('logout-get') }}">Logout</a></li>
         </ul>
     </nav>
+    @show
+
 </section>
+
 <section id="content">
     @yield('content')
 </section>
+
+<footer id="footer">
+   
+    @section('footer')
+        <h4>This is where we have ourselves a footer</h4>
+    @show
+
+</footer>
+
 </body>
 </html>

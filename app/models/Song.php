@@ -18,9 +18,7 @@ class Song extends Eloquent {
     	if($song = Song::where('songname', '=', $songname)->first())
     	{
     		return $song;
-    	}
-    	else
-    	{
+    	} else {
     		return false;
     	}
     }
@@ -43,7 +41,6 @@ class Song extends Eloquent {
     	} else {
     		return false;
     	}
-    		
     }
 
 }

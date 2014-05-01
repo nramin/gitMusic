@@ -15,9 +15,24 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function showHomepage()
 	{
-		return View::make('hello');
+		if (Auth::check()) {
+    		$current_user = Auth::user();
+			return View::make('homepage/loggedin/homepage', array('current_user' => $current_user));
+		} else {
+			return View::make('homepage/loggedout/homepage');
+		}
 	}
+
+	public function showAbout()
+	{
+		return View::make('about');
+	}
+
+	 public function showUpload()
+    {
+        return View::make('upload');
+    }
 
 }
