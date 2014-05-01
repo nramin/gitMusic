@@ -11,17 +11,9 @@
 |
 */
 
-Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHomepage'));
-
-Route::get('/stream/{type?}', 'StreamController@showStream');
-
 Route::get('/signup', array('as' => 'signup', 'uses' => 'AccountController@getCreate'));
 
 Route::get('/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
-
-Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
-
-Route::get('/settings', array('as' => 'settings', 'uses' => 'SettingsController@showSettings'));
 
 Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
@@ -44,6 +36,19 @@ Route::group(array('before' => 'auth'), function() {
 	// 	'as' => 'account-password',
 	// 	'uses' => 'AccountController@getChangePassword'
 	// ));
+
+	// Homepage, signed in or out
+	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHomepage'));
+
+	// User stream
+	Route::get('/stream/{type?}', 'StreamController@showStream');
+
+	// Settings
+	Route::get('/settings', array('as' => 'settings', 'uses' => 'SettingsController@showSettings'));
+
+	// Upload
+	Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
+
 
 	// Sign out (GET)
 	Route::get('logout', array(
@@ -87,8 +92,12 @@ Route::group(array('before' => 'guest'), function() {
 	));
 });
 
+// Other Public Routes
+
+// Show User Profile
 Route::get('/{username}', 'UserController@showProfile');
 
+// Show Song Profile
 Route::get('/{username}/{songname}', 'SongController@showSong');
 
 App::missing(function($exception)
