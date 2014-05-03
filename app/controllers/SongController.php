@@ -14,6 +14,6 @@ class SongController extends BaseController {
         	   return View::make('song')->with('song', $song);
             }
         }
-        return View::make('songNotFound', array('songname' => $songname));
+        return View::make('errors.songNotFound', array('songname' => $songname));
     }
 }

@@ -66,3 +66,14 @@ section#content {
   margin: auto;
   margin-top: 40px;
 }
+
+footer {
+  bottom: 0;
+  height: 100px;
+  background-color: black;
+  overflow: hidden;
+  color: white;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}

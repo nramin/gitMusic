@@ -11,7 +11,7 @@ class UserController extends BaseController {
         {
         	return View::make('user')->with('user', $user);
         }else{
-            return View::make('userNotFound', array('name' => $username));
+            return View::make('errors.userNotFound', array('name' => $username));
         }
     }
 

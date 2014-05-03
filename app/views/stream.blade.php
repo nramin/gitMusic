@@ -1,7 +1,6 @@
 @extends('layouts.loggedin.master')
 
 @section('content')
-    @parent
     <h1>Stream {{ $type }}</h1>
     <h3>Songs:</h3>
     <ul>

@@ -3,13 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>Git Music</title>
-    <meta name="description" content="">
+    <meta name="description" content="Music Collabaration, and Discovery">
     <meta name="author" content="">
     
-    
     {{ HTML::style('assets/css/loggedin/main.css') }}
-    
-
     
 </head>
 
@@ -31,7 +28,9 @@
 </section>
 
 <section id="content">
+    
     @yield('content')
+
 </section>
 
 <footer id="footer">
