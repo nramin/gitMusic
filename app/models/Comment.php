@@ -18,4 +18,9 @@ class Comment extends Eloquent {
         return $this->belongsTo('Song');
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
 }
