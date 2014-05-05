@@ -44,7 +44,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/stream/{type?}', 'StreamController@showStream');
 
 	// Settings
-	Route::get('/settings', array('as' => 'settings', 'uses' => 'SettingsController@showSettings'));
+	Route::get('/settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
 
 	// Upload
 	Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
@@ -105,5 +105,5 @@ App::missing(function($exception)
 
 		// shows an error page (app/views/error.blade.php)
 		// returns a page not found error
-		return Response::view('error', array(), 404);
+		return Response::view('errors.error', array(), 404);
 	});

@@ -43,4 +43,12 @@ class Song extends Eloquent {
     	}
     }
 
+    public function incrimentField($id, $field) {
+        if($song = Song::find($id) and $field === 'likes' or $field === 'favorites') {
+            $song->increment($field);
+            return true;
+        }
+        return false;
+    }
+
 }

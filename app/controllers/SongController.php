@@ -11,9 +11,15 @@ class SongController extends BaseController {
         {
             if($song = Song::getSongByName($songname))
             {
-        	   return View::make('song')->with('song', $song);
+        	   return View::make('song.profile')->with('song', $song);
             }
         }
         return View::make('errors.songNotFound', array('songname' => $songname));
+    }
+
+    public function deleteSong($id) {
+        if($song = Song::find($id)) {
+            $song->delete();
+        }
     }
 }
