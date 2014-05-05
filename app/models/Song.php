@@ -8,6 +8,19 @@ class Song extends Eloquent {
 
     protected $guarded = array('id');
 
+    private $rules = array(
+        'songname' => 'required',
+        'user_id'  => 'required', 
+    );
+
+
+    public function validate($data)
+    {
+        $v = Validator::make($data, $this->rules);
+        return $v;
+    }
+
+
     public function user() 
     {
     	return $this->belongsTo('User');
