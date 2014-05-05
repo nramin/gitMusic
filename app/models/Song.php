@@ -13,6 +13,11 @@ class Song extends Eloquent {
     	return $this->belongsTo('User');
     }
 
+    public function comments()
+    {
+        return $this->hasMany('Comment');
+    }
+
     public static function getSongbyName($songname)
     {
     	if($song = Song::where('songname', '=', $songname)->first())
