@@ -40,6 +40,9 @@ Route::group(array('before' => 'auth'), function() {
 	// Homepage, signed in or out
 	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
+	// List Users
+	Route::get('/people', array('as' => 'people', 'uses' => 'UserController@showUsers'));
+
 	// User stream
 	Route::get('/stream/{type?}', array('as' => 'stream', 'uses' => 'StreamController@showStream'));
 

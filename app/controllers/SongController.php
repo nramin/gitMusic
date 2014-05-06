@@ -47,12 +47,16 @@ class SongController extends BaseController {
         }
     }
 
-    public function edit($songname)
+    public function edit($id)
     {
-        return View::make('song.edit');
+        if($song = Song::find($id)) {
+            return View::make('song.edit')->with('song' => $song);
+        } else {
+            return View::make('errors.songNotFound');
+        }
     }
 
-    public function update($songname)
+    public function update($id)
     {
         $post_data = Input::all();
         if($song = Song::getSongByUsername($username)) {

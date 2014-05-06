@@ -20,4 +20,9 @@ class UserController extends BaseController {
         return View::make('user.settings');
     }
 
+    public function showUsers()
+    {
+        $users = User::all();
+        return View::make('user.users')->with('users', $users);
+    }
 }
