@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/signup', array('as' => 'signup', 'uses' => 'AccountController@getCreate'));
+//Route::get('/signup', array('as' => 'signup', 'uses' => 'AccountController@getCreate'));
 
-Route::get('/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
+//Route::get('/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
 
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
 
@@ -36,9 +37,6 @@ Route::group(array('before' => 'auth'), function() {
 	// 	'as' => 'account-password',
 	// 	'uses' => 'AccountController@getChangePassword'
 	// ));
-
-	// Homepage, signed in or out
-	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
 	// List Users
 	Route::get('/people', array('as' => 'people', 'uses' => 'UserController@showUsers'));
@@ -82,17 +80,17 @@ Route::group(array('before' => 'guest'), function() {
 		
 	});
 	
-	// Sign in (GET)
-	Route::get('login', array(
-		'as' => 'login-get',
-		'uses' => 'AccountController@getLogIn'
-	));
+	// // Sign in (GET)
+	// Route::get('login', array(
+	// 	'as' => 'login-get',
+	// 	'uses' => 'AccountController@getLogIn'
+	// ));
 	
-	// Create Account (GET) 
-	Route::get('signup', array(
-		'as' => 'signup-get',
-		'uses' => 'AccountController@getCreate'
-	));
+	// // Create Account (GET) 
+	// Route::get('signup', array(
+	// 	'as' => 'signup-get',
+	// 	'uses' => 'AccountController@getCreate'
+	// ));
 });
 
 // Other Public Routes

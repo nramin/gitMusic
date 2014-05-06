@@ -1,9 +1,12 @@
 <?php
 class AccountController extends BaseController {
 
-	
-	public function getLogIn() {
+	public function getLogin() {
 		return View::make('login');
+	}
+
+	public function getCreate() {
+		return View::make('signup');
 	}
 	
 	public function postLogin() {
@@ -45,11 +48,7 @@ class AccountController extends BaseController {
 	
 	public function getLogOut() {
 		Auth::logout();
-		return Redirect::to(URL::previous());
-	}
-
-	public function getCreate() {
-		return View::make('signup');
+		return Redirect::route('home');
 	}
 	
 	public function postCreate() {
@@ -88,7 +87,7 @@ class AccountController extends BaseController {
 			
 				// send validation email later
 			
-				return Redirect::route('login')
+				return Redirect::route('/')
 					->with('global', 'Your account has been created! Sign in now!');
 			}
 		}

@@ -1,12 +1,49 @@
 @extends('layouts.loggedout.master')
 
 @section('content')
-<h2 id="title">Git Music</h2>
-<section id="description">
-    Cray Portland Banksy shabby chic McSweeney's, 3 wolf moon flannel. Street art brunch mixtape, gastropub cred Cosby sweater bitters Echo Park. Plaid mustache ugh you probably haven't heard of them wayfarers, Banksy banjo. Banh mi drinking vinegar you probably haven't heard of them pickled hoodie, Odd Future swag fashion.
-</section>
-<section id="controls">
-    <a href="login" id="login">login</a>
-    <a href="signup" id="signup">signup</a>
-</section>
+	<section class="form" id="login">
+		<form action="login" method="post">
+			@if($errors->has('username'))
+				{{ $errors->first('username') }}
+			@endif
+			@if($errors->has('password'))
+				{{ $errors->first('password') }}
+			@endif
+		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }}>
+		    <input type="password" name="password" placeholder="Password">
+		    <!--<input type="checkbox" name="remember" id="remember" /> <label for="remember">Remember?</label>-->
+		    	{{ Form::token() }}
+		        <input type="submit" value="Login">
+		        <!--<a href="#">Oops, I forgot my password</a>-->
+		</form>
+	</section>
+	<section id="description">
+		<h2>Git Music</h2>
+		<p>Download other artists' music projects for free. Share your own, see other people change it.</p>
+	</section>
+	<section class="form" id="signup">
+		<form action="signup" method="post">
+			@if($errors->has('username'))
+				{{ $errors->first('username') }}
+			@endif
+			@if($errors->has('email'))
+				{{ $errors->first('email') }}
+			@endif
+			@if($errors->has('password'))
+				{{ $errors->first('password') }}
+			@endif
+			@if($errors->has('password_again'))
+				{{ $errors->first('password_again') }}
+			@endif
+		    <input type="text" name="email" placeholder="Email address" {{ (Input::old('email')) ? ' value="' . e(Input::old('email')) . '"' : '' }}>
+		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }}>
+		    <input type="password" name="password" placeholder="Password">
+		    <input type="password" name="password" placeholder="Password Again">
+		    {{ Form::token() }}
+		    <input type="submit" value="Signup">
+		</form>
+	</section>
+	@if(Session::has('global'))
+		{{ Session::get('global') }}
+	@endif
 @stop
