@@ -5,7 +5,7 @@ class SongController extends BaseController {
     /**
      * Show the profile for the given song.
      */
-    public function showSong($username, $songname)
+    public function index($username, $songname)
     {
         if($user = User::getUserByName($username))
         {
@@ -27,6 +27,11 @@ class SongController extends BaseController {
 
     public function create()
     {
+        return View::make('song.create');
+    }
+
+    public function store()
+    {
         $new = Input::all();
         $song = new Song();
 
@@ -39,6 +44,29 @@ class SongController extends BaseController {
             return Redirect::route('upload')
                     ->withErrors($validator)
                     ->withInput();
+        }
+    }
+
+    public function edit($songname)
+    {
+        return View::make('song.edit');
+    }
+
+    public function update($songname)
+    {
+        $post_data = Input::all();
+        if($song = Song::getSongByUsername($username)) {
+
+            if ($validator = $song->validate($post_data)->passes())
+            {
+                $song->update($post_data);
+            }
+            else
+            {
+                return Redirect::route('upload')
+                        ->withErrors($validator)
+                        ->withInput();
+            }
         }
     }
 

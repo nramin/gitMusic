@@ -8,10 +8,10 @@ class StreamController extends BaseController {
     public function showStream($type)
     {
         if($type === 'new') {
-            $songs = Song::getNewestSongs(10);
+            $songs = Song::newest()->take(10)->get();
             return View::make('stream', array('songs' => $songs, 'type' => $type));
         } else if($type === 'liked') {
-            $songs = Song::getLikedSongs(10);
+            $songs = Song::popular()->take(10)->get();
             return View::make('stream', array('songs' => $songs, 'type' => $type));
         }
     }

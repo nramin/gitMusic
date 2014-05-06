@@ -15,7 +15,7 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showHomepage()
+	public function index()
 	{
     	$current_user = Auth::user();
 		return View::make('homepage/loggedin/homepage', array('current_user' => $current_user));

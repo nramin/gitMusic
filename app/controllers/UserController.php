@@ -5,7 +5,7 @@ class UserController extends BaseController {
     /**
      * Show the profile for the given user.
      */
-    public function showProfile($username)
+    public function index($username)
     {
         if($user = User::getUserByName($username)) 
         {

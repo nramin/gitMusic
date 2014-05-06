@@ -13,13 +13,11 @@ class Song extends Eloquent {
         'user_id'  => 'required', 
     );
 
-
     public function validate($data)
     {
         $v = Validator::make($data, $this->rules);
         return $v;
     }
-
 
     public function user() 
     {
@@ -41,27 +39,18 @@ class Song extends Eloquent {
     	}
     }
 
-    public static function getNewestSongs($amount)
+    public function scopeNewest($query)
     {
-    	if($songs = Song::where('id', '>', 0)->orderBy('created_at', 'desc')->get()->take($amount))
-    	{
-    		return $songs;
-    	} else {
-    		return false;
-    	}
+        return $query->orderBy('created_at', 'desc');
     }
 
-    public static function getLikedSongs($amount)
+    public function scopePopular($query)
     {
-    	if($songs = Song::where('id', '>', 0)->orderBy('likes', 'desc')->get()->take($amount))
-    	{
-    		return $songs;
-    	} else {
-    		return false;
-    	}
+        return $query->orderBy('likes', 'desc');
     }
 
-    public function incrimentField($id, $field) {
+    public function incrimentField($id, $field) 
+    {
         if($song = Song::find($id) and $field === 'likes' or $field === 'favorites') {
             $song->increment($field);
             return true;

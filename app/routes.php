@@ -38,7 +38,7 @@ Route::group(array('before' => 'auth'), function() {
 	// ));
 
 	// Homepage, signed in or out
-	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@showHomepage'));
+	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
 	// User stream
 	Route::get('/stream/{type?}', array('as' => 'stream', 'uses' => 'StreamController@showStream'));
@@ -95,10 +95,10 @@ Route::group(array('before' => 'guest'), function() {
 // Other Public Routes
 
 // Show User Profile
-Route::get('/{username}', array('as' => 'userProfile', 'uses' => 'UserController@showProfile'));
+Route::get('/{username}', array('as' => 'userProfile', 'uses' => 'UserController@index'));
 
 // Show Song Profile
-Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@showSong'));
+Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@index'));
 
 App::missing(function($exception)
 	{
