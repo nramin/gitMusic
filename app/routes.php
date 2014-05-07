@@ -16,6 +16,7 @@
 //Route::get('/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
+
 Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
 
@@ -52,7 +53,7 @@ Route::group(array('before' => 'auth'), function() {
 
 
 	// Sign out (GET)
-	Route::get('logout', array(
+	Route::get('/logout', array(
 		'as' => 'logout-get',
 		'uses' => 'AccountController@getLogOut'
 	));

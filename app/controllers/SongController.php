@@ -50,7 +50,7 @@ class SongController extends BaseController {
     public function edit($id)
     {
         if($song = Song::find($id)) {
-            return View::make('song.edit')->with('song' => $song);
+            return View::make('song.edit')->with('song', $song);
         } else {
             return View::make('errors.songNotFound');
         }

@@ -11,7 +11,7 @@ class UserController extends BaseController {
         {
         	return View::make('user.profile')->with('user', $user);
         }else{
-            return View::make('errors.userNotFound', array('name' => $username));
+            return View::make('errors.userNotFound', array('username' => $username));
         }
     }
 
