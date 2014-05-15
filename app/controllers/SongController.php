@@ -59,7 +59,7 @@ class SongController extends BaseController {
     public function update($id)
     {
         $post_data = Input::all();
-        if($song = Song::getSongByUsername($username)) {
+        if($song = Song::find($id) {
 
             if ($validator = $song->validate($post_data)->passes())
             {
@@ -72,6 +72,11 @@ class SongController extends BaseController {
                         ->withInput();
             }
         }
+    }
+
+     public function showUpload()
+    {
+        return View::make('upload');
     }
 
 }

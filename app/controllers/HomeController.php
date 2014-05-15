@@ -30,9 +30,4 @@ class HomeController extends BaseController {
 		return View::make('about');
 	}
 
-	 public function showUpload()
-    {
-        return View::make('upload');
-    }
-
 }

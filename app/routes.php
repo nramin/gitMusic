@@ -49,8 +49,17 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
 
 	// Upload
-	Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
+	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
 
+	Route::group(array('before' => 'csrf'), function() {
+		
+		// Upload Post
+		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@postUpload'));
+
+		// Comment Post
+		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
+	
+	});
 
 	// Sign out (GET)
 	Route::get('/logout', array(
@@ -98,6 +107,9 @@ Route::group(array('before' => 'guest'), function() {
 
 // Show User Profile
 Route::get('/{username}', array('as' => 'userProfile', 'uses' => 'UserController@index'));
+
+// Show User Followers
+Route::get('/{username}/followers', array('as' => 'userFollowers', 'uses' => 'UserController@getFollowers'));
 
 // Show Song Profile
 Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@index'));

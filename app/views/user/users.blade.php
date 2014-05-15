@@ -1,10 +1,11 @@
 @extends('layouts.loggedin.master')
 
 @section('content')
-    <h1>Artists:</h1>
+    <h1>Artist: {{ $user->username }}</h1>
+    <h3>Songs:</h3>
     <ul>
-			@foreach ($users as $user)
-			<li>{{ HTML::linkRoute('userProfile', $user->username, array($user->username)) }}</li>
+			@foreach ($user->songs as $song)
+			<li>{{ HTML::linkRoute('songProfile', $song->songname , array($user->username, $song->songname)) }}</li>
 			@endforeach
 	</ul>
 @stop

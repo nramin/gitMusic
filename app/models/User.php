@@ -73,6 +73,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->id;
 	}
 
+	public function getUsername()
+	{
+		return $this->username;
+	}
+
 	public function songs()
 	{
 		return $this->hasMany('Song');
@@ -81,6 +86,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function comments()
 	{
 		return $this->hasMany('Comments');
+	}
+
+	public function getFollowers($user_id)
+	{
+		return Follow::getUserFollowers($user_id);
 	}
 
 	public static function getUserByName($username)
@@ -93,6 +103,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		{
 			return false;
 		}
+	}
+
+	public function __toString()
+	{
+		return $this->username;
 	}
 
 }
