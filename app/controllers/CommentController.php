@@ -2,10 +2,6 @@
 
 class CommentController extends BaseController {
 
-	public function index()
-	{
-
-	}
 
 	public function postComment()
 	{
@@ -23,5 +19,11 @@ class CommentController extends BaseController {
                     ->withInput();
         }
 	}
+
+	public function delete($id) {
+        if($comment = Comment::find($id)) {
+            $comment->delete();
+        }
+    }
 
 }

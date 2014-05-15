@@ -58,4 +58,9 @@ class Song extends Eloquent {
         return false;
     }
 
+    public function __toString()
+    {
+        return $this->songname;
+    }
+
 }

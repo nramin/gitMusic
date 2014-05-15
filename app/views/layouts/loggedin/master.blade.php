@@ -27,6 +27,12 @@
 
 </section>
 
+<section id="sidebar">
+
+    @yield('sidebar', 'sidebar')
+
+</section>
+
 <section id="content">
     
     @yield('content')

@@ -25,11 +25,6 @@ class SongController extends BaseController {
         }
     }
 
-    public function create()
-    {
-        return View::make('song.create');
-    }
-
     public function store()
     {
         $new = Input::all();
