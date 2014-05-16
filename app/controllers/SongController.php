@@ -74,4 +74,37 @@ class SongController extends BaseController {
         }
     }
 
+    public function sendToS3()
+    {
+        //echo "debug";
+        $file = Input::file('song');    
+        var_dump($_POST);
+        //$mimeType = $file->getMimeType();
+        //$path = Input::file('song')->getRealPath();
+        //var_dump($file);
+        if (Input::has('songname')) {
+            echo Input::get('songname');
+        }
+        if(Input::hasFile('songfile'))
+        {
+            //$path = Input::file('song')->getRealPath();
+            echo "gothere";
+        }
+        // echo "end of if";
+        //$post_data = Input::all();
+        
+        //$file = Input::
+        //echo "got here";
+        //die(var_dump($post_data));
+        //echo $post_data['song'];
+        // $user = Auth::user() -> getUsername();
+        // $s3 = AWS::get('s3');
+        // $s3 ->putObject(array(
+        //     'Bucket'     => 'gitmusic',
+        //     'Key'        => $user .'/song1',
+        //     'SourceFile' => $post_data['song'],
+        //     'Body'       => $post_data['song'],    
+        // ));
+    }
+
 }

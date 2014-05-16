@@ -58,4 +58,14 @@ class Song extends Eloquent {
         return false;
     }
 
+    public function uploadToS3()
+    {   
+        $s3 = AWS::get('s3');
+        $s3->putObject(array(
+            'Bucket'     => 'gitmusic',
+            'Key'        => 'song.mp3',
+            'SourceFile' => '/the/path/to/the/file/you/are/uploading.ext',
+        ));
+    }
+
 }
