@@ -58,6 +58,9 @@ Route::group(array('before' => 'auth'), function() {
 
 		// Comment Post
 		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
+
+		// Follow Post
+		Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));
 	
 	});
 
@@ -110,6 +113,9 @@ Route::get('/{username}', array('as' => 'userProfile', 'uses' => 'UserController
 
 // Show User Followers
 Route::get('/{username}/followers', array('as' => 'userFollowers', 'uses' => 'UserController@getFollowers'));
+
+// Show People User is Following
+Route::get('/{username}/following', array('as' => 'userFollowing', 'uses' => 'UserController@getFollowing'));
 
 // Show Song Profile
 Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@index'));

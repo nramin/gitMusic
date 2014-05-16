@@ -30,12 +30,27 @@ class Follow extends Eloquent {
         
             $followers = [];
             $followers_id = Follow::where('user_id', '=', $user_id)->get();
-            if(sizeof($followers_id)) {
+            if(sizeof($followers_id) > 1) {
                 foreach($followers_id as $follower) {
                     array_push($followers, User::find($follower->follower_id));
                 }
             }
             return $followers;
+        }
+    }
+
+    public static function getUserFollowing($user_id)
+    {
+        if($user = User::find($user_id)) {
+        
+            $following = [];
+            $following_id = Follow::where('follower_id', '=', $user_id)->get();
+            if(sizeof($following_id) > 1) {
+                foreach($following_id as $follower) {
+                    array_push($following, User::find($follower->user_id));
+                }
+            }
+            return $following;
         }
     }
 }

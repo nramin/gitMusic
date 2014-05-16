@@ -93,6 +93,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return Follow::getUserFollowers($user_id);
 	}
 
+	public function getFollowing($user_id)
+	{
+		return Follow::getUserFollowing($user_id);
+	}
+
 	public static function getUserByName($username)
 	{
 		if($user = User::where('username', '=', $username)->first())

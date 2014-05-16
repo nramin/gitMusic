@@ -34,4 +34,14 @@ class UserController extends BaseController {
         }
         return View::make('errors.userNotFound', array('username' => $username));
     }
+
+    public function getFollowing($username)
+    {
+        if($user = User::getUserByName($username)) 
+        {
+            $following = $user->getFollowing($user->getId());
+            return View::make('user.following', array('following' => $following, 'user' => $user));
+        }
+        return View::make('errors.userNotFound', array('username' => $username));
+    }
 }
