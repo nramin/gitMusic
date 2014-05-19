@@ -1,4 +1,4 @@
-@extends('layouts.loggedin.master')
+@extends('layouts.user.master')
 
 @section('content')
     <h1>Artist: {{ $user->username }}</h1>

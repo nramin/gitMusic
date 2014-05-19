@@ -1,7 +1,6 @@
-@extends('layouts.loggedin.master')
+@extends('layouts.user.master')
 
 @section('content')
-    
     @if (sizeof($following) < 1)
     	<h2>Is not following anyone</h2>
     @else
