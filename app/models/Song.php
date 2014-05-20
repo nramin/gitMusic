@@ -67,7 +67,9 @@ class Song extends Eloquent {
 
     public static function getHottestSongs()
     {
-
+        return self::orderBy(DB::raw('LOG10( ABS( likes ) + 1 ) * 
+            SIGN( likes ) + 
+            ( UNIX_TIMESTAMP( created_at ) /300000 )'), 'desc')->take(10)->get();// Reddit hotness algorithm
     }
 
     public function __toString()
