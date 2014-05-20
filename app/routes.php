@@ -64,6 +64,9 @@ Route::group(array('before' => 'auth'), function() {
 	
 	});
 
+	// Song Like post
+	Route::post('song-like', array('as' => 'song-like', 'uses' => 'SongController@like'));
+
 	// Sign out (GET)
 	Route::get('/logout', array(
 		'as' => 'logout-get',

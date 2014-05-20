@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Stream {{ $type }}</h1>
-    <h2>{{ HTML::linkRoute('stream', 'popular' , array('popular')) }}</h2>
+    <h2>{{ HTML::linkRoute('stream', 'hot' , array('hot')) }}</h2>
     <h3>Songs:</h3>
     <ul>
 			@foreach ($songs as $song)

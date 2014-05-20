@@ -115,4 +115,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->username;
 	}
 
+	public function likes_song($song_id)
+	{
+		$song_like = DB::table('song_likes')->where('user_id', '=', $this->id)->where('song_id', '=', $song_id)->get();
+		if( $song_like ) {
+			return true;
+		}
+		return false;
+	}
+
 }

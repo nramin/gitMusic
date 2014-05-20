@@ -69,6 +69,30 @@ class SongController extends BaseController {
         }
     }
 
+    public function like()
+    {
+        $new = Input::all();
+        $song_like = new SongLike();
+
+        if ($validator = $song_like->validate($new)->passes())
+        {
+            $song_duplicate = SongLike::where('user_id', '=', $new->user_id)->where('song_id', '=', $new->song_id)->get();
+            if (! $song_duplicate ) {
+                $song_like = SongLikes::create($new);
+                $song = Song::find($new->song_id);
+                $song->incrementLikes();
+                return Redirect::back(); // 200
+            } else {
+                return false; // 404
+            }
+        }
+        else
+        {
+            return false;
+        
+        }
+    }
+
      public function showUpload()
     {
         return View::make('upload');

@@ -49,13 +49,25 @@ class Song extends Eloquent {
         return $query->orderBy('likes', 'desc');
     }
 
-    public function incrimentField($id, $field) 
+    public function likes()
     {
-        if($song = Song::find($id) and $field === 'likes' or $field === 'favorites') {
-            $song->increment($field);
-            return true;
-        }
-        return false;
+        //return SongLike::where('song_id', '=', $this->getId())->count(); 
+        return $this->likes;
+    }
+
+    public function incrementLikes()
+    {
+        return $this->increment('likes');
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public static function getHottestSongs()
+    {
+
     }
 
     public function __toString()
