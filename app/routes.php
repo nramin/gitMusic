@@ -17,6 +17,10 @@
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
+Route::get('/test', function() {
+phpinfo();
+});
+
 Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
 
