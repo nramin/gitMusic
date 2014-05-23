@@ -1,4 +1,4 @@
-@extends('layouts.loggedin.master')
+@extends('layouts.user.master')
 
 @section('sidebar')
 	@if (sizeof($current_user->songs) < 1)
@@ -15,4 +15,11 @@
 
 @section('content')
 	<h1>Welcome {{ $current_user->username }}</h1>
+	@if ($songs)
+		@foreach ($songs as $song)
+			<li>{{ HTML::linkRoute('songProfile', $song, array($song->user, $song->songname)) }}</li>
+		@endforeach
+	@else
+	<h2>Empty Stream :(
+	@endif
 @stop

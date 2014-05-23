@@ -29,7 +29,7 @@
 
     <section id="sidebar">
 
-        @yield('sidebar', 'sidebar')
+        
 
     </section>
 

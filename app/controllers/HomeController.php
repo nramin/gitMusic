@@ -19,7 +19,8 @@ class HomeController extends BaseController {
 	{
 		if (Auth::check()) {
     		$current_user = Auth::user();
-			return View::make('homepage/loggedin/homepage', array('current_user' => $current_user));
+    		$stream_songs = $current_user->getHomeStream();
+			return View::make('homepage/loggedin/homepage', array('current_user' => $current_user, 'songs' => $stream_songs));
 		} else {
 			return View::make('homepage/loggedout/homepage');
 		}

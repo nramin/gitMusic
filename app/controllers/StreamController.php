@@ -11,7 +11,7 @@ class StreamController extends BaseController {
             $songs = Song::newest()->take(10)->get();
             return View::make('stream', array('songs' => $songs, 'type' => $type));
         } else if($type === 'hot') {
-            $songs = Song::getHottestSongs();
+            $songs = Song::hottest()->take(10)->get();
             return View::make('stream', array('songs' => $songs, 'type' => $type));
         }
     }

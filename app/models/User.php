@@ -110,6 +110,20 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		}
 	}
 
+	public function getHomeStream()
+	{
+		$followings = $this->getFollowing($this->getId());
+		$followings_ids = array();
+		if($followings) {
+			foreach ($followings as $follower) {
+				array_push($followings_ids, $follower->getId());
+			}
+			$songs = Song::whereIn('user_id', $followings_ids)->newest()->take(10)->get();
+			return $songs;
+		}
+		return false;
+	}
+
 	public function __toString()
 	{
 		return $this->username;
