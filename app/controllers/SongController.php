@@ -85,7 +85,7 @@ class SongController extends BaseController {
         var_dump($song);
 
         if(Input::hasFile('songfile')){
-            echo "some shit";
+            echo "some shit" . "/n";
             $dest = '/var/www/gitMusic/uploads';
             $filename = $songname . '.mp3';
             $song->move($dest, $filename);
@@ -96,11 +96,19 @@ class SongController extends BaseController {
 
         $user = Auth::user() -> getUsername();
         $s3 = AWS::get('s3');
-        $s3 ->putObject(array(
+        $result = $s3 ->putObject(array(
             'Bucket'     => 'gitmusic',
             'Key'        => $user .'/' . $filename,
             'SourceFile' => $destination_filepath    
         ));
+
+        if(isset($result))
+        {
+            unlink($destination_filepath);
+            
+            echo $result['ObjectURL'];
+        }
+
     }
 
 }
