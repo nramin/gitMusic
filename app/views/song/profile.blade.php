@@ -14,7 +14,7 @@
 		@foreach ($song->comments as $comment)
 			<li>{{ HTML::linkRoute('userProfile', $comment->user->username , array($comment->user->username)) }}</li>
 			<li>{{ $comment->content }}</li>
-			@endforeach
+		@endforeach
 	</ul>
 
 @stop
