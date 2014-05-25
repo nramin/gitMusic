@@ -55,7 +55,7 @@ Route::group(array('before' => 'auth'), function() {
 	// Upload
 	Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
 
-	Route::post('/upload', array('as' => 'upload', 'uses' => 'SongController@sendToS3'));
+	Route::post('/upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
 
 	// Sign out (GET)
 	Route::get('/logout', array(
