@@ -77,34 +77,25 @@ class SongController extends BaseController {
     public function handleUpload()
     {
         $file = Input::all();    
+        $song = new Song();
 
-        $songname = $file['songname'];
-        $song = $file['songfile'];
+        if($validator = $song->validate($file)->passes())
 
-        if(Input::hasFile('songfile')){
-            $dest = '/var/www/gitMusic/uploads';
-            $filename = $songname . '.mp3';
-            $song->move($dest, $filename);
-            $destination_filepath = $dest . '/' . $filename;    
-        }
+            $songname = $file['songname'];
+            $song_file = $file['songfile'];
 
-        
-         
-
-        $user = Auth::user() -> getUsername();
-        $id = Auth::user()->getId();
-        $s3 = AWS::get('s3');
-        $result = $s3 ->putObject(array(
-            'Bucket'     => 'gitmusic',
-            'Key'        => $user .'/' . $filename,
-            'SourceFile' => $destination_filepath    
-        ));
-
-        if(isset($result))
-        {
-            unlink($destination_filepath);
-
-            echo $result['ObjectURL'];
+            if(Input::hasFile('songfile')){
+                $dest = '/var/www/gitMusic/uploads';
+                $filename = $songname . '.mp3';
+                $song->move($dest, $filename);
+                $destination_filepath = $dest . '/' . $filename;    
+            }
+  
+            $user = Auth::user();
+            $id = Auth::user()->getId();
+            
+        } else {
+            return false;
         }
 
     }
