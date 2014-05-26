@@ -74,7 +74,7 @@ class SongController extends BaseController {
         $file = Input::all();    
         $song = new Song();
 
-        if($validator = $song->validate($file)->passes())
+        if($validator = $song->validate($file)->passes()) {
 
             $songname = $file['songname'];
             $song_file = $file['songfile'];
@@ -89,9 +89,11 @@ class SongController extends BaseController {
             $user = Auth::user();
             $id = Auth::user()->getId();
             
+            
         } else {
             return false;
         }
+    }
 
     public function like()
     {
@@ -112,8 +114,7 @@ class SongController extends BaseController {
         }
         else
         {
-            return false;
-        
+            return false; 
         }
     }
 

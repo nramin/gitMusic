@@ -60,7 +60,7 @@ Route::group(array('before' => 'auth'), function() {
 	Route::group(array('before' => 'csrf'), function() {
 		
 		// Upload Post
-		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@postUpload'));
+		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
 
 		// Comment Post
 		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
