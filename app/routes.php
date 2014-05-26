@@ -17,6 +17,10 @@
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
+Route::get('/test', function() {
+phpinfo();
+});
+
 Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
 
@@ -50,6 +54,8 @@ Route::group(array('before' => 'auth'), function() {
 
 	// Upload
 	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
+
+	Route::post('upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
 
 	Route::group(array('before' => 'csrf'), function() {
 		

@@ -78,4 +78,25 @@ class Song extends Eloquent {
         return $this->songname;
     }
 
+    public function sendToS3()
+    {
+
+    }
+
+
+
+    //Only to be used AFTER a song has been uploaded to S3, otherwise it won't exist
+    public function setURL($id, $url)
+    {
+        if(isset($url) and $song = Song::find($id))
+        {
+            $user = Song::find($id);
+            $user->url = $url;
+            $user->save();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

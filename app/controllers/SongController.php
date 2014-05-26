@@ -69,6 +69,30 @@ class SongController extends BaseController {
         }
     }
 
+    public function handleUpload()
+    {
+        $file = Input::all();    
+        $song = new Song();
+
+        if($validator = $song->validate($file)->passes())
+
+            $songname = $file['songname'];
+            $song_file = $file['songfile'];
+
+            if(Input::hasFile('songfile')){
+                $dest = '/var/www/gitMusic/uploads';
+                $filename = $songname . '.mp3';
+                $song->move($dest, $filename);
+                $destination_filepath = $dest . '/' . $filename;    
+            }
+  
+            $user = Auth::user();
+            $id = Auth::user()->getId();
+            
+        } else {
+            return false;
+        }
+
     public function like()
     {
         $new = Input::all();
