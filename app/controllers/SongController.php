@@ -76,22 +76,31 @@ class SongController extends BaseController {
 
         if($validator = $song->validate($file)->passes()) {
 
-            $songname = $file['songname'];
-            $song_file = $file['songfile'];
-
             if(Input::hasFile('songfile')){
+                $songname = $file['songname'];
+                $song_file = $file['songfile'];
+                $user = Auth::User();
+                $user_id = $user->getId();
+
                 $dest = '/var/www/gitMusic/uploads';
                 $filename = $songname . '.mp3';
                 $song->move($dest, $filename);
-                $destination_filepath = $dest . '/' . $filename;    
-            }
-  
-            $user = Auth::user();
-            $id = Auth::user()->getId();
-            
-            
+                $destination_filepath = $dest . '/' . $filename;
+
+                $create_song = Song::create(array(
+                'songname' => $songname,
+                'user_id' => $user_id,
+                'genre' => 'shit',
+                'tags' => 'hip hop'
+                ));
+
+                $create_song->sendToS3($destination_filepath, $user);
+                return Redirect::route('songProfile', array($user, $songname));    
+            } else {
+                return 'Error: No song file present';
+            }          
         } else {
-            return false;
+            return 'Validator has failed';
         }
     }
 

@@ -78,12 +78,20 @@ class Song extends Eloquent {
         return $this->songname;
     }
 
-    public function sendToS3()
-    {
-
+    public function sendToS3($destination_filepath, $user) {
+        $s3 = AWS::get('s3');
+        $result = $s3 ->putObject(array(
+            'Bucket'     => 'gitmusic',
+            'Key'        => $user .'/' . $filename,
+            'SourceFile' => $destination_filepath    
+        ));
+        if(isset($result))
+        {
+            File::delete($destination_filepath);
+            return true;
+        }
+        return false;
     }
-
-
 
     //Only to be used AFTER a song has been uploaded to S3, otherwise it won't exist
     public function setURL($id, $url)
