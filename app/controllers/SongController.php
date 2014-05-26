@@ -25,11 +25,6 @@ class SongController extends BaseController {
         }
     }
 
-    public function create()
-    {
-        return View::make('song.create');
-    }
-
     public function store()
     {
         $new = Input::all();
@@ -59,7 +54,7 @@ class SongController extends BaseController {
     public function update($id)
     {
         $post_data = Input::all();
-        if($song = Song::getSongByUsername($username)) {
+        if($song = Song::find($id)) {
 
             if ($validator = $song->validate($post_data)->passes())
             {
@@ -98,6 +93,33 @@ class SongController extends BaseController {
             return false;
         }
 
+    public function like()
+    {
+        $new = Input::all();
+        $song_like = new SongLike();
+
+        if ($validator = $song_like->validate($new)->passes())
+        {
+            $song_duplicate = SongLike::where('user_id', '=', $new->user_id)->where('song_id', '=', $new->song_id)->get();
+            if (! $song_duplicate ) {
+                $song_like = SongLikes::create($new);
+                $song = Song::find($new->song_id);
+                $song->incrementLikes();
+                return Redirect::back(); // 200
+            } else {
+                return false; // 404
+            }
+        }
+        else
+        {
+            return false;
+        
+        }
+    }
+
+     public function showUpload()
+    {
+        return View::make('upload');
     }
 
 }

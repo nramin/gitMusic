@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Git Music</title>
         <meta name="description" content="Music Collabaration, and Discovery">
-        <meta name="author" content="">
+        <meta name="author" content="GitMusic">
         
         {{ HTML::style('assets/css/loggedin/main.css') }}
         
@@ -29,7 +29,7 @@
 
     <section id="sidebar">
 
-        
+        @yield('sidebar', 'sidebar')
 
     </section>
 

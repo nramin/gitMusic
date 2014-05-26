@@ -53,9 +53,25 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
 
 	// Upload
-	Route::get('/upload', array('as' => 'upload', 'uses' => 'HomeController@showUpload'));
+	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
 
-	Route::post('/upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
+	Route::post('upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
+
+	Route::group(array('before' => 'csrf'), function() {
+		
+		// Upload Post
+		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@postUpload'));
+
+		// Comment Post
+		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
+
+		// Follow Post
+		Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));
+	
+	});
+
+	// Song Like post
+	Route::post('song-like', array('as' => 'song-like', 'uses' => 'SongController@like'));
 
 	// Sign out (GET)
 	Route::get('/logout', array(
@@ -103,6 +119,12 @@ Route::group(array('before' => 'guest'), function() {
 
 // Show User Profile
 Route::get('/{username}', array('as' => 'userProfile', 'uses' => 'UserController@index'));
+
+// Show User Followers
+Route::get('/{username}/followers', array('as' => 'userFollowers', 'uses' => 'UserController@getFollowers'));
+
+// Show People User is Following
+Route::get('/{username}/following', array('as' => 'userFollowing', 'uses' => 'UserController@getFollowing'));
 
 // Show Song Profile
 Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@index'));

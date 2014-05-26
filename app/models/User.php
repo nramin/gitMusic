@@ -76,7 +76,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getUsername()
 	{
 		return $this->username;
+<<<<<<< HEAD
 	} 
+=======
+	}
+>>>>>>> 5cd6d04916e49c18e3993d331d4dcbdb6a5140e5
 
 	public function songs()
 	{
@@ -86,6 +90,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function comments()
 	{
 		return $this->hasMany('Comments');
+	}
+
+	public function getFollowers($user_id)
+	{
+		return Follow::getUserFollowers($user_id);
+	}
+
+	public function getFollowing($user_id)
+	{
+		return Follow::getUserFollowing($user_id);
 	}
 
 	public static function getUserByName($username)
@@ -98,6 +112,34 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		{
 			return false;
 		}
+	}
+
+	public function getHomeStream()
+	{
+		$followings = $this->getFollowing($this->getId());
+		$followings_ids = array();
+		if($followings) {
+			foreach ($followings as $follower) {
+				array_push($followings_ids, $follower->getId());
+			}
+			$songs = Song::whereIn('user_id', $followings_ids)->newest()->take(10)->get();
+			return $songs;
+		}
+		return false;
+	}
+
+	public function __toString()
+	{
+		return $this->username;
+	}
+
+	public function likes_song($song_id)
+	{
+		$song_like = DB::table('song_likes')->where('user_id', '=', $this->id)->where('song_id', '=', $song_id)->get();
+		if( $song_like ) {
+			return true;
+		}
+		return false;
 	}
 
 }
