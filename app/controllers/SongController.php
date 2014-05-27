@@ -73,18 +73,18 @@ class SongController extends BaseController {
     {
         $file = Input::all();    
         $song = new Song();
+        $user = Auth::User();
+        $user_id = $user->getId();
+        $file['user_id'] = $user_id;
 
         if($validator = $song->validate($file)->passes()) {
 
             if(Input::hasFile('songfile')){
                 $songname = $file['songname'];
                 $song_file = $file['songfile'];
-                $user = Auth::User();
-                $user_id = $user->getId();
-
-                $dest = '/var/www/gitMusic/uploads';
+                $dest = '/var/www/gitmusic/uploads';
                 $filename = $songname . '.mp3';
-                $song->move($dest, $filename);
+                $song_file->move($dest, $filename);
                 $destination_filepath = $dest . '/' . $filename;
 
                 $create_song = Song::create(array(
