@@ -88,6 +88,7 @@ class Song extends Eloquent {
         if(isset($result))
         {
             File::delete($destination_filepath);
+            $this->setURL($result['ObjectURL']);
             return true;
         }
         return false;

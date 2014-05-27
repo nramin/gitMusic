@@ -9,6 +9,51 @@
 	@else 
 		<button>Like it!</button>
 	@endif
+	
+	{{ HTML::style('assets/css/jplayer/not.the.skin.css') }}
+	{{ HTML::style('assets/css/jplayer/circle.player.css') }}
+
+	{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js') }}
+	{{ HTML::script('assets/js/jplayer/jquery.transform2d.js') }}
+	{{ HTML::script('assets/js/jplayer/jquery.grab.js') }}
+	{{ HTML::script('assets/js/jplayer/jquery.jplayer.js') }}
+	{{ HTML::script('assets/js/jplayer/mod.csstransforms.min.js') }}
+	{{ HTML::script('assets/js/jplayer/circle.player.js') }}
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var myOtherOne = new CirclePlayer("#jquery_jplayer_2",
+			{
+				m4a:"https://s3-us-west-2.amazonaws.com/gitmusic/Step+(Featuring+Danny+Brown%2C+Heems+%26+Despot).mp3"
+			}, {
+				cssSelectorAncestor: "#cp_container_2"
+			});
+		});
+	</script>
+	
+	<div id="jquery_jplayer_2" class="cp-jplayer"></div>
+
+		<div class="prototype-wrapper"> <!-- A wrapper to emulate use in a webpage and center align -->
+
+			<div id="cp_container_2" class="cp-container">
+				<div class="cp-buffer-holder">
+					<div class="cp-buffer-1"></div>
+					<div class="cp-buffer-2"></div>
+				</div>
+				<div class="cp-progress-holder">
+					<div class="cp-progress-1"></div>
+					<div class="cp-progress-2"></div>
+				</div>
+				<div class="cp-circle-control"></div>
+				<ul class="cp-controls">
+					<li><a class="cp-play" tabindex="1">play</a></li>
+					<li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
 	<h2>Comments:</h2>
 	<ul>
 		@foreach ($song->comments as $comment)
