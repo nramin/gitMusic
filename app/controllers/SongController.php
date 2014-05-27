@@ -88,13 +88,15 @@ class SongController extends BaseController {
                 $destination_filepath = $dest . '/' . $filename;
 
                 $create_song = Song::create(array(
-                'songname' => $songname,
-                'user_id' => $user_id,
-                'genre' => 'shit',
-                'tags' => 'hip hop'
+                    'songname' => $songname,
+                    'user_id' => $user_id,
+                    'genre' => 'shit',
+                    'tags' => 'hip hop'
                 ));
 
-                $create_song->sendToS3($destination_filepath, $user);
+                
+
+                $create_song->sendToS3($destination_filepath, $user, $filename);
                 return Redirect::route('songProfile', array($user, $songname));    
             } else {
                 return 'Error: No song file present';
