@@ -99,10 +99,14 @@ class SongController extends BaseController {
                 $create_song->sendToS3($destination_filepath, $user, $filename);
                 return Redirect::route('songProfile', array($user, $songname));    
             } else {
-                return 'Error: No song file present';
+                return Redirect::route('upload')
+                        ->withErrors($validator)
+                        ->withInput();
             }          
         } else {
-            return 'Validator has failed';
+            return Redirect::route('upload')
+                        ->withErrors($validator)
+                        ->withInput();
         }
     }
 
