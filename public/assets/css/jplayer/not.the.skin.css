@@ -14,7 +14,7 @@ body {
 	background-color:#f0f0f0;
 } 
 
-.prototype-wrapper {
-	width:200px;
-	margin: 0 auto;
+.music_player {
+	width:100px;
+	height:100px;
 }
