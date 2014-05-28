@@ -1,6 +1,25 @@
-@extends('layouts.loggedin.master')
+@extends('layouts.user.master')
+
+@section('sidebar')
+	@if (sizeof($current_user->songs) < 1)
+    	<p>You have no projects</p>
+    @else
+    	<p>Your Projects:</p>
+		<ul>
+			@foreach ($current_user->songs as $song)
+				<li>{{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname)) }}</li>
+			@endforeach
+		</ul>
+	@endif
+@stop
 
 @section('content')
-Content goes here ya bish. I couldn't put icons for the menu items cause I didn't have the icons from da design but iss all good, we do em later. This is the layout and feel for what it will look like when a user is logged in. Other pages will show up when the user is not logged in. I will finalize those pages in the coming week.<br />
-- CSS Ramin
+	<h1>Welcome {{ $current_user->username }}</h1>
+	@if ($songs)
+		@foreach ($songs as $song)
+			<li>{{ HTML::linkRoute('songProfile', $song, array($song->user, $song->songname)) }}</li>
+		@endforeach
+	@else
+	<h2>Empty Stream :(
+	@endif
 @stop

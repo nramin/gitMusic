@@ -5,6 +5,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
+	protected $fillable = array('email', 'username', 'password', 'password_temp', 'temp_code', 'is_active');
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -18,6 +20,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	protected $hidden = array('password');
+
+	protected $guarded = array('id');
 
 	/**
 	 * Get the unique identifier for the user.
@@ -39,35 +43,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->password;
 	}
 
-	/**
-	 * Get the token value for the "remember me" session.
-	 *
-	 * @return string
-	 */
 	public function getRememberToken()
 	{
-		return $this->remember_token;
+	    return $this->remember_token;
 	}
 
-	/**
-	 * Set the token value for the "remember me" session.
-	 *
-	 * @param  string  $value
-	 * @return void
-	 */
 	public function setRememberToken($value)
 	{
-		$this->remember_token = $value;
+	    $this->remember_token = $value;
 	}
 
-	/**
-	 * Get the column name for the "remember me" token.
-	 *
-	 * @return string
-	 */
 	public function getRememberTokenName()
 	{
-		return 'remember_token';
+	    return 'remember_token';
 	}
 
 	/**
@@ -78,6 +66,76 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	public function getId()
+	{
+		return $this->id;
+	}
+
+	public function getUsername()
+	{
+		return $this->username;
+	}
+	
+	public function songs()
+	{
+		return $this->hasMany('Song');
+	}
+
+	public function comments()
+	{
+		return $this->hasMany('Comments');
+	}
+
+	public function getFollowers($user_id)
+	{
+		return Follow::getUserFollowers($user_id);
+	}
+
+	public function getFollowing($user_id)
+	{
+		return Follow::getUserFollowing($user_id);
+	}
+
+	public static function getUserByName($username)
+	{
+		if($user = User::where('username', '=', $username)->first())
+		{
+			return $user;
+		} 
+		else 
+		{
+			return false;
+		}
+	}
+
+	public function getHomeStream()
+	{
+		$followings = $this->getFollowing($this->getId());
+		$followings_ids = array();
+		if($followings) {
+			foreach ($followings as $follower) {
+				array_push($followings_ids, $follower->getId());
+			}
+			$songs = Song::whereIn('user_id', $followings_ids)->newest()->take(10)->get();
+			return $songs;
+		}
+		return false;
+	}
+
+	public function __toString()
+	{
+		return $this->username;
+	}
+
+	public function likes_song($song_id)
+	{
+		$song_like = DB::table('song_likes')->where('user_id', '=', $this->id)->where('song_id', '=', $song_id)->get();
+		if( $song_like ) {
+			return true;
+		}
+		return false;
 	}
 
 }

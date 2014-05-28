@@ -1,0 +1,10 @@
+
+<?php $__env->startSection('content'); ?>
+    <h1>Artists</h1>
+    <ul>
+			<?php foreach ($users as $user): ?>
+			<li><?php echo HTML::linkRoute('userProfile', $user , array($user->username)); ?></li>
+			<?php endforeach; ?>
+	</ul>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.user.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

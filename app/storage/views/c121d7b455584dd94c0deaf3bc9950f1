@@ -1,0 +1,73 @@
+
+<?php $__env->startSection('content'); ?>
+	<h1>Songname: <?php echo $song->songname; ?></h1>
+	<p>Artist: <?php echo HTML::linkRoute('userProfile', $song->user->username , array($song->user->username)); ?></p>
+	<p>Likes: <?php echo $song->likes(); ?></p>
+	<?php if (Auth::user()): ?>
+		<?php if (Auth::user()->likes_song($song->getId())): ?>
+			<h4>You like it also</h4>
+		<?php else: ?>
+			<button>Like it!</button>
+		<?php endif; ?>
+	<?php else: ?> 
+		<button>Signup to Like it!</button>
+	<?php endif; ?>
+	
+	<?php echo HTML::style('assets/css/jplayer/not.the.skin.css'); ?>
+	<?php echo HTML::style('assets/css/jplayer/circle.player.css'); ?>
+
+	<?php echo HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js'); ?>
+	<?php echo HTML::script('assets/js/jplayer/jquery.transform2d.js'); ?>
+	<?php echo HTML::script('assets/js/jplayer/jquery.grab.js'); ?>
+	<?php echo HTML::script('assets/js/jplayer/jquery.jplayer.js'); ?>
+	<?php echo HTML::script('assets/js/jplayer/mod.csstransforms.min.js'); ?>
+	<?php echo HTML::script('assets/js/jplayer/circle.player.js'); ?>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+
+			var myOtherOne = new CirclePlayer("#jquery_jplayer_2",
+			{
+				m4a: "<?php echo($song->url); ?>"
+			}, {
+				cssSelectorAncestor: "#cp_container_2"
+			});
+		});
+	</script>
+	
+	<div id="jquery_jplayer_2" class="cp-jplayer"></div>
+
+		<div class="music_player"> <!-- A wrapper to emulate use in a webpage and center align -->
+
+			<div id="cp_container_2" class="cp-container">
+				<div class="cp-buffer-holder">
+					<div class="cp-buffer-1"></div>
+					<div class="cp-buffer-2"></div>
+				</div>
+				<div class="cp-progress-holder">
+					<div class="cp-progress-1"></div>
+					<div class="cp-progress-2"></div>
+				</div>
+				<div class="cp-circle-control"></div>
+				<ul class="cp-controls">
+					<li><a class="cp-play" tabindex="1">play</a></li>
+					<li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<?php if (count($song->comments) > 0): ?>
+		<h2>Comments:</h2>
+		<ul>
+			<?php foreach ($song->comments as $comment): ?>
+				<li><?php echo HTML::linkRoute('userProfile', $comment->user->username , array($comment->user->username)); ?></li>
+				<li><?php echo $comment->content; ?></li>
+			<?php endforeach; ?>
+		</ul>
+	<?php else: ?>
+		<h3>No comments :(</h3>
+	<?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.loggedin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
