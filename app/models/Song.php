@@ -81,6 +81,7 @@ class Song extends Eloquent {
     public function sendToS3($destination_filepath, $user, $filename) {
         $s3 = AWS::get('s3');
         $result = $s3 ->putObject(array(
+            'ACL'        => 'public-read',
             'Bucket'     => 'gitmusic',
             'Key'        => $user .'/' . $filename,
             'SourceFile' => $destination_filepath    
