@@ -5,19 +5,6 @@ put some shit
 @stop
 
 @section('content')
-	<h1>Songname: {{ $song->songname }}</h1>
-	<p>Artist: {{ HTML::linkRoute('userProfile', $song->user->username , array($song->user->username)) }}</p>
-	<p>Likes: {{ $song->likes() }}</p>
-	@if (Auth::user())
-		@if (Auth::user()->likes_song($song->getId()))
-			<h4>You like it also</h4>
-		@else
-			<button>Like it!</button>
-		@endif
-	@else 
-		<button>Signup to Like it!</button>
-	@endif
-	
 	{{ HTML::style('assets/css/jplayer/360player.css') }}
 	{{ HTML::style('assets/css/jplayer/flashblock.css') }}
 	{{ HTML::style('assets/css/jplayer/360player-visualization.css') }}
@@ -70,6 +57,7 @@ put some shit
 		}
 
 	</script>
+	<div id="songpage-title">{{ $song->songname }}</div>
 
 	<div id="sm2-container">
 			<!-- sm2 flash goes here -->
@@ -78,7 +66,6 @@ put some shit
 	<div id="songpage-player">
      	<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
 	</div>
-	<div id="songpage-title">{{ $song->songname }}</div>
 
 	<div id="songpage-details">
 		<span>Version: (we need to work on getting this)</span>
