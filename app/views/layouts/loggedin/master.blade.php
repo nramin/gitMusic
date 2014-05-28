@@ -7,6 +7,8 @@
         <meta name="author" content="">
         
         {{ HTML::style('assets/css/loggedin/main.css') }}
+        {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js') }}
+        {{ HTML::script('assets/js/main.js') }}
         
     </head>
 
@@ -29,7 +31,7 @@
 
     <section id="sidebar">
 
-        
+        @yield('sidebar', '')
 
     </section>
 
@@ -38,14 +40,6 @@
         @yield('content')
 
     </section>
-
-    <footer id="footer">
-       
-        @section('footer')
-            <h4>This is where we have ourselves a footer</h4>
-        @show
-
-    </footer>
 
     </body>
 </html>

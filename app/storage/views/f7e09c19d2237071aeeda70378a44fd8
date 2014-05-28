@@ -1,0 +1,26 @@
+
+<?php $__env->startSection('sidebar'); ?>
+	<?php if (sizeof($current_user->songs) < 1): ?>
+    	<p>You have no projects</p>
+    <?php else: ?>
+    	<div class="sidebar-menu-title">Your Projects:</div>
+			<?php foreach ($current_user->songs as $song): ?>
+			<div class="sidebar-menu-item">
+				<?php echo HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')); ?>
+				<?php echo HTML::linkRoute('songProfile', $song, array($current_user, $song->songname), array('class' => 'sidebar-menu-text')); ?>
+			</div>
+			<?php endforeach; ?>
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h1>Welcome <?php echo $current_user->username; ?></h1>
+	<?php if ($songs): ?>
+		<?php foreach ($songs as $song): ?>
+			<li><?php echo HTML::linkRoute('songProfile', $song, array($song->user, $song->songname)); ?></li>
+		<?php endforeach; ?>
+	<?php else: ?>
+	<h2>Empty Stream :(
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.user.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
