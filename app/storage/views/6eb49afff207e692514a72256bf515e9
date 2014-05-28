@@ -1,0 +1,15 @@
+
+<?php $__env->startSection('content'); ?>
+    <h1>Artist: <?php echo $user->username; ?></h1>
+    <?php if (count($user->songs) > 0): ?>
+    	<h3>Songs:</h3>
+	    <ul>
+			<?php foreach ($user->songs as $song): ?>
+				<li><?php echo HTML::linkRoute('songProfile', $song->songname , array($user->username, $song->songname)); ?></li>
+			<?php endforeach; ?>
+		</ul>
+	<?php else: ?> 
+		<h3>No songs :( </h3>
+	<?php endif; ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.user.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

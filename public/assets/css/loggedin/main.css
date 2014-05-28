@@ -6,6 +6,10 @@
   /* Legacy iOS */;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: #f3f3f4;
   font-family: "futura", sans-serif;
@@ -62,9 +66,10 @@ section#topbar nav ul li a {
 }
 
 section#content {
-  width: 960px;
-  margin: auto;
+  width: 700px;
+  float: left;
   margin-top: 40px;
+  margin-left: 90px;
 }
 
 footer {
@@ -161,4 +166,77 @@ footer {
 
 input {
   font-family: "futura", sans-serif;
+}
+
+#songpage-title {
+  font-size: 50px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#songpage-player {
+  float: left;
+}
+
+#songpage-details {
+  float: left;
+  margin-left: 50px;
+}
+
+#songpage-details span {
+  display: block;
+}
+
+#songpage-comments {
+  clear: both;
+  margin-top: 10px;
+}
+
+.songpage-comment {
+  margin: 0;
+  list-style: none;
+  background-color: #D5D5D5;
+  padding: 10px;
+  border-bottom: 1px solid #B9B9B9;
+}
+
+a {
+  color: #000;
+}
+
+#sidebar {
+  float: left;
+  background-color: #CCC;
+  width: 200px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.sidebar-menu-title {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.sidebar-menu-item {
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.sidebar-menu-circle {
+  -moz-border-radius: 50px/50px;
+  -webkit-border-radius: 50px 50px;
+  border-radius: 50px/50px;;
+  border:solid 3px #000; 
+  width:50px;
+  height:50px;
+  float: left;
+  display: inline-block;
+}
+
+.sidebar-menu-text {
+  float: left;
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 5px;
+  text-decoration: none;
 }

@@ -4,12 +4,13 @@
 	@if (sizeof($current_user->songs) < 1)
     	<p>You have no projects</p>
     @else
-    	<p>Your Projects:</p>
-		<ul>
+    	<div class="sidebar-menu-title">Your Projects:</div>
 			@foreach ($current_user->songs as $song)
-				<li>{{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname)) }}</li>
+			<div class="sidebar-menu-item">
+				{{ HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')) }}
+				{{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname), array('class' => 'sidebar-menu-text')) }}
+			</div>
 			@endforeach
-		</ul>
 	@endif
 @stop
 

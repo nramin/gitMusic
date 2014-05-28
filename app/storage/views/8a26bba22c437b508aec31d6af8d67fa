@@ -1,16 +1,16 @@
-@extends('layouts.loggedin.master')
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 	<div id="upload-dialog">
-		<form method="post" action="{{ route('upload') }}" enctype="multipart/form-data">
+		<form method="post" action="<?php echo route('upload'); ?>" enctype="multipart/form-data">
 		    <div id="upload-dialog-title">Upload</div>
 		    <input type="text" name="songname" placeholder="Song Name" id="songname">
 		    <div id="file-container">
 		        <input type="file" name="songfile" accept="audio/*" id="file">
 		        <input type="file" name="projectfile" accept="application/zip">
 		    </div>
-		    {{ Form::token() }}
+		    <?php echo Form::token(); ?>
 		    <input type="submit" value="Upload" id="submit">
 		</form>
 	</div>
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.loggedin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,12 @@
+
+<?php $__env->startSection('content'); ?>
+    <h1>Artists</h1>
+    <div id="users-listing">
+	    <ul>
+	    	<?php foreach ($users as $user): ?>
+	    	<li><?php echo HTML::linkroute('userProfile', $user->username, array($user->username)); ?><span class="right">Joined on <?php echo $user->updated_at; ?></span></li>
+	    	<?php endforeach; ?>
+	    </ul>
+	</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.loggedin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
