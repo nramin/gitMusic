@@ -8,4 +8,3 @@ composer.lock
 Thumbs.db
 app/storage/sessions
 app/storage/views
-app/config/packages/aws/aws-sdk-laravel/config.php
