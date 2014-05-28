@@ -1,6 +1,0 @@
-
-<?php $__env->startSection('content'); ?>
-Content goes here ya bish. I couldn't put icons for the menu items cause I didn't have the icons from da design but iss all good, we do em later. This is the layout and feel for what it will look like when a user is logged in. Other pages will show up when the user is not logged in. I will finalize those pages in the coming week.<br />
-- CSS Ramin
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.loggedin.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
