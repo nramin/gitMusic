@@ -11,22 +11,128 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('homepage/loggedin/homepage');
+//Route::get('/signup', array('as' => 'signup', 'uses' => 'AccountController@getCreate'));
+
+//Route::get('/login', array('as' => 'login', 'uses' => 'AccountController@getLogin'));
+
+Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
+
+Route::get('/test', function() {
+	phpinfo();
 });
 
-Route::get('/loggedout', function()
-{
-	return View::make('homepage/loggedout/homepage');
+Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
+
+
+/*
+	Authenticated Group
+*/
+Route::group(array('before' => 'auth'), function() {
+
+
+
+	// Route::get('account', array(
+	// 	'as' => 'account', function() {
+	// 		return View::make('account.main');
+	// 	}
+	// ));
+
+	// // Change password (GET)	
+	// Route::get('account/password', array(
+	// 	'as' => 'account-password',
+	// 	'uses' => 'AccountController@getChangePassword'
+	// ));
+
+	// List Users
+	Route::get('/people', array('as' => 'people', 'uses' => 'UserController@showUsers'));
+
+	// User stream
+	Route::get('/stream/{type?}', array('as' => 'stream', 'uses' => 'StreamController@showStream'));
+
+	// Settings
+	Route::get('/settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
+
+	// Upload
+	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
+
+	Route::post('upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
+
+	Route::group(array('before' => 'csrf'), function() {
+		
+		// Upload Post
+		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
+
+		// Comment Post
+		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
+
+		// Follow Post
+		Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));
+	
+	});
+
+	// Song Like post
+	Route::post('song-like', array('as' => 'song-like', 'uses' => 'SongController@like'));
+
+	// Sign out (GET)
+	Route::get('/logout', array(
+		'as' => 'logout-get',
+		'uses' => 'AccountController@getLogOut'
+	));
 });
 
-Route::get('/signup', function()
-{
-	return View::make('signup');
+/*
+	Unauthenticated Group
+*/
+Route::group(array('before' => 'guest'), function() {
+	
+	// Cross Site Request Forgery Protection Group
+	Route::group(array('before' => 'csrf'), function() {
+		
+		// Sign in (post)
+		Route::post('login', array(
+			'as' => 'login-post',
+			'uses' => 'AccountController@postLogin'
+		));
+	
+		// Create Account (POST)
+		Route::post('signup', array(
+			'as' => 'signup-post',
+			'uses' => 'AccountController@postCreate'
+		));
+		
+	});
+	
+	// // Sign in (GET)
+	// Route::get('login', array(
+	// 	'as' => 'login-get',
+	// 	'uses' => 'AccountController@getLogIn'
+	// ));
+	
+	// // Create Account (GET) 
+	// Route::get('signup', array(
+	// 	'as' => 'signup-get',
+	// 	'uses' => 'AccountController@getCreate'
+	// ));
 });
 
-Route::get('/login', function()
-{
-	return View::make('login');
-});
+// Other Public Routes
+
+// Show User Profile
+Route::get('/{username}', array('as' => 'userProfile', 'uses' => 'UserController@index'));
+
+// Show User Followers
+Route::get('/{username}/followers', array('as' => 'userFollowers', 'uses' => 'UserController@getFollowers'));
+
+// Show People User is Following
+Route::get('/{username}/following', array('as' => 'userFollowing', 'uses' => 'UserController@getFollowing'));
+
+// Show Song Profile
+Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@index'));
+
+App::missing(function($exception)
+	{
+
+		// shows an error page (app/views/error.blade.php)
+		// returns a page not found error
+		return Response::view('errors.error', array(), 404);
+	});
