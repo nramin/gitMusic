@@ -1,7 +1,7 @@
 @extends('layouts.loggedin.master')
 
 @section('sidebar')
-put some shit
+	put some shit
 @stop
 
 @section('content')
@@ -26,19 +26,19 @@ put some shit
 
 		// enable some spectrum stuffs
 
-		threeSixtyPlayer.config.useWaveformData = true;
-		threeSixtyPlayer.config.useEQData = true;
+		threeSixtyPlayer.config.useWaveformData = false;
+		threeSixtyPlayer.config.useEQData = false;
 
 		// enable this in SM2 as well, as needed
 
 		if (threeSixtyPlayer.config.useWaveformData) {
-		  soundManager.flash9Options.useWaveformData = true;
+		  soundManager.flash9Options.useWaveformData = false;
 		}
 		if (threeSixtyPlayer.config.useEQData) {
-		  soundManager.flash9Options.useEQData = true;
+		  soundManager.flash9Options.useEQData = false;
 		}
 		if (threeSixtyPlayer.config.usePeakData) {
-		  soundManager.flash9Options.usePeakData = true;
+		  soundManager.flash9Options.usePeakData = false;
 		}
 
 		if (threeSixtyPlayer.config.useWaveformData || threeSixtyPlayer.flash9Options.useEQData || threeSixtyPlayer.flash9Options.usePeakData) {
@@ -55,8 +55,8 @@ put some shit
 		  // for testing IE 9, etc.
 		  soundManager.useHTML5Audio = true;
 		}
-
 	</script>
+
 	<div id="songpage-title">{{ $song->songname }}</div>
 
 	<div id="sm2-container">
