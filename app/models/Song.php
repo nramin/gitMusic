@@ -104,10 +104,18 @@ class Song extends Eloquent {
     {
         if(isset($url) and $song = Song::find($this->getId()))
         {
+            
             $user = Song::find($this->getId());
-            $user->url = $url;
-            $user->save();
-            return true;
+            if(strpos($url, '.mp3') == true){
+                $user->url = $url;
+                $user->save();
+                return true;
+            } else {
+                $user->zip_url = $url;
+                $user->save();
+                return true;
+            }
+
         } else {
             return false;
         }
