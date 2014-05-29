@@ -1,0 +1,125 @@
+.chart text {
+	  font: 10px sans-serif;
+	  text-anchor: middle;
+}
+
+#bar2Holder{
+	margin-top: 470px;
+}
+
+#bar2Holder p {
+	margin-left: 307px;
+	margin-bottom: 46px;
+}
+
+.side{
+	fill: white;
+	font-size: 4px;
+}
+
+h1{
+	font-size: 20pt;
+	margin-left: 120px;
+	margin-top: 74px;
+	text-align: right;
+	margin-right: 100px;
+}
+
+#firstP {
+	float: left;
+}
+
+body{
+	background-color: #fcfcfa;
+	margin: 0;
+}
+
+.donut, .chart, #chart2{
+	margin: auto;
+	display: block;
+	margin-bottom: 100px;
+}
+
+#chart2{
+	background-color: black;
+}
+
+.donut {
+	float: right;
+}
+
+#donutDescrition {
+	float: left;
+	margin-top: 41px;
+	margin-bottom: 160px;
+}
+
+#donutData{
+	font-size: 20pt;
+}
+
+#donutData span{
+	font-size: 32pt;
+}
+
+#donutHolder {
+	width: 1300px;
+}
+
+#donutHolder p {
+	text-align: right;
+	width: 220px;
+	float: right;
+	margin-top: 220px;
+}
+
+ .chart rect{
+	fill: rgb(43,127,191);
+}
+
+rect {
+	transition: fill .1s;
+}
+
+#numbers, #chart2 {
+	fill: #fcfcfa;
+}
+
+.chart2Text{
+	fill: black;
+}
+
+rect:hover{
+	fill: rgb(204,66,47);
+}
+
+.axis text {
+	font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+	fill: none;
+	shape-rendering: crispEdges;
+}
+
+.axis line {
+	stroke: #000;
+}
+
+p {
+	margin-top: 100px;
+	margin-left: 75px;
+	font-family: futura;
+	width: 290px;
+	font-size: 12px;
+}
+
+.line{
+	stroke: #fcfcfa;
+	stroke-width: 0.5;
+}
+
+.path {
+	margin-left: 150px;
+}

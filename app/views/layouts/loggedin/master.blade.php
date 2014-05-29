@@ -7,8 +7,11 @@
         <meta name="author" content="GitMusic">
         
         {{ HTML::style('assets/css/loggedin/main.css') }}
+        {{ HTML::style('assets/css/loggedin/circle.css') }}
         {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js') }}
+        {{ HTML::script('http://d3js.org/d3.v3.min.js') }}
         {{ HTML::script('assets/js/main.js') }}
+        {{ HTML::script('assets/js/circle.js') }}
 
         {{ HTML::style('assets/css/jplayer/360player.css') }}
         {{ HTML::style('assets/css/jplayer/flashblock.css') }}

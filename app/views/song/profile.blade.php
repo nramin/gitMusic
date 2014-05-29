@@ -47,4 +47,11 @@
 			<h3>No comments :(</h3>
 		@endif
 	</div>
+
+
+	<div id='donutHolder'>
+	    <svg class="donut"></svg>
+	    <p id='donutData'>fuck off</p>
+	    <svg class="path"></svg>
+	  </div>
 @stop
