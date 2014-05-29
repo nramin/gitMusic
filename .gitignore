@@ -10,3 +10,4 @@ app/storage/sessions
 app/storage/views
 app/config/packages/aws/aws-sdk-php-laravel/config.php
 /uploads
+app/storage/logs
