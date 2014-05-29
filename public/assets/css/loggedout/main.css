@@ -67,7 +67,7 @@ body {
 }
 
 #container #right .form#login input[type='text'], #container #right .form#login input[type='password'] {
-  background-color: #3a3a3c;
+  background-color: rgb(35,31,32);
   padding-left: 5px;
   padding-right: 5px;
   padding-top: 5px;
@@ -86,7 +86,7 @@ body {
   box-sizing: border-box;
   width: 15%;
   vertical-align: top;
-  background-color: #818285;
+  background-color: rgb(209, 211, 212);
   float: right;
 }
 
@@ -103,13 +103,13 @@ body {
 
 #container #right .form#signup input[type='text'], #container #right .form#signup input[type='password'] {
   color: white;
-  border-bottom: 2px solid silver;
-  background-color: #3a3a3c;
+  border-bottom: 1pt solid rgb(109, 111, 113);
+  background-color: rgb(35,31,32);
   text-align: center;
 }
 
 #container #right .form#signup input[type='submit']  {
-  background-color: #d1d2d4
+  background-color: rgb(209, 211, 212);
 }
 
 #container #right .form#signup input:nth-last-child(3) {

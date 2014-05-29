@@ -17,14 +17,6 @@
 	font-size: 4px;
 }
 
-h1{
-	font-size: 20pt;
-	margin-left: 120px;
-	margin-top: 74px;
-	text-align: right;
-	margin-right: 100px;
-}
-
 #firstP {
 	float: left;
 }
@@ -105,13 +97,6 @@ rect:hover{
 
 .axis line {
 	stroke: #000;
-}
-
-p {
-	margin-top: 100px;
-	margin-left: 75px;
-	width: 290px;
-	font-size: 12px;
 }
 
 .line{
