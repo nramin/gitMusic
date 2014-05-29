@@ -35,9 +35,9 @@
         @section('topnav')
         <nav>
             <ul>
-                <li><a href="{{ route('upload') }}">Upload</a></li>
-                <li><a href="{{ route('settings') }}">Settings</a></li>
-                <li><a href="{{ route('logout-get') }}">Logout</a></li>
+                <li><a href="{{ route('upload') }}" class="upload">Upload</a></li>
+                <li><a href="{{ route('settings') }}" class="settings">Settings</a></li>
+                <li><a href="{{ route('logout-get') }}" class="logout">Logout</a></li>
             </ul>
         </nav>
         @show
@@ -50,7 +50,7 @@
             @if (sizeof($current_user->songs) < 1)
                 <p>You have no projects</p>
             @else
-                <div class="sidebar-menu-title">Your Projects:</div>
+                <div class="sidebar-menu-title">Your<br />Projects:</div>
                 <div class="sidebar-menu-line"></div>
                     @foreach ($current_user->songs as $song)
                     <div class="sidebar-menu-item">
