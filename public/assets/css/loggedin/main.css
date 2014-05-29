@@ -272,7 +272,7 @@ a {
   word-break: break-word;
 }
 
-#box {
+.box {
   clear: both;
   background-image: url('fo_china.jpg');
   background-position: -1200px -200px;
@@ -280,31 +280,33 @@ a {
   border: 5px solid black;
 }
 
-#song {
+.song {
   margin: auto;
   position: relative;
 }
 
-#songHeader {
+.songHeader {
   float: left;
   font-size: 24.53pt;
   font-weight: 700;
   width: 55%;
 }
 
-#songByline {
+.songByline {
   font-size: 15.05pt;
   float: right;
   text-align: right;
   position: absolute;
   right: 0;
+  margin: 0;
+  bottom: 0;
 }
 
-#songHeader, #songByline {
+.songHeader, #songByline {
   margin-bottom: 2px;
 }
 
-#songInfo {
+.songInfo {
   text-align: center;
   width: 105px;
   height: 100%;
@@ -312,8 +314,18 @@ a {
   float: right;
 }
 
-#download {
+.download {
   margin-top: 60px;
   width: 70px;
   display: inline-block;
+}
+
+.songLine {
+  overflow: hidden;
+  padding-top: 10px;
+  position: relative;
+}
+
+h2 {
+  margin-top: 0;
 }
