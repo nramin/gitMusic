@@ -19,6 +19,11 @@
         {{ HTML::script('assets/js/berniecode-animator.js') }}
         {{ HTML::script('assets/js/360player.js') }}
         {{ HTML::script('assets/js/bootstrap-player.js') }}
+
+        <script type="text/javascript" src="//use.typekit.net/rqj5dqa.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="//use.typekit.net/jhd1olv.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         
     </head>
 
@@ -46,6 +51,7 @@
                 <p>You have no projects</p>
             @else
                 <div class="sidebar-menu-title">Your Projects:</div>
+                <div class="sidebar-menu-line"></div>
                     @foreach ($current_user->songs as $song)
                     <div class="sidebar-menu-item">
                         {{ HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')) }}

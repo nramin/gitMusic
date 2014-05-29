@@ -1,18 +1,10 @@
-@font-face {
-  font-family: 'futura';
-  src: url("../../fonts/futura.eot");
-  /* IE9 Compat Modes */
-  src: url("../../fonts/futura.eot?#iefix") format("embedded-opentype"), url("../../fonts/futura.woff") format("woff"), url("../../fonts/futura.ttf") format("truetype"), url("../../fonts/futura.svg#svgFontName") format("svg");
-  /* Legacy iOS */;
-}
-
 html, body {
   height: 100%;
+  font-family: "futura-pt", sans-serif;
 }
 
 body {
   background-color: #f3f3f4;
-  font-family: "futura", sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -207,19 +199,26 @@ a {
 #sidebar {
   float: left;
   background-color: #CCC;
-  width: 200px;
-  padding-left: 25px;
-  padding-right: 25px;
+  width: 160px;
 }
 
 .sidebar-menu-title {
-  margin-bottom: 20px;
   margin-top: 30px;
+  margin-left: 30px;
+}
+
+.sidebar-menu-line {
+  height: 1px;
+  width: 130px;
+  background-color: #000;
+  margin-bottom: 20px;
+  margin-left: 30px;
 }
 
 .sidebar-menu-item {
   overflow: hidden;
   margin-bottom: 25px;
+  margin-left: 30px;
 }
 
 .sidebar-menu-circle {
@@ -239,4 +238,5 @@ a {
   padding-top: 5px;
   padding-left: 5px;
   text-decoration: none;
+  width: 55px;
 }
