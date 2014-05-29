@@ -19,7 +19,7 @@
 	</section>
 	<section id="description">
 		<h2>Git Music</h2>
-		<p>Download other artists' music projects for free. Share your own, see other people change it.</p>
+		<p>Download other artists' music projects for free.<br />Share your own, see other people change it.</p>
 	</section>
 	<section class="form" id="signup">
 		<form action="signup" method="post">

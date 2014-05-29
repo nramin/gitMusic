@@ -271,3 +271,49 @@ a {
   overflow: hidden;
   word-break: break-word;
 }
+
+#box {
+  clear: both;
+  background-image: url('fo_china.jpg');
+  background-position: -1200px -200px;
+  height: 310px;
+  border: 5px solid black;
+}
+
+#song {
+  margin: auto;
+  position: relative;
+}
+
+#songHeader {
+  float: left;
+  font-size: 24.53pt;
+  font-weight: 700;
+  width: 55%;
+}
+
+#songByline {
+  font-size: 15.05pt;
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 0;
+}
+
+#songHeader, #songByline {
+  margin-bottom: 2px;
+}
+
+#songInfo {
+  text-align: center;
+  width: 105px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  float: right;
+}
+
+#download {
+  margin-top: 60px;
+  width: 70px;
+  display: inline-block;
+}

@@ -18,7 +18,15 @@
 	<h1>Welcome {{ $current_user->username }}</h1>
 	@if ($songs)
 		@foreach ($songs as $song)
-			<li>{{ HTML::linkRoute('songProfile', $song, array($song->user, $song->songname)) }}</li>
+          <div id='song'>
+            <h2 id='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user, $song->songname)) }}</h2>
+            <p id='songByline'>By<br>Lady the Beard</p>
+            <div id='box'>
+              <div id='songInfo'>
+                <img id='download' src='download1.png' alt='chill' />
+              </div>
+            </div>
+          </div>
 		@endforeach
 	@else
 	<h2>Empty Stream :(
