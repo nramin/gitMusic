@@ -1,4 +1,4 @@
-@extends('layouts.user.master')
+@extends('layouts.loggedin.master')
 
 @section('sidebar')
 	@if (sizeof($current_user->songs) < 1)
