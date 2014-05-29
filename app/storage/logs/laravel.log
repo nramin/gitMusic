@@ -703,3 +703,31 @@ Stack trace:
 #19 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(606): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #20 /var/www/gitMusic/public/index.php(49): Illuminate\Foundation\Application->run()
 #21 {main} [] []
+[2014-05-29 23:06:32] production.ERROR: exception 'ErrorException' with message 'file_put_contents(/var/www/gitMusic/app/storage/sessions/99a830bff0bfbf09a81172dbdeb6aa5c58b16468): failed to open stream: Permission denied' in /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:71
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'file_put_conten...', '/var/www/gitMus...', 71, Array)
+#1 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(71): file_put_contents('/var/www/gitMus...', 'a:3:{s:6:"_toke...')
+#2 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/FileSessionHandler.php(71): Illuminate\Filesystem\Filesystem->put('/var/www/gitMus...', 'a:3:{s:6:"_toke...')
+#3 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/Store.php(220): Illuminate\Session\FileSessionHandler->write('99a830bff0bfbf0...', 'a:3:{s:6:"_toke...')
+#4 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(126): Illuminate\Session\Store->save()
+#5 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(79): Illuminate\Session\Middleware->closeSession(Object(Illuminate\Session\Store))
+#6 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/gitMusic/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(606): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/gitMusic/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2014-05-29 23:07:00] production.ERROR: exception 'ErrorException' with message 'file_put_contents(/var/www/gitMusic/app/storage/sessions/61c301e9c502e2b4182a8e11a14f1bad29bc60c5): failed to open stream: Permission denied' in /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:71
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'file_put_conten...', '/var/www/gitMus...', 71, Array)
+#1 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(71): file_put_contents('/var/www/gitMus...', 'a:4:{s:6:"_toke...')
+#2 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/FileSessionHandler.php(71): Illuminate\Filesystem\Filesystem->put('/var/www/gitMus...', 'a:4:{s:6:"_toke...')
+#3 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/Store.php(220): Illuminate\Session\FileSessionHandler->write('61c301e9c502e2b...', 'a:4:{s:6:"_toke...')
+#4 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(126): Illuminate\Session\Store->save()
+#5 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Session/Middleware.php(79): Illuminate\Session\Middleware->closeSession(Object(Illuminate\Session\Store))
+#6 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php(47): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php(51): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/gitMusic/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/gitMusic/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(606): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/gitMusic/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
