@@ -24,6 +24,8 @@
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript" src="//use.typekit.net/jhd1olv.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="//use.typekit.net/lgw5vxn.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         
     </head>
 
