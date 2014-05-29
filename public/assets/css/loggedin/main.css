@@ -193,6 +193,7 @@ input {
 
 #songpage-player {
   float: left;
+  width: 396px;
 }
 
 #songpage-details {
