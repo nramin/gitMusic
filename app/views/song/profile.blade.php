@@ -20,13 +20,13 @@
 		<span>Version: (we need to work on getting this)</span>
 		<span>{{ $song->updated_at }}</span>
 		<span>Uploaded by {{ HTML::linkRoute('userProfile', $song->user->username , array($song->user->username)) }}</span>
-		<span>Likes: {{ $song->likes() }}</span>
+		<span>Likes: <span class="song-likes">{{ $song->likes() }}</span></span>
 		
 		@if (Auth::user())
 			@if (Auth::user()->likes_song($song->getId()))
 				<h4>You like it also</h4>
 			@else
-				<span><a href="#">Like</a></span>
+				<span><button class="like-song" data-song-id="<?php echo $song->getId(); ?>">Like</button></span>
 			@endif
 		@else 
 			<span><a href="#">Sign up to like</a></span>
@@ -64,7 +64,7 @@
 
 	<div id='donutHolder'>
 	    <svg class="donut"></svg>
-	    <p id='donutData'>fuck off</p>
+	    	<p id='donutData'>fuck off</p>
 	    <svg class="path"></svg>
 	  </div>
 @stop

@@ -17,11 +17,11 @@
 
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
-Route::get('/test', function() {
+Route::get('test', function() {
 	phpinfo();
 });
 
-Route::get('/about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
+Route::get('about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
 
 
 /*
@@ -44,19 +44,21 @@ Route::group(array('before' => 'auth'), function() {
 	// ));
 
 	// List Users
-	Route::get('/people', array('as' => 'people', 'uses' => 'UserController@showUsers'));
+	Route::get('people', array('as' => 'people', 'uses' => 'UserController@showUsers'));
 
 	// User stream
 	Route::get('/stream/{type?}', array('as' => 'stream', 'uses' => 'StreamController@showStream'));
 
 	// Settings
-	Route::get('/settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
+	Route::get('settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
 
-	// Upload
+	// Get Upload Form
 	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
 
+	// Song Upload Post
 	Route::post('upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
 
+	//CSRF Protected Routes
 	Route::group(array('before' => 'csrf'), function() {
 		
 		// Upload Post
@@ -125,6 +127,9 @@ Route::get('/{username}/followers', array('as' => 'userFollowers', 'uses' => 'Us
 
 // Show People User is Following
 Route::get('/{username}/following', array('as' => 'userFollowing', 'uses' => 'UserController@getFollowing'));
+
+// Show Songs User Has Liked
+Route::get('/{username}/liked', array('as' => 'userLikedSongs', 'uses' => 'UserController@getLikedSongs'));
 
 // Show Song Profile
 Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'SongController@index'));

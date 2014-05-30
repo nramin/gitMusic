@@ -17,7 +17,6 @@
         {{ HTML::style('assets/css/jplayer/flashblock.css') }}
         {{ HTML::style('assets/css/jplayer/360player-visualization.css') }}
 
-        {{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js') }}
         {{ HTML::script('assets/js/soundmanager2.js') }}
         {{ HTML::script('assets/js/berniecode-animator.js') }}
         {{ HTML::script('assets/js/360player.js') }}

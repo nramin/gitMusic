@@ -102,8 +102,6 @@ class SongController extends BaseController {
                     'tags' => 'hip hop'
                 ));
 
-                
-
                 $create_song->sendToS3($destination_filepath, $user, $filename);
                 $create_song->sendToS3($destination_filepath_zip, $user, $zipname);
                 return Redirect::route('songProfile', array($user, $songname));    
@@ -123,22 +121,24 @@ class SongController extends BaseController {
     {
         $new = Input::all();
         $song_like = new SongLike();
+        $user_id = Auth::user()->getId();
+        $new['user_id'] = $user_id;
 
         if ($validator = $song_like->validate($new)->passes())
         {
-            $song_duplicate = SongLike::where('user_id', '=', $new->user_id)->where('song_id', '=', $new->song_id)->get();
-            if (! $song_duplicate ) {
-                $song_like = SongLikes::create($new);
-                $song = Song::find($new->song_id);
+            $song_id = $new['song_id'];
+            if ($song_duplicate = SongLike::where('user_id', '=', $user_id)->where('song_id', '=', $song_id)->get()) { // User has not already liked the song
+                $song_like = SongLike::create($new);
+                $song = Song::find($song_id);
                 $song->incrementLikes();
-                return Redirect::back(); // 200
+                return 'Success'; // 200
             } else {
-                return false; // 404
+                return 'error'; // 404
             }
         }
         else
         {
-            return false; 
+            return 'error'; 
         }
     }
 
