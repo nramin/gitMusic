@@ -197,7 +197,7 @@ input {
 
 #songpage-player {
   float: left;
-  width: 396px;
+  width: 128px;
 }
 
 #songpage-details {
@@ -394,4 +394,39 @@ h2 {
 #raminSucks{
   clear: both;
   display: none;
+}
+
+.ui360-vis .sm2-360ui {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.ui360 .sm2-360btn {
+  top: 67px !important;
+  left: 73px !important;
+}
+
+.ui360-vis {
+  width: 146px !important;
+  height: 146px !important;
+}
+
+.sm2-360ui {
+  width: 146px !important;
+  height: 146px !important;
+}
+.temp2 {
+  border: 10px solid #000;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  float: left;
+  padding: 20px;
+}
+
+.ui360 .sm2-canvas {
+  top: -7px !important;
 }
