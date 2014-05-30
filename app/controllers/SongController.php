@@ -11,7 +11,8 @@ class SongController extends BaseController {
         {
             if($song = Song::where('songname', '=', $songname)->where('user_id', '=', $user->getId())->first())
             {
-        	   return View::make('song.profile')->with('song', $song);
+                $versions = $song->getVersions();
+        	   return View::make('song.profile', array('song' => $song, 'versions' => $versions ));
             } else {
                 return View::make('errors.songNotFound', array('songname' => $songname));
             }

@@ -34,6 +34,19 @@
 		<span><a href="#">Download</a></span>
 	</div>
 
+	<div id="songpage-versions">
+		@if (count($versions) > 0)
+			<h2>Versions:</h2>
+				@foreach ($versions as $version)
+					<div class="songpage-version">
+						{{ HTML::linkRoute('songProfile', $version , array($version->user->username, $version)) }}
+					</div>
+				@endforeach
+		@else
+			<h3>No versions</h3>
+		@endif
+	</div>
+
 	<div id="songpage-comments">
 		@if (count($song->comments) > 0)
 			<h2>Comments:</h2>
