@@ -8,6 +8,7 @@
 		    <div id="file-container">
 		        <input type="file" name="songfile" accept="audio/*" id="file">
 		        <input type="file" name="projectfile" accept="application/zip">
+		        <input type="file" name="artfile" accept='image/'>
 		    </div>
 		    {{ Form::token() }}
 		    <input type="submit" value="Upload" id="submit">
