@@ -337,3 +337,61 @@ a {
 h2 {
   margin-top: 0;
 }
+
+/*
+  C O L A B - P A G E - B I T C H E Z
+*/
+
+#songHeader{
+  font-weight: 700;
+  font-size: 69.76pt;
+  line-height: 65pt;
+  margin-bottom: 55px;
+}
+
+#container{
+  width: 800px;
+  height: 100%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.player{
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  border: 6pt solid black; 
+  float: left;
+}
+
+.version{
+  width: 100%;
+  height: 140px;
+}
+
+.songInfoCollab{
+  margin-top: 26px;
+  margin-left: 37px;
+  float: left;
+}
+
+.downloadCollab{
+  text-decoration: underline;
+}
+
+.break{
+  width: 100%;
+  height: 160px;
+}
+
+.line {
+  height: 100%;
+  width: 6pt;
+  background-color: black;
+  margin-left: 67px;
+}
+
+#raminSucks{
+  clear: both;
+  display: none;
+}
