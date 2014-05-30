@@ -72,21 +72,28 @@ class SongController extends BaseController {
 
     public function handleUpload()
     {
-        $file = Input::all();    
+        $file = Input::all(); 
         $song = new Song();
         $user = Auth::User();
         $user_id = $user->getId();
         $file['user_id'] = $user_id;
+        //test code to see what file is
+        // var_dump($file);
+        // die(); 
 
         if($validator = $song->validate($file)->passes()) {
 
             if(Input::hasFile('songfile')){
                 $songname = $file['songname'];
                 $song_file = $file['songfile'];
+                $project_zip = $file['projectfile'];
                 $dest = '/var/www/gitmusic/uploads';
                 $filename = $songname . '.mp3';
+                $zipname = $songname . '.zip';
                 $song_file->move($dest, $filename);
+                $project_zip->move($dest, $zipname);
                 $destination_filepath = $dest . '/' . $filename;
+                $destination_filepath_zip = $dest . '/' . $zipname;
 
                 $create_song = Song::create(array(
                     'songname' => $songname,
@@ -98,6 +105,7 @@ class SongController extends BaseController {
                 
 
                 $create_song->sendToS3($destination_filepath, $user, $filename);
+                $create_song->sendToS3($destination_filepath_zip, $user, $zipname);
                 return Redirect::route('songProfile', array($user, $songname));    
             } else {
                 return Redirect::route('upload')

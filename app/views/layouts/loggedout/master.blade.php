@@ -9,6 +9,11 @@
 
         {{ HTML::style('assets/css/loggedout/main.css') }}
 
+        <script type="text/javascript" src="//use.typekit.net/rqj5dqa.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <script type="text/javascript" src="//use.typekit.net/jhd1olv.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
     </head>
     <body>
         <div id="container">
