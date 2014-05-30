@@ -106,14 +106,19 @@ footer {
 
 #upload-dialog {
   background-color: #000;
-  width: 350px;
-  padding: 65px;
+  width: 495px;
+  height: 553px;
+  
 }
 
 #upload-dialog-title {
+  margin-top: 34px;
   font-size: 40px;
   color: #FFF;
-  border-bottom: 1px solid #FFF;
+  border-bottom: 1pt solid #FFF;
+  width: 360px;
+  text-align: right;
+  font-weight: 700;
 }
 
 #upload-dialog #songname {
@@ -124,10 +129,12 @@ footer {
   margin: auto;
   margin-top: 30px;
   display: block;
+  margin-left: 103px;
   border-bottom: 1px solid #FFF;
   width: 75%;
   font-size: 30px;
 }
+
 
 #upload-dialog #file-container {
   display: block;
@@ -154,6 +161,10 @@ footer {
   color: #FFF;
   font-size: 32px;
   font-weight: 400;
+}
+
+#file{
+
 }
 
 #upload-dialog #submit {
