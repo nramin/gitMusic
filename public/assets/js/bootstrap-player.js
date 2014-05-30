@@ -19,7 +19,7 @@
 		  soundManager.flash9Options.useWaveformData = false;
 		}
 		if (threeSixtyPlayer.config.useEQData) {
-		  soundManager.flash9Options.useEQData = false;
+		  soundManager.flash9Options.useEQData = true;
 		}
 		if (threeSixtyPlayer.config.usePeakData) {
 		  soundManager.flash9Options.usePeakData = false;

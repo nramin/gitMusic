@@ -6,6 +6,8 @@
 
 @section('content')
 
+	{{ HTML::script('assets/js/song.js') }}
+
 	<h1 id='songHeader'>Politics of Little<br>League Baseball</h1>
 	<div class='version'>
         <div class='player'></div>
