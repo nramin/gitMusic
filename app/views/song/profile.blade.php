@@ -31,7 +31,9 @@
 		@else 
 			<span><a href="#">Sign up to like</a></span>
 		@endif
-		<span><a href="#">Download</a></span>
+		<!-- <span><a href="#" >Download</a></span> -->
+
+		{{ HTML::link($song->zip_url, 'Download Project'); }}
 	</div>
 
 	<div id="songpage-comments">
