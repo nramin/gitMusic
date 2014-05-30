@@ -13,6 +13,9 @@ section#topbar {
   height: 75px;
   background-color: black;
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 section#topbar #logo {
@@ -54,7 +57,7 @@ section#topbar nav ul li a {
   display: block;
   color: #f3f3f4;
   text-decoration: none;
-  margin-right: 100px;
+  padding-right: 100px;
   padding-top: 14px;
 }
 
@@ -80,13 +83,14 @@ section#topbar nav ul li a.logout {
   background-size: 60.1px 60.5px;
   background-position: -16px 11px;
   padding-left: 29px;
+  padding-right: 30px;
 }
 
 section#content {
   width: 700px;
   float: left;
-  margin-top: 40px;
-  margin-left: 152px;
+  margin-top: 92px;
+  margin-left: 199px;
 }
 
 footer {
@@ -227,6 +231,8 @@ a {
   background-color: #CCC;
   width: 160px;
   height: 100%;
+  position: fixed;
+  margin-top: 75px;
 }
 
 .sidebar-menu-title {
@@ -330,4 +336,62 @@ a {
 
 h2 {
   margin-top: 0;
+}
+
+/*
+  C O L A B - P A G E - B I T C H E Z
+*/
+
+#songHeader{
+  font-weight: 700;
+  font-size: 69.76pt;
+  line-height: 65pt;
+  margin-bottom: 55px;
+}
+
+#container{
+  width: 800px;
+  height: 100%;
+  margin: auto;
+  margin-top: 150px;
+}
+
+.player{
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  border: 6pt solid black; 
+  float: left;
+}
+
+.version{
+  width: 100%;
+  height: 140px;
+}
+
+.songInfoCollab{
+  margin-top: 26px;
+  margin-left: 37px;
+  float: left;
+}
+
+.downloadCollab{
+  text-decoration: underline;
+}
+
+.break{
+  width: 100%;
+  height: 160px;
+}
+
+.line {
+  height: 100%;
+  width: 6pt;
+  background-color: black;
+  margin-left: 67px;
+}
+
+#raminSucks{
+  clear: both;
+  display: none;
 }
