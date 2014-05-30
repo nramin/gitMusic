@@ -5,7 +5,22 @@
 @stop
 
 @section('content')
+	{{ HTML::script('assets/js/song.js') }}
 
+	<h1 id='songHeader'>Politics of Little<br>League Baseball</h1>
+	<div class='version'>
+        <div class='player'></div>
+	        <p class='songInfoCollab'>
+	            Version 5<br>
+	            May 20, 2014<br>
+	            Uploaded by Duba<br>
+	        <span class='downloadCollab'>Download</span>
+	        </p>
+	    </div>
+    </div>
+
+    <div class='break'>
+      <div class='line'>
 	<div id="songpage-title">{{ $song->songname }}</div>
 	<div id="sm2-container">
 			<!-- sm2 flash goes here -->

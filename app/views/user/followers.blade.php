@@ -1,4 +1,4 @@
-@extends('layouts.user.master')
+@extends('layouts.loggedin.master')
 
 @section('content')
     <h1>{{ $user }}'s Followers</h1>
