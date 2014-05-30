@@ -70,7 +70,7 @@ section#topbar nav ul li a.settings {
   background-image: url('../../img/settings.png');
   background-repeat: no-repeat;
   background-size: 56.1px 43.5px;
-  background-position: -8px 16px;
+  background-position: -6px 16px;
   padding-left: 48px;
 }
 
@@ -86,7 +86,7 @@ section#content {
   width: 700px;
   float: left;
   margin-top: 40px;
-  margin-left: 90px;
+  margin-left: 152px;
 }
 
 footer {
@@ -186,7 +186,7 @@ input {
 }
 
 #songpage-title {
-  font-size: 50px;
+  font-size: 69.76pt;
   font-weight: 700;
   margin-bottom: 20px;
 }
@@ -226,12 +226,14 @@ a {
   float: left;
   background-color: #CCC;
   width: 160px;
+  height: 100%;
 }
 
 .sidebar-menu-title {
   margin-top: 30px;
   margin-left: 30px;
   font-size: 15.05pt;
+  line-height: 12pt;
 }
 
 .sidebar-menu-line {
@@ -263,11 +265,69 @@ a {
 .sidebar-menu-text {
   float: left;
   display: inline-block;
-  padding-top: 5px;
+  padding-top: 18%;
   padding-left: 5px;
   text-decoration: none;
   width: 54px;
   font-size: 9.32pt;
   overflow: hidden;
   word-break: break-word;
+}
+
+.box {
+  clear: both;
+  background-image: url('fo_china.jpg');
+  background-position: -1200px -200px;
+  height: 310px;
+  border: 5px solid black;
+}
+
+.song {
+  margin: auto;
+  position: relative;
+}
+
+.songHeader {
+  float: left;
+  font-size: 24.53pt;
+  font-weight: 700;
+  width: 55%;
+}
+
+.songByline {
+  font-size: 15.05pt;
+  float: right;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  margin: 0;
+  bottom: 0;
+}
+
+.songHeader, #songByline {
+  margin-bottom: 2px;
+}
+
+.songInfo {
+  text-align: center;
+  width: 105px;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  float: right;
+}
+
+.download {
+  margin-top: 60px;
+  width: 70px;
+  display: inline-block;
+}
+
+.songLine {
+  overflow: hidden;
+  padding-top: 10px;
+  position: relative;
+}
+
+h2 {
+  margin-top: 0;
 }
