@@ -3,7 +3,7 @@ $(document).ready(function() {
 	sidebar_height();
 	$( window ).resize(function() {
 		sidebar_height();
-	}
+	});
 
 	$('.like-song').click(function(){
 		var songId = $(this).data('song-id');

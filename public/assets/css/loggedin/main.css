@@ -140,7 +140,7 @@ footer {
 }
 
 
-#upload-dialog #file-container {
+#upload-dialog .file-container {
   display: block;
   background-color: #000;
   text-align: center;
@@ -172,14 +172,14 @@ footer {
 #upload-dialog #submit {
   display: block;
   border: 1px solid #FFF;
-  width: 75%;
-  margin: auto;
   background-color: #000;
   color: #FFF;
   font-size: 32px;
   padding: 5px;
   margin-top: 30px;
   outline: 0;
+  height: 68px;
+  width: 260px;
 }
 
 #upload-dialog #songname::-webkit-input-placeholder {

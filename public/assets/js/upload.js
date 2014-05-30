@@ -12,6 +12,7 @@ $(document).ready(function(){
 		'font-size': '24.53pt'
 	});
 
+
 	var fileInput = $(':file').wrap(wrapper);
 
 	fileInput.change(function(){
