@@ -13,6 +13,9 @@ section#topbar {
   height: 75px;
   background-color: black;
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 section#topbar #logo {
@@ -54,7 +57,7 @@ section#topbar nav ul li a {
   display: block;
   color: #f3f3f4;
   text-decoration: none;
-  margin-right: 100px;
+  padding-right: 100px;
   padding-top: 14px;
 }
 
@@ -80,13 +83,14 @@ section#topbar nav ul li a.logout {
   background-size: 60.1px 60.5px;
   background-position: -16px 11px;
   padding-left: 29px;
+  padding-right: 30px;
 }
 
 section#content {
   width: 700px;
   float: left;
-  margin-top: 40px;
-  margin-left: 152px;
+  margin-top: 92px;
+  margin-left: 199px;
 }
 
 footer {
@@ -227,6 +231,8 @@ a {
   background-color: #CCC;
   width: 160px;
   height: 100%;
+  position: fixed;
+  margin-top: 75px;
 }
 
 .sidebar-menu-title {
