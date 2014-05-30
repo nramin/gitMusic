@@ -108,7 +108,7 @@ footer {
   background-color: #000;
   width: 495px;
   height: 553px;
-  
+  padding-top: 1em;
 }
 
 #upload-dialog-title {
@@ -126,13 +126,17 @@ footer {
   border: 0;
   outline: 0;
   color: #FFF;
-  margin: auto;
   margin-top: 30px;
   display: block;
   margin-left: 103px;
   border-bottom: 1px solid #FFF;
-  width: 75%;
+  width: 256px;
   font-size: 30px;
+}
+
+.uploadField{
+  margin-left: 103px;
+  width: 256px;
 }
 
 
@@ -140,9 +144,7 @@ footer {
   display: block;
   background-color: #000;
   text-align: center;
-  margin: auto;
   margin-top: 30px;
-  width: 75%;
 }
 
 #upload-dialog #file {
