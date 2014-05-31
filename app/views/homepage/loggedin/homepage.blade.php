@@ -30,6 +30,7 @@
           </div>
 		@endforeach
 	@else
-	<h2>Empty Stream :(
+		<h2>You are not currently following anyone.</h2>
+		{{ HTML::linkRoute('stream', 'Check out our explore page!', array('new')) }}
 	@endif
 @stop
