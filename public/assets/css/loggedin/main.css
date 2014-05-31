@@ -107,7 +107,7 @@ footer {
 #upload-dialog {
   background-color: #000;
   width: 495px;
-  height: 553px;
+  height: 580px;
   padding-top: 1em;
 }
 
@@ -142,20 +142,19 @@ footer {
 
 #upload-dialog .file-container {
   display: block;
-  background-color: #000;
-  text-align: center;
-  margin-top: 30px;
+  margin-left: 22%;
 }
 
 #upload-dialog #file {
   outline: 0;
 }
 
-#upload-dialog #file::-webkit-file-upload-button {
+#upload-dialog #file::-webkit-file-upload-button, #upload-dialog #fileProject::-webkit-file-upload-button,
+  #upload-dialog #albumArt::-webkit-file-upload-button {
   visibility: hidden;
 }
-#upload-dialog #file::before {
-  content: 'Choose File';
+#upload-dialog #file::before, #upload-dialog #fileProject::before,
+#upload-dialog #albumArt::before  {
   outline: none;
   width: 100%;
   margin: auto;
@@ -165,8 +164,27 @@ footer {
   font-weight: 400;
 }
 
-#file{
+#upload-dialog #fileProject::before  {
+  content: 'Choose Project';
+}
 
+
+
+
+#upload-dialog #file::before {
+   content: 'Choose MP3';
+}
+
+#upload-dialog #albumArt::before {
+   content: 'Choose Art';
+}
+
+#file, #fileProject{
+  cursor: pointer;
+}
+
+#fileWrapperSong{
+  display: none;
 }
 
 #upload-dialog #submit {

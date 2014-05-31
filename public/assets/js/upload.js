@@ -8,8 +8,10 @@ $(document).ready(function(){
 		'text-align': 'center',
 		'border': '1pt white solid',
 		'padding-top': '14px',
+		'margin-top': '30px',
 		'font-family': 'futura',
-		'font-size': '24.53pt'
+		'font-size': '24.53pt',
+		'margin-left': '103px'
 	});
 
 
@@ -17,10 +19,10 @@ $(document).ready(function(){
 
 	fileInput.change(function(){
 	    $this = $(this);
-	    $('#file').text($this.val());
+	    $('#fileWrapperSong').text($this.val());
 	})
 
-	$('#file').click(function(){
+	$('#fileWrapperSong').click(function(){
 	    fileInput.click();
 	}).show();
 });

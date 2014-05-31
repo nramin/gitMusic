@@ -5,13 +5,13 @@
 		<form method="post" action="{{ route('upload') }}" enctype="multipart/form-data">
 		    <div id="upload-dialog-title">Upload</div>
 		    <input type="text" class='uploadField' name="songname" placeholder="Song Name" id="songname">
-		    <div class='uploadField file-container'>
-		        <input type="file" name="songfile" accept="audio/*" id="file">
-		    </div>
+		  
+		    <input type="file" class='uploadField file-container fileShaft' name="songfile" accept="audio/*" id="file">
+		
+		    <input type="file" class='fileShaft' name="projectfile" accept="application/zip" id='fileProject'>
 
-		    <div class='uploadField file-container'>
-		    	<input type="file" name="projectfile" accept="application/zip" id='fileHide'>
-		    </div>
+		    <input type="file" class='fileShaft' name="photo" accept="image/*" id='albumArt'>
+		    
 		    {{ Form::token() }}
 		    <input class='uploadField' type="submit" value="Upload" id="submit">
 		</form>
