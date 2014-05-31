@@ -282,8 +282,6 @@ a {
 
 .box {
   clear: both;
-  background-image: url('fo_china.jpg');
-  background-position: -1200px -200px;
   height: 310px;
   border: 5px solid black;
 }
