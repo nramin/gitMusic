@@ -5,6 +5,7 @@
         <title>Git Music</title>
         <meta name="description" content="Music Collabaration, and Discovery">
         <meta name="author" content="GitMusic">
+        <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
         
         {{ HTML::style('assets/css/loggedin/main.css') }}
         {{ HTML::style('assets/css/loggedin/circle.css') }}
@@ -41,9 +42,9 @@
         <nav>
             <ul>
                 <li><a href="#" class="search">Search</a></li>
-                <li><a href="{{ route('upload') }}" class="upload">Upload</a></li>
-                <li><a href="{{ route('settings') }}" class="settings">Settings</a></li>
-                <li><a href="{{ route('logout-get') }}" class="logout">Logout</a></li>
+                <li><a href="#" class="explore ghost">Explore</a></li>
+                <li><a href="{{ route('settings') }}" class="settings ghost">Settings</a></li>
+                <li><a href="{{ route('logout-get') }}" class="logout ghost">Logout</a></li>
             </ul>
         </nav>
         @show
@@ -52,12 +53,14 @@
 
     <section id="sidebar">
         @section('sidebar')
-            <?php $current_user = Auth::user(); ?>
+        <?php $current_user = Auth::user(); ?>
             @if ($current_user)
                 @if (sizeof($current_user->songs) < 1)
                     <p>You have no projects</p>
                 @else
-                    <div class="sidebar-menu-title">Your<br />Projects:</div>
+                    <div class="sidebar-menu-title">Your<br />Projects:
+                        <a href="{{ route('upload') }}" class='upload'><img id='addImage' src="{{ asset('assets/img/add.png') }}"></a>
+                    </div>
                     <div class="sidebar-menu-line"></div>
                         @foreach ($current_user->songs as $song)
                         <div class="sidebar-menu-item">
@@ -76,14 +79,7 @@
         @yield('content')
 
     </section>
-<!-- 
-    <footer id="footer">
-       
-        @section('footer')
-            <h4>This is where we have ourselves a footer</h4>
-        @show
 
-    </footer> -->
 
     </body>
 </html>
