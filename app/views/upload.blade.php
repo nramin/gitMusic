@@ -2,7 +2,7 @@
 
 @section('content')
 	<div id="upload-dialog">
-		<form method="post" action={{ route('upload') }} enctype="multipart/form-data">
+		<form method="post" action="{{ route('upload-post') }}" enctype="multipart/form-data">
 		    <div id="upload-dialog-title">Upload</div>
 		    <input type="text" class='uploadField' name="songname" placeholder="Song Name" id="songname" required>
 		  

@@ -38,7 +38,7 @@
 		    <input type="text" name="email" placeholder="Email address" {{ (Input::old('email')) ? ' value="' . e(Input::old('email')) . '"' : '' }}>
 		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }}>
 		    <input type="password" name="password" placeholder="Password">
-		    <input type="password" name="password" placeholder="Password Again">
+		    <input type="password" name="password_again" placeholder="Password Again">
 		    {{ Form::token() }}
 		    <input type="submit" value="Signup">
 		</form>

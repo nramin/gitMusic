@@ -50,21 +50,23 @@
     </section>
 
     <section id="sidebar">
-        <?php $current_user = Auth::user(); ?>
-        @if ($current_user)
-            @if (sizeof($current_user->songs) < 1)
-                <p>You have no projects</p>
-            @else
-                <div class="sidebar-menu-title">Your<br />Projects:</div>
-                <div class="sidebar-menu-line"></div>
-                    @foreach ($current_user->songs as $song)
-                    <div class="sidebar-menu-item">
-                        {{ HTML::linkRoute('songProfile', '', array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-circle')) }}
-                        {{ HTML::linkRoute('songProfile', $song, array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-text')) }}
-                    </div>
-                    @endforeach
+        @section('sidebar')
+            <?php $current_user = Auth::user(); ?>
+            @if ($current_user)
+                @if (sizeof($current_user->songs) < 1)
+                    <p>You have no projects</p>
+                @else
+                    <div class="sidebar-menu-title">Your<br />Projects:</div>
+                    <div class="sidebar-menu-line"></div>
+                        @foreach ($current_user->songs as $song)
+                        <div class="sidebar-menu-item">
+                            {{ HTML::linkRoute('songProfile', '', array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-circle')) }}
+                            {{ HTML::linkRoute('songProfile', $song, array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-text')) }}
+                        </div>
+                        @endforeach
+                @endif
             @endif
-        @endif
+        @show
 
     </section>
 

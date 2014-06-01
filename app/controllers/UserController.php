@@ -9,7 +9,7 @@ class UserController extends BaseController {
     {
         if($user = User::where('pretty_username', '=', $username)->first()) 
         {
-        	return View::make('user.profile')->with('user', $user);
+            return View::make('user.profile')->with('user', $user);
         }
         return View::make('errors.userNotFound', array('username' => $username));
     }
@@ -41,6 +41,16 @@ class UserController extends BaseController {
         {
             $following = $user->getFollowing($user->getId());
             return View::make('user.following', array('following' => $following, 'user' => $user));
+        }
+        return View::make('errors.userNotFound', array('username' => $username));
+    }
+
+    public function getLikedSongs($username)
+    {
+        if($user = User::getUserByName($username)) 
+        {
+            $liked = $user->getLikedSongs();
+            return View::make('user.likedSongs', array('likedSongs' => $liked, 'user' => $user));
         }
         return View::make('errors.userNotFound', array('username' => $username));
     }

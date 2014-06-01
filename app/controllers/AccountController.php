@@ -35,7 +35,7 @@ class AccountController extends BaseController {
 				// redirect to the intended page
 				return Redirect::intended('/');
 			} else {
-				return Redirect::route('login-post')
+				return Redirect::route('home')
 				->with('global', 'Invalid credentials.') // or account not activated via active != 1
 				->withInput();
 			}
@@ -52,22 +52,21 @@ class AccountController extends BaseController {
 	}
 	
 	public function postCreate() {
-		
+		$new = Input::all();
 		$validator = Validator::make(Input::all(),
 			array(
-				'username'  	 => 'required|min:3|max:20|unique:users',
-				'email' 		 => 'email|max:254|unique:users', //NOT REQUIRED FOR DEBUGGING PURPOSES FOR NOW, MAKE IT REQUIRED LATER
-				'password'		 => 'required|min:6|max:60',
+				'username'	=> 'required|min:3|max:20|unique:users',
+				'email' 	=> 'email|max:254|unique:users', //NOT REQUIRED FOR DEBUGGING PURPOSES FOR NOW, MAKE IT REQUIRED LATER
+				'password'	=> 'required|min:6|max:60',
 				'password_again' => 'required|same:password'
 			)
 		);
 		
 		if ($validator->fails()) {
-			return Redirect::route('signup-post')
+			return Redirect::route('home')
 					->withErrors($validator)
 					->withInput();
 		} else {
-			
 			$username = Input::get('username');
 			$email	  = Input::get('email');
 			$password = Input::get('password');
@@ -87,8 +86,8 @@ class AccountController extends BaseController {
 			if ($create_user) {
 			
 				// send validation email later
-			
-				return Redirect::route('/')
+				Auth::loginUsingId($create_user->getId());
+				return Redirect::route('home')
 					->with('global', 'Your account has been created! Sign in now!');
 			}
 		}

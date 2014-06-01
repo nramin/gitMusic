@@ -56,7 +56,15 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
 
 	// Song Upload Post
-	Route::post('upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
+	Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
+
+	// Explore Page
+	Route::get('explore', array('as' => 'explore', 'uses' => 'SongController@showExplore'));
+
+	// <-------- Json Routes ---------->
+
+	// Song Genre By Type (hottest, newest, popular)
+	Route::get('songs/genre/{type}/{genre_id}', array('uses' => 'SongController@getGenreSongs'));
 
 	//CSRF Protected Routes
 	Route::group(array('before' => 'csrf'), function() {
@@ -66,7 +74,6 @@ Route::group(array('before' => 'auth'), function() {
 
 		// Comment Post
 		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
-
 	
 	});
 
@@ -137,8 +144,7 @@ Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'Son
 
 App::missing(function($exception)
 	{
-
 		// shows an error page (app/views/error.blade.php)
 		// returns a page not found error
-		return Response::view('errors.error', array(), 404);
+		return Response::view('errors.404', array(), 404);
 	});

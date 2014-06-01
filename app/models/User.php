@@ -151,4 +151,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return false;
 	}
 
+	public function getLikedSongs()
+	{
+		$liked_songs_ids = SongLike::where('user_id', '=', $this->id)->get();
+		$liked_ids = array();
+		foreach ($liked_songs_ids as $liked) {
+				array_push($liked_ids, $liked->song_id);
+			}
+		$liked_songs = Song::whereIn('id', $liked_ids)->newest()->take(10)->get();
+		return $liked_songs;
+	}
+
 }
