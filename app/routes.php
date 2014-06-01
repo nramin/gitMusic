@@ -61,6 +61,9 @@ Route::group(array('before' => 'auth'), function() {
 	// Explore Page
 	Route::get('explore', array('as' => 'explore', 'uses' => 'SongController@showExplore'));
 
+	// Song Genre Search
+	Route::get('songs/genre/hottest/{genre_id}', array('uses' => 'SongController@getGenreHottestSongs'));
+
 	//CSRF Protected Routes
 	Route::group(array('before' => 'csrf'), function() {
 		

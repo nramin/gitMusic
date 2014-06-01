@@ -154,4 +154,13 @@ class SongController extends BaseController {
         return View::make('explore', array('genres' => $genres, 'songs' => $songs));
     }
 
+    public function getGenreHottestSongs($genre_id)
+    {
+        if($genre = Genre::find($genre_id)) {
+            return Song::getHottestSongsByGenre($genre_id);
+        } else {
+            App::abort(404);
+        }
+    }
+
 }

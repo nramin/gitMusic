@@ -29,6 +29,11 @@ class Song extends Eloquent {
         return $this->hasMany('Comment');
     }
 
+    public function genre()
+    {
+        return $this->belongsTo('Genre');
+    }
+
     public static function getSongbyName($songname)
     {
     	if($song = Song::where('songname', '=', $songname)->first())
