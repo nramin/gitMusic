@@ -138,4 +138,10 @@ class Song extends Eloquent {
         }
     }
 
+    public static function getHottestSongsByGenre($genre_id)
+    {
+        $songs = Song::where('genre_id', '=', $genre_id)->hottest()->take(10)->get();
+        return $songs;
+    }
+
 }

@@ -56,7 +56,10 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
 
 	// Song Upload Post
-	Route::post('upload', array('as' => 'upload', 'uses' => 'SongController@handleUpload'));
+	Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
+
+	// Explore Page
+	Route::get('explore', array('as' => 'explore', 'uses' => 'SongController@showExplore'));
 
 	//CSRF Protected Routes
 	Route::group(array('before' => 'csrf'), function() {
@@ -66,7 +69,6 @@ Route::group(array('before' => 'auth'), function() {
 
 		// Comment Post
 		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
-
 	
 	});
 

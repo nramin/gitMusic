@@ -147,4 +147,11 @@ class SongController extends BaseController {
         return View::make('upload');
     }
 
+    public function showExplore()
+    {
+        $genres = Genre::all();
+        $songs = Song::newest()->take(10)->get();
+        return View::make('explore', array('genres' => $genres, 'songs' => $songs));
+    }
+
 }
