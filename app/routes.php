@@ -139,8 +139,7 @@ Route::get('/{username}/{songname}', array('as' => 'songProfile', 'uses' => 'Son
 
 App::missing(function($exception)
 	{
-
 		// shows an error page (app/views/error.blade.php)
 		// returns a page not found error
-		return Response::view('errors.error', array(), 404);
+		return Response::view('errors.404', array(), 404);
 	});

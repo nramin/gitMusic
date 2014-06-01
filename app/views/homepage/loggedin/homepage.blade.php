@@ -31,6 +31,6 @@
 		@endforeach
 	@else
 		<h2>You are not currently following anyone.</h2>
-		{{ HTML::linkRoute('stream', 'Check out our explore page!', array('new')) }}
+		{{ HTML::linkRoute('explore', 'Check out our explore page!') }}
 	@endif
 @stop
