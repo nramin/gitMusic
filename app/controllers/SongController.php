@@ -90,14 +90,17 @@ class SongController extends BaseController {
                 $songname = $file['songname'];
                 $song_file = $file['songfile'];
                 $project_zip = $file['projectfile'];
+                $pic_file = $file['artfile'];
                 $dest = '/var/www/gitmusic/uploads';
                 $filename = $songname . '.mp3';
                 $zipname = $songname . '.zip';
+                $picname = $songname . '.jpg';
                 $song_file->move($dest, $filename);
                 $project_zip->move($dest, $zipname);
+                $pic_file->move($dest, $picname);
                 $destination_filepath = $dest . '/' . $filename;
                 $destination_filepath_zip = $dest . '/' . $zipname;
-
+                $destination_filepath_pic = $dest . '/' . $picname;
                 $create_song = Song::create(array(
                     'songname' => $songname,
                     'user_id' => $user_id,
@@ -107,6 +110,7 @@ class SongController extends BaseController {
 
                 $create_song->sendToS3($destination_filepath, $user, $filename);
                 $create_song->sendToS3($destination_filepath_zip, $user, $zipname);
+                $create_song->sendToS3($destination_filepath_pic, $user, $picname);
                 return Redirect::route('songProfile', array($user, $songname));    
             } else {
                 return Redirect::route('upload')

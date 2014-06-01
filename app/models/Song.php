@@ -130,6 +130,10 @@ class Song extends Eloquent {
                 $user->url = $url;
                 $user->save();
                 return true;
+            } elseif (strpos($url, '.jpg')) {
+                $user->pic_url = $url;
+                $user->save();
+                return true;
             } else {
                 $user->zip_url = $url;
                 $user->save();
