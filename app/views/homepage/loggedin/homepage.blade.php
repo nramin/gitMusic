@@ -9,7 +9,7 @@
 		@foreach ($songs as $song)
           <div class='song'>
           	<div class="songLine">
-            	<h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->pretty_username, $song->pretty_songname)) }}</h2>
+            	<h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user->pretty_username, $song->pretty_songname)) }}</h2>
             	<p class='songByline'>By<br>Lady the Beard</p>
             </div>
             @if (isset($song->pic_url))
