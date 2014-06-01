@@ -1,17 +1,7 @@
 @extends('layouts.loggedin.master')
 
 @section('sidebar')
-	@if (sizeof($current_user->songs) < 1)
-    	<p>You have no projects</p>
-    @else
-    	<div class="sidebar-menu-title">Your Projects:</div>
-			@foreach ($current_user->songs as $song)
-			<div class="sidebar-menu-item">
-				{{ HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')) }}
-				{{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname), array('class' => 'sidebar-menu-text')) }}
-			</div>
-			@endforeach
-	@endif
+	@parent
 @stop
 
 @section('content')
