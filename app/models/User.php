@@ -77,7 +77,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->username;
 	}
-	
+
 	public function songs()
 	{
 		return $this->hasMany('Song');
@@ -96,6 +96,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getFollowing($user_id)
 	{
 		return Follow::getUserFollowing($user_id);
+	}
+
+	public function incrementFollowers() 
+	{
+		return $this->increment('followers');
 	}
 
 	public static function getUserByName($username)
@@ -133,6 +138,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		$song_like = DB::table('song_likes')->where('user_id', '=', $this->id)->where('song_id', '=', $song_id)->get();
 		if( $song_like ) {
+			return true;
+		}
+		return false;
+	}
+
+	public function following_user($following_id)
+	{
+		if(count(Follow::where('user_id', '=', $following_id)->where('follower_id', '=', $this->id)->get()) > 0 ) {
 			return true;
 		}
 		return false;

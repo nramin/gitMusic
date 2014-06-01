@@ -18,21 +18,9 @@ $(document).ready(function() {
 		});
 	});
 
-	function showLikeChange() {
-		$('.like-song').hide();
-		$('.song-likes').html(parseInt($('.song-likes').html(), 10) + 1);
-		alert('You Liked That Shit?!');
-	}
-
-	function ajaxLikeError() {
-		alert('something fucked up');
-	}
-
-
 	function sidebar_height() {
 		var page_height = $(window).height();
 		var topbar_height = $('#topbar').height();
 		$('#sidebar').css('height', page_height - topbar_height);
-
 	}
 });

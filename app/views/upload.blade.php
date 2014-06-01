@@ -2,7 +2,7 @@
 
 @section('content')
 	<div id="upload-dialog">
-		<form method="post" action="{{ route('upload') }}" enctype="multipart/form-data">
+		<form method="post" action={{ route('upload') }} enctype="multipart/form-data">
 		    <div id="upload-dialog-title">Upload</div>
 		    <input type="text" class='uploadField' name="songname" placeholder="Song Name" id="songname">
 		  
@@ -10,7 +10,7 @@
 		
 		    <input type="file" class='fileShaft' name="projectfile" accept="application/zip" id='fileProject'>
 
-		    <input type="file" class='fileShaft' name="photo" accept="image/*" id='albumArt'>
+		    <input type="file" class='fileShaft' name="artfile" accept="image/*" id='albumArt'>
 		    
 		    {{ Form::token() }}
 		    <input class='uploadField' type="submit" value="Upload" id="submit">

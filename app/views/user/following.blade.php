@@ -1,4 +1,4 @@
-@extends('layouts.user.master')
+@extends('layouts.loggedin.master')
 
 @section('content')
     @if (sizeof($following) < 1)

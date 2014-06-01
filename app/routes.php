@@ -67,10 +67,11 @@ Route::group(array('before' => 'auth'), function() {
 		// Comment Post
 		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
 
-		// Follow Post
-		Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));
 	
 	});
+
+	// Follow Post
+	Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));
 
 	// Song Like post
 	Route::post('song-like', array('as' => 'song-like', 'uses' => 'SongController@like'));
