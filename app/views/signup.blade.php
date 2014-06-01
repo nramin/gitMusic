@@ -1,12 +1,8 @@
 @extends('layouts.loggedout.master')
 
 @section('content')
-	<section id="controls" class="margin">
-	    <a href="login" id="login">login</a>
-	    <a href="signup" id="signup" class="active">signup</a>
-	</section>
 	<section class="form">
-		<form action="/signup" method="post">
+		<form action="signup" method="post">
 			@if($errors->has('username'))
 				{{ $errors->first('username') }}
 			@endif

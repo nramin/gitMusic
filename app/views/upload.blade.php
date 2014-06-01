@@ -28,6 +28,7 @@
 				</div>
 			</div>
 			<div class="clearfix"></div>
+			{{ Form::token() }}
 			<input type="submit" value="Upload" class="button" id="submit">
 		</form>
 	</div>

@@ -5,6 +5,9 @@ class SongController extends BaseController {
     /**
      * Show the profile for the given song.
      */
+
+    public static $FILTER_TYPES = array('hottest', 'newest', 'popular');
+
     public function index($username, $songname)
     {
         if($user = User::getUserByName($username))
@@ -149,6 +152,22 @@ class SongController extends BaseController {
      public function showUpload()
     {
         return View::make('upload');
+    }
+
+    public function showExplore()
+    {
+        $genres = Genre::all();
+        $songs = Song::newest()->take(10)->get();
+        return View::make('explore', array('genres' => $genres, 'songs' => $songs));
+    }
+
+    public function getGenreSongs($type, $genre_id)
+    {
+        if($genre = Genre::find($genre_id) && in_array($type, self::$FILTER_TYPES)) {
+            return Song::getSongsByGenre($type, $genre_id);
+        } else {
+            App::abort(404);
+        }
     }
 
 }
