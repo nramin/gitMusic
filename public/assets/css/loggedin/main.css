@@ -18,6 +18,15 @@ section#topbar {
   z-index: 1000;
 }
 
+#searchBox{
+  position: absolute;
+  top: 75px;
+  right: 0;
+  width: 713px;
+  background-color: black;
+  border-bottom-left-radius: 10px;
+}
+
 section#topbar #logo {
   background-image: url("../../img/logo_small.png");
   background-repeat: no-repeat;
@@ -26,6 +35,8 @@ section#topbar #logo {
   margin-left: 10px;
   display: block;
   float: left;
+  background-size: 91px 75px;
+  background-position: -12px 0px; 
 }
 
 section#topbar #username {
@@ -96,7 +107,7 @@ section#topbar nav ul li a.search {
   position: absolute;
   right: 13px;
   display: inline-block;
-  top: 30px;
+  top: 27px;
 }
 
 section#topbar nav ul li a.settings {
@@ -162,6 +173,19 @@ footer {
   border-bottom: 1px solid #FFF;
   width: 256px;
   font-size: 30px;
+}
+
+#searchInput{
+  display: block;
+  width: 80%;
+  border: none;
+  background-color: black;
+  border-bottom: white 1pt solid;
+  color: white;
+  outline: 0;
+  font-size: 13.15pt;
+  margin-left: 1em;
+  margin-top: 10px;
 }
 
 .uploadField{

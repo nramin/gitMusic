@@ -41,9 +41,9 @@
         <nav>
             <ul>
                 <li><a href="#" class="search">Search</a></li>
-                <li><a href="#" class="explore">Explore</a></li>
-                <li><a href="{{ route('settings') }}" class="settings">Settings</a></li>
-                <li><a href="{{ route('logout-get') }}" class="logout">Logout</a></li>
+                <li><a href="#" class="explore ghost">Explore</a></li>
+                <li><a href="{{ route('settings') }}" class="settings ghost">Settings</a></li>
+                <li><a href="{{ route('logout-get') }}" class="logout ghost">Logout</a></li>
             </ul>
         </nav>
         @show
