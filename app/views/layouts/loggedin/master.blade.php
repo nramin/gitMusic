@@ -5,6 +5,7 @@
         <title>Git Music</title>
         <meta name="description" content="Music Collabaration, and Discovery">
         <meta name="author" content="GitMusic">
+        <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
         
         {{ HTML::style('assets/css/loggedin/main.css') }}
         {{ HTML::style('assets/css/loggedin/circle.css') }}
