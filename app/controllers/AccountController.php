@@ -73,13 +73,14 @@ class AccountController extends BaseController {
 			
 			// Activation code
 			$code 	  = str_random(60); 
-			
+			$username_pretty = str_replace(' ', '-', $username);
 			$create_user = User::create(array(
 				'username' => $username,
 				'email' => $email,
 				'password' => Hash::make($password),
 				'temp_code' => $code,
-				'is_active' => 'Y'
+				'is_active' => 'Y',
+				'pretty_username' => $username_pretty
 			));
 			
 			if ($create_user) {

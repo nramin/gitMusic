@@ -25,7 +25,7 @@
 				<div id="userpage-player">
      				<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
 				</div>
-				<li>{{ HTML::linkRoute('songProfile', $song->songname , array($user->username, $song->songname)) }}</li>
+				<li>{{ HTML::linkRoute('songProfile', $song->songname , array($user->pretty_username, $song->pretty_songname)) }}</li>
 			@endforeach
 		</ul>
 	@else 

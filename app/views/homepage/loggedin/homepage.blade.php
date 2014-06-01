@@ -7,8 +7,8 @@
     	<div class="sidebar-menu-title">Your Projects:</div>
 			@foreach ($current_user->songs as $song)
 			<div class="sidebar-menu-item">
-				{{ HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')) }}
-				{{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname), array('class' => 'sidebar-menu-text')) }}
+				{{ HTML::linkRoute('songProfile', '', array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-circle')) }}
+				{{ HTML::linkRoute('songProfile', $song, array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-text')) }}
 			</div>
 			@endforeach
 	@endif
@@ -19,14 +19,24 @@
 		@foreach ($songs as $song)
           <div class='song'>
           	<div class="songLine">
-            	<h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user, $song->songname)) }}</h2>
+            	<h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->pretty_username, $song->pretty_songname)) }}</h2>
             	<p class='songByline'>By<br>Lady the Beard</p>
             </div>
-            <div class='box' style="background-image: url('/assets/img/jfk.jpg'); background-repeat: no-repeat;">
-              <div class='songInfo'>
-                <img class='download' src='download.png' alt='chill' />
-              </div>
-            </div>
+            @if (isset($song->pic_url))
+	            <?php $pic_url = $song->pic_url;?>
+	            <div class='box' style="background-image: url('{{ $pic_url }}')">
+	              <div class='songInfo'>
+	                <img class='download' src='download.png' alt='chill' />
+	              </div>
+	            </div>
+            @else
+            	<?php $pic_url = $song->pic_url;?>
+	            <div class='box' style="background-image: url('{{ URL::asset('assets/img/jfk.jpg') }}')">
+	              <div class='songInfo'>
+	                <img class='download' src='download.png' alt='chill' />
+	              </div>
+	            </div>
+	        @endif
           </div>
 		@endforeach
 	@else

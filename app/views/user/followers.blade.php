@@ -8,7 +8,7 @@
     @else
 	    <ul>
 			@foreach ($followers as $follower)
-				<li>{{ HTML::linkRoute('userProfile', $follower->username, array($follower->username)) }}</li>
+				<li>{{ HTML::linkRoute('userProfile', $follower->username, array($follower->pretty_username)) }}</li>
 			@endforeach
 		</ul>
 	@endif

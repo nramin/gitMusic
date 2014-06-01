@@ -27,7 +27,7 @@
 		@endif
 		</span>
 		<span>{{ $song->updated_at }}</span>
-		<span>Uploaded by {{ HTML::linkRoute('userProfile', $song->user->username , array($song->user->username)) }}</span>
+		<span>Uploaded by {{ HTML::linkRoute('userProfile', $song->user->username , array($song->user->pretty_username)) }}</span>
 		<span>Likes: <span class="song-likes">{{ $song->likes() }}</span></span>
 		
 		@if (Auth::user())
@@ -48,7 +48,7 @@
 			<h2>Comments:</h2>
 				@foreach ($song->comments as $comment)
 					<div class="songpage-comment">
-						{{ HTML::linkRoute('userProfile', $comment->user->username , array($comment->user->username)) }}:
+						{{ HTML::linkRoute('userProfile', $comment->user->username , array($comment->user->pretty_username)) }}:
 						{{ $comment->content }}
 					</div>
 				@endforeach

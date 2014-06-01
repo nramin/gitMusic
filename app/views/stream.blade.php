@@ -11,7 +11,7 @@
     <h3>Songs:</h3>
     <ul>
 			@foreach ($songs as $song)
-			<li>{{ HTML::linkRoute('songProfile', $song->songname , array($song->user->username, $song->songname)) }}</li>
+			<li>{{ HTML::linkRoute('songProfile', $song->songname , array($song->user->pretty_username, $song->pretty_songname)) }}</li>
 			@endforeach
 	</ul>
 @stop
