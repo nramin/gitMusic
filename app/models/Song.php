@@ -4,8 +4,6 @@ class Song extends Eloquent {
 
     protected $table = 'songs';
 
-    protected $hidden = array('user_id');
-
     protected $guarded = array('id');
 
     private $rules = array(
@@ -143,9 +141,17 @@ class Song extends Eloquent {
         }
     }
 
-    public static function getHottestSongsByGenre($genre_id)
+    public static function getSongsByGenre($type, $genre_id)
     {
-        $songs = Song::where('genre_id', '=', $genre_id)->hottest()->take(10)->get();
+        if($type == 'newest') {
+            $songs = Song::where('genre_id', '=', $genre_id)->newest()->take(10)->get();
+        } else if ($type == 'hottest') {
+            $songs = Song::where('genre_id', '=', $genre_id)->hottest()->take(10)->get();
+        } else if ($type == 'popular') {
+            $songs = Song::where('genre_id', '=', $genre_id)->popular()->take(10)->get();
+        } else {
+            return 'Type does not exist';
+        }
         return $songs;
     }
 
