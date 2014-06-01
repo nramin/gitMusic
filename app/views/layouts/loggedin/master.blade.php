@@ -52,6 +52,8 @@
     </section>
 
     <section id="sidebar">
+        @section('sidebar')
+
         <?php $current_user = Auth::user(); ?>
         @if ($current_user)
             @if (sizeof($current_user->songs) < 1)
@@ -68,7 +70,7 @@
                     </div>
                     @endforeach
             @endif
-        @endif
+        @show
 
     </section>
 
