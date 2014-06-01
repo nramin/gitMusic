@@ -33,11 +33,15 @@ section#topbar #username {
   float: left;
   color: #f3f3f4;
   margin-left: 40px;
+  display: inline-block;
+  overflow: hidden;
+  width: 450px;
 }
 
 section#topbar nav {
   overflow: hidden;
-  float: right;
+  position: absolute;
+  right: 0;
 }
 
 section#topbar nav ul {
@@ -61,27 +65,45 @@ section#topbar nav ul li a {
   padding-top: 14px;
 }
 
-section#topbar nav ul li a.search {
-  background-image: url('../../img/searchWhite.png');
+section#topbar nav ul li a.explore {
+  background-image: url('../../img/explore.png');
   background-repeat: no-repeat;
   background-size: 41.5px 41.5px;
-  background-position: 14px 18px;
+  background-position: 2px 19px;
   padding-left: 51px;
 }
 
-section#topbar nav ul li a.upload {
-  background-image: url('../../img/upload.png');
+section#topbar nav ul li a.search {
+  background-image: url('../../img/searchWhite.png');
+  background-repeat: no-repeat;
+  background-size: 48.5px 41.5px;
+  background-position: 2px 19px;
+  padding-left: 51px;
+}
+
+/*
+ a.upload {
+  background-image: url('../../img/add.png');
   background-repeat: no-repeat;
   background-size: 60.5px 60.5px;
   background-position: -3px 10px;
   padding-left: 51px;
+}
+*/
+
+#addImage{
+  width: 32px;
+  position: absolute;
+  right: 13px;
+  display: inline-block;
+  top: 30px;
 }
 
 section#topbar nav ul li a.settings {
   background-image: url('../../img/settings.png');
   background-repeat: no-repeat;
   background-size: 56.1px 43.5px;
-  background-position: -6px 16px;
+  background-position: -6px 22px;
   padding-left: 48px;
 }
 
@@ -97,8 +119,8 @@ section#topbar nav ul li a.logout {
 section#content {
   width: 700px;
   float: left;
-  margin-top: 130px;
-  margin-left: 230px;
+  margin-top: 139px;
+  margin-left: 316px;
 }
 
 footer {
@@ -232,6 +254,7 @@ input {
   font-size: 69.76pt;
   font-weight: 700;
   margin-bottom: 20px;
+  line-height: 75pt;
 }
 
 #songpage-player {
@@ -328,7 +351,7 @@ a {
 .song {
   margin: auto;
   position: relative;
-  margin-bottom: 140px;
+  margin-bottom: 180px;
 }
 
 .songHeader {

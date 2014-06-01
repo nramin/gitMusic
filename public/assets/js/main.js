@@ -18,9 +18,22 @@ $(document).ready(function() {
 		});
 	});
 
+	//$('#username').hover(expandOptionBar, resizeOptionBar);
+
 	function sidebar_height() {
 		var page_height = $(window).height();
 		var topbar_height = $('#topbar').height();
 		$('#sidebar').css('height', page_height - topbar_height);
+	}
+
+	function expandOptionBar(event){
+		console.log('duba');
+		$(this).animate({'width':'92px'});
+		event.stopPropagation();
+	}
+
+	function resizeOptionBar(event){
+		$(this).animate({'width':'450px'});
+		event.stopPropagation();
 	}
 });
