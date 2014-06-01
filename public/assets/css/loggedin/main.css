@@ -145,36 +145,6 @@ footer {
   width: 100%;
 }
 
-#upload-dialog {
-  background-color: #000;
-  width: 495px;
-  height: 580px;
-  padding-top: 1em;
-}
-
-#upload-dialog-title {
-  margin-top: 34px;
-  font-size: 40px;
-  color: #FFF;
-  border-bottom: 1pt solid #FFF;
-  width: 360px;
-  text-align: right;
-  font-weight: 700;
-}
-
-#upload-dialog #songname {
-  background-color: #000;
-  border: 0;
-  outline: 0;
-  color: #FFF;
-  margin-top: 30px;
-  display: block;
-  margin-left: 103px;
-  border-bottom: 1px solid #FFF;
-  width: 256px;
-  font-size: 30px;
-}
-
 #searchInput{
   display: block;
   width: 80%;
@@ -186,88 +156,6 @@ footer {
   font-size: 13.15pt;
   margin-left: 1em;
   margin-top: 10px;
-}
-
-.uploadField{
-  margin-left: 103px;
-  width: 256px;
-}
-
-
-#upload-dialog .file-container {
-  display: block;
-  margin-left: 22%;
-}
-
-#upload-dialog #file {
-  outline: 0;
-}
-
-#upload-dialog #file::-webkit-file-upload-button, #upload-dialog #fileProject::-webkit-file-upload-button,
-  #upload-dialog #albumArt::-webkit-file-upload-button {
-  visibility: hidden;
-}
-#upload-dialog #file::before, #upload-dialog #fileProject::before,
-#upload-dialog #albumArt::before  {
-  outline: none;
-  width: 100%;
-  margin: auto;
-  background-color: #000;
-  color: #FFF;
-  font-size: 32px;
-  font-weight: 400;
-}
-
-#upload-dialog #fileProject::before  {
-  content: 'Choose Project';
-}
-
-
-
-
-#upload-dialog #file::before {
-   content: 'Choose MP3';
-}
-
-#upload-dialog #albumArt::before {
-   content: 'Choose Art';
-}
-
-#file, #fileProject{
-  cursor: pointer;
-}
-
-#fileWrapperSong{
-  display: none;
-}
-
-#upload-dialog #submit {
-  display: block;
-  border: 1px solid #FFF;
-  background-color: #000;
-  color: #FFF;
-  font-size: 32px;
-  padding: 5px;
-  margin-top: 30px;
-  outline: 0;
-  height: 68px;
-  width: 260px;
-}
-
-#upload-dialog #songname::-webkit-input-placeholder {
-   color: #FFF;
-}
-
-#upload-dialog #songname:-moz-placeholder { /* Firefox 18- */
-   color: #FFF;  
-}
-
-#upload-dialog #songname::-moz-placeholder {  /* Firefox 19+ */
-   color: #FFF;  
-}
-
-#upload-dialog #songname:-ms-input-placeholder {  
-   color: #FFF;  
 }
 
 input {
@@ -470,4 +358,115 @@ h2 {
 
 .song-likes {
   display: inline-block !important;
+}
+
+#upload-box {
+   background-color: #000;
+   color: #FFF;
+   overflow: hidden;
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+#upload-left {
+  float: left;
+  width: 320px;
+  text-align: right;
+}
+
+#upload-right {
+  float: right;
+  width: 320px;
+}
+
+#upload-box h1 {
+  margin: 0;
+  border-bottom: 1px solid #FFF;
+  display: inline-block;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+#upload-box #upload-left h1 {
+  padding-left: 240px;
+}
+
+#upload-box #upload-right h1 {
+  padding-right: 191px;
+}
+
+#upload-box .text-field {
+  border: 0;
+  border-bottom: 1px solid #FFF;
+  color: #FFF;
+  outline: none;
+  background-color: #000;
+  font-size: 32px;
+  width: 242px;
+  margin-bottom: 20px;
+}
+
+#upload-box .file-field {
+  display: none;
+}
+
+#upload-box .radio-field {
+  font-size: 32px;
+}
+
+#upload-box .button {
+  border: 0;
+  border: 1px solid #FFF;
+  color: #FFF;
+  outline: none;
+  background-color: #000;
+  font-size: 32px;
+  font-weight: 700;
+  padding: 10px;
+
+}
+
+#upload-box #submit {
+  margin: auto;
+  display: block;
+}
+
+#upload-box #choose-project, #upload-box #choose-file, #upload-box #choose-art {
+  padding: 10px;
+  border: 1px solid #FFF;
+  display: inline-block;
+  font-size: 32px;
+  font-weight: 700;
+  width: 220px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#upload-box #choose-project:hover,
+#upload-box #choose-file:hover,
+#upload-box #choose-art:hover {
+  cursor: pointer;
+}
+
+#upload-box #upload-left .container {
+  margin-right: 22px;
+}
+
+#upload-box #genre-container {
+  height: 295px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+#upload-box #genre-container label {
+  display: inline-block;
+}
+
+#upload-box #genre-container label {
+  display: inline-block;
+  font-size: 25px;
+}
+
+.clearfix {
+  clear: both;
 }
