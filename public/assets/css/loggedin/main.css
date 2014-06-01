@@ -61,6 +61,14 @@ section#topbar nav ul li a {
   padding-top: 14px;
 }
 
+section#topbar nav ul li a.search {
+  background-image: url('../../img/searchWhite.png');
+  background-repeat: no-repeat;
+  background-size: 41.5px 41.5px;
+  background-position: 14px 18px;
+  padding-left: 51px;
+}
+
 section#topbar nav ul li a.upload {
   background-image: url('../../img/upload.png');
   background-repeat: no-repeat;
@@ -451,7 +459,7 @@ h2 {
   width: 146px !important;
   height: 146px !important;
 }
-.temp2 {
+.songpage-player-wrapper {
   border: 10px solid #000;
   display: inline-block;
   overflow: hidden;
@@ -464,4 +472,13 @@ h2 {
 
 .ui360 .sm2-canvas {
   top: -7px !important;
+}
+
+.sm2-360btn-default {
+  background-image: url('../../img/play.png') !important;
+  background-size: 30px 30px !important;
+}
+
+.song-likes {
+  display: inline-block !important;
 }
