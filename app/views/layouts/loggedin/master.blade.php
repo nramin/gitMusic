@@ -39,6 +39,7 @@
         @section('topnav')
         <nav>
             <ul>
+                <li><a href="#" class="search">Search</a></li>
                 <li><a href="{{ route('upload') }}" class="upload">Upload</a></li>
                 <li><a href="{{ route('settings') }}" class="settings">Settings</a></li>
                 <li><a href="{{ route('logout-get') }}" class="logout">Logout</a></li>
