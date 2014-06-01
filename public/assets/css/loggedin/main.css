@@ -89,7 +89,7 @@ section#topbar nav ul li a.logout {
 section#content {
   width: 700px;
   float: left;
-  margin-top: 92px;
+  margin-top: 215px;
   margin-left: 316px;
 }
 
@@ -322,6 +322,7 @@ a {
 .song {
   margin: auto;
   position: relative;
+  margin-bottom: 140px;
 }
 
 .songHeader {
@@ -329,6 +330,11 @@ a {
   font-size: 24.53pt;
   font-weight: 700;
   width: 55%;
+}
+
+
+.songHeader a {
+  text-decoration: none;
 }
 
 .songByline {
