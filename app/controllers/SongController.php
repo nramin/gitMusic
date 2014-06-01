@@ -7,9 +7,9 @@ class SongController extends BaseController {
      */
     public function index($username, $songname)
     {
-        if($user = User::getUserByName($username))
+        if($user = User::where('pretty_username', '=', $username)->first())
         {
-            if($song = Song::where('songname', '=', $songname)->where('user_id', '=', $user->getId())->first())
+            if($song = Song::where('pretty_songname', '=', $songname)->where('user_id', '=', $user->getId())->first())
             {
                 $versions = $song->getVersions();
         	   return View::make('song.profile', array('song' => $song, 'versions' => $versions ));
@@ -85,9 +85,11 @@ class SongController extends BaseController {
 
             if(Input::hasFile('songfile')){
                 $songname = $file['songname'];
+                $songname_nospaces = str_replace(' ', '-', $songname);
                 $song_file = $file['songfile'];
                 $project_zip = $file['projectfile'];
                 $pic_file = $file['artfile'];
+                $genre = 1;
                 $dest = '/var/www/gitmusic/uploads';
                 $filename = $songname . '.mp3';
                 $zipname = $songname . '.zip';
@@ -101,8 +103,9 @@ class SongController extends BaseController {
                 $create_song = Song::create(array(
                     'songname' => $songname,
                     'user_id' => $user_id,
-                    'genre' => 'shit',
-                    'tags' => 'hip hop'
+                    'genre_id' => $genre,
+                    'tags' => 'hip hop',
+                    'pretty_songname' => $songname_nospaces
                 ));
 
                 $create_song->sendToS3($destination_filepath, $user, $filename);

@@ -4,7 +4,7 @@
     <h1>Artists</h1>
     <ul>
 			@foreach ($users as $user)
-			<li>{{ HTML::linkRoute('userProfile', $user , array($user->username)) }}</li>
+			<li>{{ HTML::linkRoute('userProfile', $user , array($user->pretty_username)) }}</li>
 			@endforeach
 	</ul>
 @stop
