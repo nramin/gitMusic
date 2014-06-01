@@ -53,22 +53,22 @@
 
     <section id="sidebar">
         @section('sidebar')
-
         <?php $current_user = Auth::user(); ?>
-        @if ($current_user)
-            @if (sizeof($current_user->songs) < 1)
-                <p>You have no projects</p>
-            @else
-                <div class="sidebar-menu-title">Your<br />Projects:
-                    <a href="{{ route('upload') }}" class='upload'><img id='addImage' src="{{ asset('assets/img/add.png') }}"></a>
-                </div>
-                <div class="sidebar-menu-line"></div>
-                    @foreach ($current_user->songs as $song)
-                    <div class="sidebar-menu-item">
-                        {{ HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')) }}
-                        {{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname), array('class' => 'sidebar-menu-text')) }}
+            @if ($current_user)
+                @if (sizeof($current_user->songs) < 1)
+                    <p>You have no projects</p>
+                @else
+                    <div class="sidebar-menu-title">Your<br />Projects:
+                        <a href="{{ route('upload') }}" class='upload'><img id='addImage' src="{{ asset('assets/img/add.png') }}"></a>
                     </div>
-                    @endforeach
+                    <div class="sidebar-menu-line"></div>
+                        @foreach ($current_user->songs as $song)
+                        <div class="sidebar-menu-item">
+                            {{ HTML::linkRoute('songProfile', '', array($current_user, $song->songname), array('class' => 'sidebar-menu-circle')) }}
+                            {{ HTML::linkRoute('songProfile', $song, array($current_user, $song->songname), array('class' => 'sidebar-menu-text')) }}
+                        </div>
+                        @endforeach
+                @endif
             @endif
         @show
 
@@ -79,14 +79,7 @@
         @yield('content')
 
     </section>
-<!-- 
-    <footer id="footer">
-       
-        @section('footer')
-            <h4>This is where we have ourselves a footer</h4>
-        @show
 
-    </footer> -->
 
     </body>
 </html>
