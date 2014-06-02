@@ -88,6 +88,23 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Comments');
 	}
 
+	public function scopePopular($query)
+    {
+        return $query->orderBy('followers', 'desc');
+    }
+
+    public function scopeNewest($query)
+    {
+        return $query->orderBy('created_at', 'desc');
+    }
+
+    public function scopeHottest($query)
+    {
+        return $query->orderBy(DB::raw('LOG10( ABS( followers ) + 1 ) * 
+            SIGN( followers ) + 
+            ( UNIX_TIMESTAMP( created_at ) /300000 )'), 'desc');
+    }
+
 	public function getFollowers($user_id)
 	{
 		return Follow::getUserFollowers($user_id);

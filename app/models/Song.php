@@ -139,7 +139,6 @@ class Song extends Eloquent {
                 $user->save();
                 return true;
             }
-
         } else {
             return false;
         }
@@ -157,6 +156,10 @@ class Song extends Eloquent {
             return 'Type does not exist';
         }
         return $songs;
+    }
+
+    public static function songSearch() {
+        
     }
 
 }
