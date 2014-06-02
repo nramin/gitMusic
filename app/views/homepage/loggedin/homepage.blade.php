@@ -16,13 +16,18 @@
 	            <?php $pic_url = $song->pic_url;?>
 	            <div class='box' style="background-image: url('{{ $pic_url }}')">
 	              <div class='songInfo'>
+	              	<div id="songpage-player">
+     					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
+    				</div>
 	                <img class='download' src='download.png' alt='chill' />
 	              </div>
 	            </div>
             @else
-            	<?php $pic_url = $song->pic_url;?>
 	            <div class='box' style="background-image: url('{{ URL::asset('assets/img/jfk.jpg') }}')">
 	              <div class='songInfo'>
+	              	<div id="songpage-player">
+     					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
+    				</div>
 	                <img class='download' src='download.png' alt='chill' />
 	              </div>
 	            </div>

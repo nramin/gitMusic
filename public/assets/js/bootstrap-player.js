@@ -11,7 +11,7 @@
 		// enable some spectrum stuffs
 
 		threeSixtyPlayer.config.useWaveformData = false;
-		threeSixtyPlayer.config.useEQData = false;
+		threeSixtyPlayer.config.useEQData = true;
 
 		// enable this in SM2 as well, as needed
 
@@ -22,12 +22,7 @@
 		  soundManager.flash9Options.useEQData = true;
 		}
 		if (threeSixtyPlayer.config.usePeakData) {
-		  soundManager.flash9Options.usePeakData = false;
-		}
-
-		if (threeSixtyPlayer.config.useWaveformData || threeSixtyPlayer.flash9Options.useEQData || threeSixtyPlayer.flash9Options.usePeakData) {
-		  // even if HTML5 supports MP3, prefer flash so the visualization features can be used.
-		  soundManager.preferFlash = true;
+		  soundManager.flash9Options.usePeakData = true;
 		}
 
 		// favicon is expensive CPU-wise, but can be used.

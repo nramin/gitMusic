@@ -8,6 +8,11 @@ class SongController extends BaseController {
 
     public static $FILTER_TYPES = array('hottest', 'newest', 'popular');
 
+    public static $jsonError = array(
+                    'status' => 'error',
+                    'message' => 'An error occurred!'
+                );
+
     public function index($username, $songname)
     {
         if($user = User::where('pretty_username', '=', $username)->first())
@@ -141,14 +146,14 @@ class SongController extends BaseController {
                 $song_like = SongLike::create($new);
                 $song = Song::find($song_id);
                 $song->incrementLikes();
-                return 'Success'; // 200
+                return Response::json(array('message' => 'Successfully Liked Song'), 200);
             } else {
-                return 'error'; // 404
+                return Response::json(self::$jsonError, 500);
             }
         }
         else
         {
-            return 'error'; 
+            return Response::json(self::$jsonError, 500); 
         }
     }
 
@@ -169,7 +174,7 @@ class SongController extends BaseController {
         if($genre = Genre::find($genre_id) && in_array($type, self::$FILTER_TYPES)) {
             return Song::getSongsByGenre($type, $genre_id);
         } else {
-            App::abort(404);
+            return Response::json(self::$jsonError, 500);
         }
     }
 

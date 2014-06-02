@@ -20,7 +20,6 @@ $(document).ready(function() {
 	function revealSearchBar(){
 		if(searchHidden){
 			$searchBox = $('<section>').attr('id', 'searchBox');
-
 			$input = $('<input>').attr('id', 'searchInput')
 			$searchBox.append($input);
 
