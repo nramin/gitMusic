@@ -64,8 +64,8 @@
                     <div class="sidebar-menu-line"></div>
                         @foreach ($current_user->songs as $song)
                         <div class="sidebar-menu-item">
-                            {{ HTML::linkRoute('songProfile', '', array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-circle')) }}
-                            {{ HTML::linkRoute('songProfile', $song, array($current_user, $song->pretty_songname), array('class' => 'sidebar-menu-text')) }}
+                            {{ HTML::linkRoute('songProfile', '', array($current_user->pretty_username, $song->pretty_songname), array('class' => 'sidebar-menu-circle')) }}
+                            {{ HTML::linkRoute('songProfile', $song, array($current_user->pretty_username, $song->pretty_songname), array('class' => 'sidebar-menu-text')) }}
                         </div>
                         @endforeach
                 @endif
