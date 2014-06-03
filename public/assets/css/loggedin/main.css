@@ -131,7 +131,7 @@ section#content {
   width: 700px;
   float: left;
   margin-top: 139px;
-  margin-left: 316px;
+  margin-left: 400px;
 }
 
 footer {
@@ -248,6 +248,27 @@ a {
   margin-bottom: 25px;
   margin-left: 30px;
   width: 120px;
+}
+
+.genreExplore {
+  width: 120px;
+  float: left;
+  list-style-type: none;
+}
+
+.genreExplore li{
+  margin-bottom: 22px;
+}
+
+#genreHolder{
+  float: left;
+  position: fixed;
+  left: 188px;
+}
+
+#songHolder{
+  float: left;
+  width: 587px;
 }
 
 .sidebar-menu-circle {
