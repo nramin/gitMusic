@@ -20,7 +20,7 @@
 	              	<div id="songpage-player">
      					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
     				</div>
-	                <img class='download' src='download.png' alt='chill' />
+	                <img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" />
 	              </div>
 	            </div>
             @else
@@ -29,7 +29,7 @@
 	              	<div id="songpage-player">
      					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
     				</div>
-	                <img class='download' src='download.png' alt='chill' />
+	                <img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" />
 	              </div>
 	            </div>
 	        @endif
