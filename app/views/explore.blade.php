@@ -17,7 +17,7 @@
                     <li>New Music</li>
                 
                 @foreach ($genres as $genre)
-                    <li> {{ $genre }} </li>
+                    <li data-GenreId="{{ $genre->id }}"> {{ $genre }} </li>
                 @endforeach
                 </ul>
             </div>

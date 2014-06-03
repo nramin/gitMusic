@@ -254,6 +254,14 @@ a {
   margin-left: 30px;
   width: 120px;
 }
+  /*transition: background-color 0.2s, color 0.2s, border 0.2s;
+
+.sidebar-menu-item:hover{
+  background-color: black;
+  color: white;
+  border: 
+}
+*/
 
 .genreExplore {
   width: 120px;
@@ -273,6 +281,11 @@ a {
 
 .genreExplore li:hover{
   cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+#selectedGenre{
   background-color: black;
   color: white;
 }
