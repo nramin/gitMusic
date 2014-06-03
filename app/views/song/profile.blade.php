@@ -6,15 +6,14 @@
 
 @section('content')
 	{{ HTML::script('assets/js/song.js') }}
+	{{ HTML::style('assets/css/loggedin/songpage-player.css') }}
 	<div id="songpage-title">{{ $song->songname }}</div>
 	<div class='songWrapper'>
 
 		<div class='playerWrapper'>
-			<div class="songpage-player-wrapper">
 			<div id="songpage-player">
 		     	<div class="ui360 ui360-vis"><a href="<?= $song->url ?>"></a></div>
 		    </div>
-			</div>
 
 
 			<div id="songpage-details">
