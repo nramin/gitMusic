@@ -6,7 +6,7 @@
 
 
 @section('content')
-    <h1>Explore</h1>
+    <h1 id='exploreHeader'>Explore</h1>
     @if (sizeof($genres) < 1)
         <p>No Genres :(</p>
     @else

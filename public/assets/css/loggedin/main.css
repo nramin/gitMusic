@@ -168,7 +168,12 @@ input {
   float: left;
 }
 
-#songpage-title {
+#exploreHeader{
+  margin-top: 0;
+  margin-top: -20px;
+}
+
+#songpage-title, #exploreHeader {
   font-size: 69.76pt;
   font-weight: 700;
   margin-bottom: 20px;
@@ -254,16 +259,29 @@ a {
   width: 120px;
   float: left;
   list-style-type: none;
+  margin-top: 0;
+  border-top: 1pt solid black;
 }
 
 .genreExplore li{
-  margin-bottom: 22px;
+  margin-bottom: 10px;
+  padding-top: 11px;
+  padding-bottom: 8px;
+  padding-left: 11px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.genreExplore li:hover{
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }
 
 #genreHolder{
   float: left;
   position: fixed;
   left: 188px;
+  top: 137px;
 }
 
 #songHolder{
