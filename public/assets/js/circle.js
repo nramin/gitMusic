@@ -250,7 +250,7 @@ function donut() {
 	*/
 	
 
-	console.log(colors);
+	
 
 	var pie = d3.layout.pie()
 		.value(function (d) {return d.count });
@@ -380,7 +380,7 @@ function rearrangeNodes() {
 function addLine(){
 	if(circleIndex != 1){
 
-		console.log("center: " + getCircleCenter(circleIndex));
+	
 		getCircleRadius(circleIndex);
 		
 

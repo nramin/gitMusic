@@ -162,6 +162,12 @@ input {
   font-family: "futura-pt", sans-serif;
 }
 
+.songWrapper{
+  width: 850px;
+  height: 100%;
+  float: left;
+}
+
 #songpage-title {
   font-size: 69.76pt;
   font-weight: 700;
@@ -176,7 +182,8 @@ input {
 
 #songpage-details {
   float: left;
-  margin-left: 50px;
+  margin-left: 54px;
+  margin-top: 41px;
 }
 
 #songpage-details span {
@@ -184,16 +191,28 @@ input {
 }
 
 #songpage-comments {
-  clear: both;
-  margin-top: 10px;
+  width: 370px;
+  border-top: 2pt black solid;
+  float: right
+}
+
+.commentHeader{
+  text-align: right;
+  font-size: 12pt;
+  font-weight: 300;
 }
 
 .songpage-comment {
   margin: 0;
   list-style: none;
-  background-color: #D5D5D5;
-  padding: 10px;
-  border-bottom: 1px solid #B9B9B9;
+}
+
+.point {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
 }
 
 a {
