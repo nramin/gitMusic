@@ -177,7 +177,10 @@ input {
 
 #songpage-player {
   float: left;
-  width: 128px;
+  border: 10px solid #000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }
 
 #songpage-details {
@@ -226,6 +229,7 @@ a {
   height: 100%;
   position: fixed;
   margin-top: 75px;
+  overflow: scroll;
 }
 
 .sidebar-menu-title {
@@ -333,46 +337,6 @@ a {
 
 h2 {
   margin-top: 0;
-}
-
-.ui360-vis .sm2-360ui {
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-}
-
-.ui360 .sm2-360btn {
-  top: 67px !important;
-  left: 73px !important;
-}
-
-.ui360-vis {
-  width: 146px !important;
-  height: 146px !important;
-}
-
-.sm2-360ui {
-  width: 146px !important;
-  height: 146px !important;
-}
-.songpage-player-wrapper {
-  border: 10px solid #000;
-  display: inline-block;
-  overflow: hidden;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
-  float: left;
-  padding: 20px;
-}
-
-.ui360 .sm2-canvas {
-  top: -7px !important;
-}
-
-.sm2-360btn-default {
-  background-image: url('../../img/play.png') !important;
-  background-size: 30px 30px !important;
 }
 
 .song-likes {

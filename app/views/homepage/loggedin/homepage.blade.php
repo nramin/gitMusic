@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+	{{ HTML::style('assets/css/loggedin/homepage-player.css') }}
 	@if ($songs)
 		@foreach ($songs as $song)
           <div class='song'>
