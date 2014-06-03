@@ -42,7 +42,7 @@
         <nav>
             <ul>
                 <li><a href="#" class="search">Search</a></li>
-                <li><a href="#" class="explore ghost">Explore</a></li>
+                <li><a href="{{ route('explore') }}" class="explore ghost">Explore</a></li>
                 <li><a href="{{ route('settings') }}" class="settings ghost">Settings</a></li>
                 <li><a href="{{ route('logout-get') }}" class="logout ghost">Logout</a></li>
             </ul>

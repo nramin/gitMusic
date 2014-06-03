@@ -1,6 +1,11 @@
 @extends('layouts.loggedin.master')
 
 @section('sidebar')
+    @parent
+@stop
+
+
+@section('content')
     @if (sizeof($genres) < 1)
         <p>No Genres :(</p>
     @else
@@ -15,9 +20,7 @@
             </div>
             @endforeach
     @endif
-@overwrite
 
-@section('content')
     <h1>Explore</h1>
     <ul>
             @foreach ($songs as $song)
