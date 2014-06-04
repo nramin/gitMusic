@@ -68,13 +68,21 @@ class UserController extends BaseController {
             $img = Image::make($destpath); //->resize(720, 500)->save($destination_filepath_pic_large);
             $resize_image_small = $user->username . '_avatar_small' . '.jpg';
             $resize_image_large = $user->username . '_avatar_large' . '.jpg';
-            $small_filepath = $dest . $resize_image_small;
-            $large_filepath = $dest . $resize_image_large; 
-            $img->fit(100)->save($small_filepath);
-            $img->fit(750)->save($large_filepath);
+            $small_filepath = $dest . '/' . $resize_image_small;
+            $large_filepath = $dest . '/' . $resize_image_large;
+            $img2 = $img; 
+            // $img->resize(100, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })->save($small_filepath);
+            // $img->resize(700, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })->save($large_filepath);
+            //$img->fit(100)->save($small_filepath);
+            $img->fit(700)->save($large_filepath);
+            $img2->fit(100)->save($small_filepath);
         }
 
-
+        return Redirect::route('userProfile', array($user->pretty_username));
     }
 
 
