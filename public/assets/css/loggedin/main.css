@@ -235,6 +235,7 @@ a {
   position: fixed;
   margin-top: 75px;
   overflow: scroll;
+  overflow-x: hidden;
 }
 
 .sidebar-menu-title {

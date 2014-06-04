@@ -16,6 +16,8 @@ function populateGenre(){
 	$.get( "/songs/genre/hottest/" + genreId , function( data ) {
 		console.log(data);
 		$('.song').remove();
+
+		console.log(data[0]);
 		for(var i = 0; i < data.length; i++){
 			$song = $('<div>')
 				.addClass('song');
@@ -25,7 +27,7 @@ function populateGenre(){
 
 			$h2 = $('<h2>')
 				.addClass('songHeader')
-				.text(data.songname);
+				.text(data[i].songname);
 
 			$p = $('<p>')
 				.addClass('songByline')
@@ -52,20 +54,22 @@ function populateGenre(){
 
 			$ui360 = $('<div>')
 				.addClass('ui360')
-				.addClass('ui360-vis');
+				.addClass('ui360-vis')
+				.css('background-image', 'none');
 
 			$a = $('<a>')
-				.attr('href', data.url);
+				.attr('href', data[i].url);
+
+			$ui360.append($a);
 
 
 			$img = $('<img>')
 				.addClass('download')
-				.attr('src', 'download.png')
+				.attr('src', 'http://gitmusic.dev/assets/img/downloadWhite.png')
 				.attr('alt', 'chill');
 
 			$songpagePlayer
-				.append($ui360)
-				.append($a)
+				.append($ui360);
 
 			$songInfo
 				.append($songpagePlayer)
@@ -73,12 +77,14 @@ function populateGenre(){
 
 			$holder.append($songInfo);
 
+
 			$song.append($holder);
 
 			$('#songHolder').append($song);
 
 
 		}
+		threeSixtyPlayer.init();
 	});
 
 }
