@@ -108,6 +108,7 @@ class SongController extends BaseController {
                 $destination_filepath = $dest . '/' . $filename;
                 $destination_filepath_zip = $dest . '/' . $zipname;
                 $destination_filepath_pic = $dest . '/' . $picname;
+                
                 $create_song = Song::create(array(
                     'songname' => $songname,
                     'user_id' => $user_id,

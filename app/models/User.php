@@ -179,4 +179,19 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $liked_songs;
 	}
 
+	public function userSearch($term, $limit)
+	{
+		$user_search_term = '';
+		if(strlen($term) <= 2) {
+			$user_search_term = $term;
+		} else {
+			$user_search_term = substr($term, 0, 2);
+		}
+		DB::raw('SELECT *, jaro_winkler_similarity(username, $term) AS score
+			FROM (SELECT id, username FROM users WHERE username LIKE "$user_search_term%") AS likeMatches
+			ORDER BY score DESC
+			LIMIT 10');
+		
+	}
+
 }

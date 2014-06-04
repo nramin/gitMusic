@@ -158,7 +158,7 @@ class Song extends Eloquent {
         return $songs;
     }
 
-    public static function songSearch() {
+    public static function songSearch($term, $limit) {
         
     }
 
