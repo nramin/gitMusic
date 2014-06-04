@@ -41,10 +41,13 @@ function populateGenre(){
 
 
 
+			var pic_url = 'http://gitmusic.dev/assets/img/jfk.jpg';
+			if(data[i].pic_url)
+				pic_url = data[i].pic_url;
 
 			$holder = $('<div>')
 				.addClass('box')
-				.css('background-image', data.pic_url)
+				.css('background-image', 'url(' + pic_url + ')');
 
 			$songInfo = $('<div>')
 				.addClass('songInfo');
