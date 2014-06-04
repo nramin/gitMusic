@@ -1,0 +1,50 @@
+#songpage-player {
+  margin-left: 8px;
+  background-color: #FFF;
+}
+
+.ui360,
+.sm2-360ui {
+  /* size of the container for the circle, etc. */
+  width:70px !important;
+  height:70px !important;
+}
+
+.sm2-timing {
+  display: none !important;
+}
+
+.ui360-vis .sm2-360btn, .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn, .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+  margin-left: -28px !important;
+}
+
+.ui360-vis .sm2-360btn,
+.ui360-vis .sm2-360ui.sm2_paused .sm2-360btn,
+.ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+ background-repeat: no-repeat !important;
+ background-position: 18px !important;
+}
+
+.sm2-360btn-default {
+  background-image: url('../../img/play.png') !important;
+  background-size: 20px 20px !important;
+}
+
+.ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+  background-image: url('../../img/pause.png') !important;
+  background-size: 20px 20px !important;
+}
+
+.ui360-vis .sm2-360ui.sm2_playing .sm2-360btn:hover,
+.ui360-vis .sm2-360btn-playing:hover {
+  background-image: url('../../img/pause.png') !important;
+  background-size: 20px 20px !important;
+}
+
+.ui360-vis {
+  padding-left: 0 !important;
+}
+
+.ui360-vis .sm2-360ui {
+  margin-left: 0 !important;
+}

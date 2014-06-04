@@ -93,7 +93,7 @@ class SongController extends BaseController {
 
             if(Input::hasFile('songfile')){
                 $songname = $file['songname'];
-                $songname_nospaces = str_replace(' ', '-', $songname);
+                $songname_nospaces = preg_replace("![^a-z0-9]+!i", "-", $songname);
                 $song_file = $file['songfile'];
                 $project_zip = $file['projectfile'];
                 $pic_file = $file['artfile'];
@@ -120,7 +120,7 @@ class SongController extends BaseController {
                 $create_song->sendToS3($destination_filepath, $user, $filename);
                 $create_song->sendToS3($destination_filepath_zip, $user, $zipname);
                 $create_song->sendToS3($destination_filepath_pic, $user, $picname);
-                return Redirect::route('songProfile', array($user, $songname));    
+                return Redirect::route('songProfile', array($user->pretty_username, $songname_nospaces));    
             } else {
                 return Redirect::route('upload')
                         ->withErrors($validator)

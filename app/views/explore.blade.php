@@ -1,52 +1,62 @@
 @extends('layouts.loggedin.master')
 
 @section('sidebar')
+    @parent
+@stop
+
+
+@section('content')
+    {{ HTML::style('assets/css/loggedin/homepage-player.css') }}
+    <h1 id='exploreHeader'>Explore</h1>
     @if (sizeof($genres) < 1)
         <p>No Genres :(</p>
     @else
         <div class="sidebar-menu-title"></div>
-            <div class="sidebar-menu-item">
-                <p>Trending Music</p>
-                <p>New Music</p>
+            <div id='genreHolder'>
+                <ul class="genreExplore">
+                    <li>Trending Music</li>
+                    <li>New Music</li>
+                
+                @foreach ($genres as $genre)
+                    <li data-GenreId="{{ $genre->id }}"> {{ $genre }} </li>
+                @endforeach
+                </ul>
             </div>
-            @foreach ($genres as $genre)
-            <div class="sidebar-menu-item">
-                <p> {{ $genre }} </p>
-            </div>
-            @endforeach
     @endif
-@overwrite
 
-@section('content')
-    <h1>Explore</h1>
-    <ul>
+            
+            <div id='songHolder'>
             @foreach ($songs as $song)
                 <div class='song'>
                 <div class="songLine">
                     <h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user->pretty_username, $song->pretty_songname)) }}</h2>
                     <p class='songByline'>By<br>Lady the Beard</p>
                 </div>
-                @if (isset($song->pic_url))
-                    <?php $pic_url = $song->pic_url;?>
-                    <div class='box' style="background-image: url('{{ $pic_url }}')">
-                      <div class='songInfo'>
-                        <div id="songpage-player">
-                            <div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
+                <?php  $count = 0; ?>
+                @if($count < 2)
+                    @if (isset($song->pic_url))
+                        <?php $pic_url = $song->pic_url;?>
+                        <div class='box' style="background-image: url('{{ $pic_url }}')">
+                          <div class='songInfo'>
+                            <div id="songpage-player">
+                                <div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
+                            </div>
+                            <img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" />
+                          </div>
                         </div>
-                        <img class='download' src='download.png' alt='chill' />
-                      </div>
-                    </div>
-                @else
-                    <div class='box' style="background-image: url('{{ URL::asset('assets/img/jfk.jpg') }}')">
-                      <div class='songInfo'>
-                        <div id="songpage-player">
-                            <div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
+                    @else
+                        <div class='box' style="background-image: url('{{ URL::asset('assets/img/jfk.jpg') }}')">
+                          <div class='songInfo'>
+                            <div id="songpage-player">
+                                <div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
+                            </div>
+                            <img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" />
+                          </div>
                         </div>
-                        <img class='download' src='download.png' alt='chill' />
-                      </div>
-                    </div>
+                    @endif
+                    <?php $count++ ?>
                 @endif
               </div>
             @endforeach
-    </ul>
+            </div>
 @stop

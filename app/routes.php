@@ -18,7 +18,10 @@
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
 Route::get('test', function() {
-	phpinfo();
+	$username = "a guy";
+	$username_pretty = preg_replace("![^a-z0-9]+!i", "-", $username); 
+	return $username_pretty;
+	//phpinfo();
 });
 
 Route::get('about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));

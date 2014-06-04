@@ -72,15 +72,15 @@ class AccountController extends BaseController {
 			$password = Input::get('password');
 			
 			// Activation code
-			$code 	  = str_random(60); 
-			$username_pretty = str_replace(' ', '-', $username);
+			$code 	  = str_random(60);
+			$username_pretty = preg_replace("![^a-z0-9]+!i", "-", $username);
 			$create_user = User::create(array(
 				'username' => $username,
+				'pretty_username' => $username_pretty,
 				'email' => $email,
 				'password' => Hash::make($password),
 				'temp_code' => $code,
-				'is_active' => 'Y',
-				'pretty_username' => $username_pretty
+				'is_active' => 'Y'
 			));
 			
 			if ($create_user) {
