@@ -54,4 +54,37 @@ class UserController extends BaseController {
         }
         return View::make('errors.userNotFound', array('username' => $username));
     }
+
+    public function profilePic()
+    {
+        $user = Auth::user();
+        $file = Input::all();
+        if(Input::hasFile('avatar-image')){
+            $img = $file['avatar-image'];
+            $dest = '/var/www/gitmusic/public/avatars';
+            $avatar_filename = $user->username . '_avatar' . '.jpg';
+            $destpath = $dest . '/' . $avatar_filename;
+            $img->move($dest, $avatar_filename);
+            $img = Image::make($destpath); //->resize(720, 500)->save($destination_filepath_pic_large);
+            $resize_image_small = $user->username . '_avatar_small' . '.jpg';
+            $resize_image_large = $user->username . '_avatar_large' . '.jpg';
+            $small_filepath = $dest . $resize_image_small;
+            $large_filepath = $dest . $resize_image_large; 
+            $img->fit(100)->save($small_filepath);
+            $img->fit(750)->save($large_filepath);
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
