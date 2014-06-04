@@ -506,3 +506,61 @@ h2 {
 .clearfix {
   clear: both;
 }
+
+.typekit-badge {
+  display: none;
+}
+
+#settings h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+
+#settings .avatar-container {
+
+}
+
+#settings .avatar-photo {
+  width: 100px;
+  height: 100px;
+  background-color: #000;
+}
+
+#settings .avatar-upload-photo {
+  display: inline-block;
+  float: left;
+}
+
+#settings .avatar-upload-file {
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+}
+
+#settings #avatar-image {
+  display: none;
+}
+
+#settings #avatar-image-button {
+  padding: 10px;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #000;
+  color: #FFF;
+  cursor: pointer;
+}
+
+#settings .avatar-upload-container #submit {
+  padding: 10px;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #000;
+  color: #FFF;
+  margin: 0;
+  border: none;
+}
