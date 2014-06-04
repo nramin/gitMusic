@@ -19,6 +19,11 @@ body {
   height: 100%;
 }
 
+#introDescription{
+  margin-bottom: 118px;
+}
+
+
 #container #left {
   width: 56%;
   height: 100%;
@@ -84,7 +89,7 @@ body {
   font-size: 15px;
   height: 30px;
   box-sizing: border-box;
-  width: 15%;
+  width: 18%;
   vertical-align: top;
   background-color: rgb(209, 211, 212);
   float: right;
