@@ -101,21 +101,11 @@ class Song extends Eloquent {
         return false;
     }
 
-    public function hasParent()
-    {
-        return $this->parent_id != 0;
-    }
-
-    public function getParent()
-    {
-        $song = Song::find($this->parent_id);
-    }
-
-    // return all 'child' songs
+    //return all 'child' songs
     public function getVersions()
     {
         $this_song_id = $this->getId();
-        $versions = Song::where('parent_id', '=', $this_song_id)->newest()->get();
+        $versions = Version::where('song_id', '=', $this_song_id)->newest()->get();
         return $versions;
     }
 
@@ -124,7 +114,6 @@ class Song extends Eloquent {
     {
         if(isset($url) and $song = Song::find($this->getId()))
         {
-            
             $user = Song::find($this->getId());
             if(strpos($url, '.mp3') == true){
                 $user->url = $url;

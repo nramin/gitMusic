@@ -30,7 +30,7 @@
                 <div class='song'>
                 <div class="songLine">
                     <h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user->pretty_username, $song->pretty_songname)) }}</h2>
-                    <p class='songByline'>By<br>{{$user->username}}</p>
+                    <p class='songByline'>By<br>{{$song->user->pretty_username}}</p>
                 </div>
                 <?php  $count = 0; ?>
                 @if($count < 2)

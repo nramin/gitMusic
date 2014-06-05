@@ -96,5 +96,4 @@ class AccountController extends BaseController {
 	// public function getChangePassword() {
 	// 	return View::make('account.password');
 	// }
-
 }
