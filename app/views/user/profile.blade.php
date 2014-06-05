@@ -6,7 +6,13 @@
 	{{ HTML::style('assets/css/loggedin/homepage-player.css') }}
 
 	<div class='artistHeaderHolder'>
-	<img class='profilePhoto' src="{{ asset('assets/img/caribou.jpg') }}" alt='wow. great pic, girl' />
+	<?php if ($user->hasAvatar()) {
+		$avatar = 'avatars/' . $user->pretty_username . '_avatar_large.jpg';
+	} else {
+		$avatar = 'assets/img/default_large.png';
+	} ?>
+		
+	<img class='profilePhoto' src="{{ asset($avatar) }}" alt='User avatar' />
     	<h1 class='artistHeader'>{{ $user->username }}</h1>
     	@if (Auth::user())
 			@if (Auth::user()->following_user($user->getId()))

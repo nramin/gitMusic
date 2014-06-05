@@ -34,12 +34,12 @@ class SearchController extends BaseController {
 		die(var_dump($user_rankings[$keys[0]]));
 		$combined_rankings = combineUsersWithSongs($user_rankings, $song_rankings);
 		die(intval($user_rankings[0]));
-		$results = array();
-		foreach ($rankings as $key => $value) {
-			# code...
-		}
+//		$results = array();
+//		foreach ($rankings as $key => $value) {
+//			# code...
+//		}
+//		return View::make('search', array('results' => $rankings));
 	}
-
 	// private function combineUsersWithSongs($users, $songs)
 	// {
 	// 	$combined = array();
@@ -77,6 +77,4 @@ class SearchController extends BaseController {
 
 	//     return answer;
 	// }
-	
-
 }
