@@ -16,6 +16,11 @@ class Version extends Eloquent {
         return $this->belongsTo('song');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('user');
+    }
+
     public function scopeNewest($query)
     {
         return $query->orderBy('created_at', 'desc');

@@ -28,11 +28,11 @@
 					<h2>Versions:</h2>
 						@foreach ($versions as $version)
 							<div class="songpage-version">
-								{{ HTML::linkRoute('songProfile', $version , array($version->user->username, $version)) }}
+								{{ HTML::linkRoute('songProfile', $version->song->songname , array($version->user->pretty_username, $version->song->pretty_songname)) }}
 							</div>
 						@endforeach
 				@else
-					Version 1
+					<p>No versions</p>
 				@endif
 				</span>
 				<span>{{ date ("F j, o" , strtotime($song->updated_at)) }}</span>

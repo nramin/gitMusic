@@ -58,7 +58,9 @@
         <?php $current_user = Auth::user(); ?>
             @if ($current_user)
                 @if (sizeof($current_user->songs) < 1)
-                    <p>You have no projects</p>
+                     <div class="sidebar-menu-title">Add your <br /> first project
+                        <a href="{{ route('upload') }}" class='upload'><img id='addImage' src="{{ asset('assets/img/add.png') }}"></a>
+                    </div>
                 @else
                     <div class="sidebar-menu-title">Your<br />Projects:
                         <a href="{{ route('upload') }}" class='upload'><img id='addImage' src="{{ asset('assets/img/add.png') }}"></a>
