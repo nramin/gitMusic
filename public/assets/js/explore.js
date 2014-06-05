@@ -26,8 +26,11 @@ function populateGenre(){
 				.addClass('songLine');
 
 			$h2 = $('<h2>')
-				.addClass('songHeader')
+				.addClass('songHeader');
+			$a = $('<a>')
+				.attr('href', data[i].url)
 				.text(data[i].songname);
+			$h2.append($a);
 
 			$p = $('<p>')
 				.addClass('songByline')

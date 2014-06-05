@@ -8,6 +8,15 @@
 	<div class='artistHeaderHolder'>
 	<img class='profilePhoto' src="{{ asset('assets/img/caribou.jpg') }}" alt='wow. great pic, girl' />
     	<h1 class='artistHeader'>{{ $user->username }}</h1>
+    	@if (Auth::user())
+			@if (Auth::user()->following_user($user->getId()))
+				<span id='followButton' class='following'>You are following</span>
+			@else
+				<span id='followButton' class='notFollowing' data-user-id="<?php echo $user->getId(); ?>">Follow</span>
+			@endif
+		@else 
+			<span id='followButton' class='notLoggedIn'><a href="#">Sign up to follow</a></span>
+		@endif
     </div>
 
     <!--

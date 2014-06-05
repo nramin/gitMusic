@@ -15,6 +15,7 @@
         {{ HTML::script('assets/js/upload.js') }}
         {{ HTML::script('assets/js/circle.js') }}
         {{ HTML::script('assets/js/explore.js') }}
+        {{ HTML::script('assets/js/appendVersion.js') }}
 
         {{ HTML::style('assets/css/jplayer/360player.css') }}
         {{ HTML::style('assets/css/jplayer/flashblock.css') }}
@@ -37,7 +38,7 @@
     <body>
     <section id="topbar">
         <a href="{{ route('home') }}" id="logo"></a>
-        <div id="username">{{ Auth::user() }}</div>
+        <div id="username"><a href="{{ Auth::user() }}">{{ Auth::user() }}</a></div>
 
         @section('topnav')
         <nav>
@@ -80,7 +81,6 @@
         @yield('content')
 
     </section>
-
 
     </body>
 </html>

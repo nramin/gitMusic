@@ -18,7 +18,7 @@
 				<div id="genre-container">
 					@foreach ($genres as $genre)
 						<div>
-							<input type="radio" name="genre" value="{{ $genre }}"/><label for="sizeSmall" class="radio-field">{{ $genre }}</label>
+							<label class="radio-field"><input type="radio" name="genre" value="{{ $genre }}"/>{{ $genre }}</label>
 						</div>	
 					@endforeach
 				</div>
