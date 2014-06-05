@@ -63,12 +63,12 @@ class UserController extends BaseController {
         if(Input::hasFile('avatar-image')){
             $img = $file['avatar-image'];
             $dest = '/var/www/gitmusic/public/avatars';
-            $avatar_filename = $user->username . '_avatar' . '.jpg';
+            $avatar_filename = $user->pretty_username . '_avatar' . '.jpg';
             $destpath = $dest . '/' . $avatar_filename;
             $img->move($dest, $avatar_filename);
             $img = Image::make($destpath); //->resize(720, 500)->save($destination_filepath_pic_large);
-            $resize_image_small = $user->username . '_avatar_small' . '.jpg';
-            $resize_image_large = $user->username . '_avatar_large' . '.jpg';
+            $resize_image_small = $user->pretty_username . '_avatar_small' . '.jpg';
+            $resize_image_large = $user->pretty_username . '_avatar_large' . '.jpg';
             $small_filepath = $dest . '/' . $resize_image_small;
             $large_filepath = $dest . '/' . $resize_image_large;
             $img2 = $img; 

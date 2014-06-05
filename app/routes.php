@@ -61,6 +61,8 @@ Route::group(array('before' => 'auth'), function() {
 	// Song Upload Post
 	Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
 
+	// version Upload Post
+	Route::post('version-upload', array('as' => 'version-upload-post', 'uses' => 'VersionController@versionUpload'));
 	// Explore Page
 	Route::get('explore', array('as' => 'explore', 'uses' => 'SongController@showExplore'));
 
