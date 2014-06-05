@@ -31,7 +31,7 @@
 			<div class='song'>
 	          	<div class="songLine">
 	            	<h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user->pretty_username, $song->pretty_songname)) }}</h2>
-	            	<p class='songByline'>By<br>Lady the Beard</p>
+	            	<p class='songByline'>By<br>{{$user->username}}</p>
 	            </div>
 	            @if (isset($song->pic_url))
 		            <?php $pic_url = $song->pic_url;?>
@@ -40,7 +40,7 @@
 		              	<div id="songpage-player">
 	     					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
 	    				</div>
-		                <img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" />
+		                <a href="{{ $song->zip_url }}"><img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" /></a>
 		              </div>
 		            </div>
 	            @else
@@ -49,7 +49,7 @@
 		              	<div id="songpage-player">
 	     					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
 	    				</div>
-		                <img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" />
+		                <a href="{{ $song->zip_url }}"><img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" /></a>
 		              </div>
 		            </div>       
 	        @endif
