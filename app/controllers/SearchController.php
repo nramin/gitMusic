@@ -26,7 +26,7 @@ class SearchController extends BaseController {
 			$username_to_suser[$user->username] = $user;
 		}
 		arsort($rankings);
-		return var_dump($rankings);
+		return View::make('search', array('results' => $rankings));
 	}
 	
 
