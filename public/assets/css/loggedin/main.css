@@ -518,7 +518,10 @@ h2 {
   width: 220px;
   text-align: center;
   margin-bottom: 20px;
+  transition: background-color 0.2s;
 }
+
+
 
 #upload-box #choose-project:hover,
 #upload-box #choose-file:hover,
