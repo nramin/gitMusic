@@ -172,8 +172,7 @@ input {
   float: left;
 }
 
-#exploreHeader{
-  margin-top: 0;
+#exploreHeader, #streamHeader{
   margin-top: -20px;
 }
 
@@ -404,6 +403,16 @@ a {
   right: 0;
   margin: 0;
   bottom: 0;
+}
+
+.songByline a{
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.songByline a:hover{
+  background-color: black;
+  color: white;
 }
 
 .songHeader, #songByline {
