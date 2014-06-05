@@ -595,3 +595,7 @@ h2 {
   margin: 0;
   border: none;
 }
+
+#settings .avatar-upload-container {
+  overflow: hidden;
+}
