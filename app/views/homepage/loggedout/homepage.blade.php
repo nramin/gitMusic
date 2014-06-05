@@ -9,8 +9,8 @@
 			@if($errors->has('password'))
 				{{ $errors->first('password') }}
 			@endif
-		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }}>
-		    <input type="password" name="password" placeholder="Password">
+		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }} required>
+		    <input type="password" name="password" placeholder="Password" required>
 		    <!--<input type="checkbox" name="remember" id="remember" /> <label for="remember">Remember?</label>-->
 		    	{{ Form::token() }}
 		        <input type="submit" value="Login">
@@ -35,10 +35,10 @@
 			@if($errors->has('password_again'))
 				{{ $errors->first('password_again') }}
 			@endif
-		    <input type="text" name="email" placeholder="Email address" {{ (Input::old('email')) ? ' value="' . e(Input::old('email')) . '"' : '' }}>
-		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }}>
-		    <input type="password" name="password" placeholder="Password">
-		    <input type="password" name="password_again" placeholder="Password Again">
+		    <input type="text" name="email" placeholder="Email address" {{ (Input::old('email')) ? ' value="' . e(Input::old('email')) . '"' : '' }} required>
+		    <input type="text" name="username" placeholder="Username" {{ (Input::old('username')) ? ' value="' . e(Input::old('username')) . '"' : '' }} required>
+		    <input type="password" name="password" placeholder="Password" required>
+		    <input type="password" name="password_again" placeholder="Password Again" required>
 		    {{ Form::token() }}
 		    <input type="submit" value="Signup">
 		</form>
