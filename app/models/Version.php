@@ -22,12 +22,12 @@ class Version extends Eloquent {
     }
 
     public function sendToS3($destination_filepath, $user, $filename) {
-        $user = $user . "\/versions/";
+        $user = $user . "/versions";
         $s3 = AWS::get('s3');
         $result = $s3 ->putObject(array(
             'ACL'        => 'public-read',
             'Bucket'     => 'gitmusic',
-            'Key'        => $user . $filename,
+            'Key'        => $user . '/' . $filename,
             'SourceFile' => $destination_filepath    
         ));
         if(isset($result))
@@ -50,12 +50,12 @@ class Version extends Eloquent {
         {
             $version = Version::find($this->getId());
             if(strpos($url, '.mp3') == true){
-                $user->url = $url;
-                $user->save();
+                $version->url = $url;
+                $version->save();
                 return true;
             } else {
-                $user->zip_url = $url;
-                $user->save();
+                $version->zip_url = $url;
+                $version->save();
                 return true;
             }
         } else {

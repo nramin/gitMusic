@@ -97,7 +97,7 @@ function submitInfo(){
 	console.log(fd);
 	fd.append('song_id', parseInt($('#idHide').text()));
     $.ajax({
-      url: "gitmusic.dev/version-upload",
+      url: "/version-upload",
       type: "POST",
       data: fd,
       processData: false,  
