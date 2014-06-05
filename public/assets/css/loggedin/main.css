@@ -479,13 +479,13 @@ h2 {
 }
 
 #versionAppenderHolder{
-  width: 400px;
-  height: 200px;
+  width: 330px;
+  height: 370px;
   background-color: black;
   color: white;
   position: absolute;
   top: 220px;
-  left: 25%;
+  left: 28%;
 }
 
 #whiteOverlay {
@@ -497,18 +497,35 @@ h2 {
   background-color: rgba(255,255,255,0.8)
 }
 
+#versionAppenderHeader{
+  border-bottom: 1px solid #FFF;
+  display: inline-block;
+  font-size: 40px;
+  width: 280px;
+  text-align: right;
+}
+
 #upload-box {
    background-color: #000;
    color: #FFF;
    overflow: hidden;
    padding-top: 20px;
    padding-bottom: 20px;
+   margin-bottom: 10px;
 }
 
 #upload-left {
   float: left;
   width: 320px;
   text-align: right;
+}
+
+#versionAppenderHolder #submit{
+  width: 244px;
+}
+
+#versionAppenderHolder .file-field {
+  display: none;
 }
 
 #upload-right {
@@ -551,7 +568,7 @@ h2 {
   font-size: 32px;
 }
 
-#upload-box .button {
+#upload-box .button, #versionAppenderHolder .button {
   border: 0;
   border: 1px solid #FFF;
   color: #FFF;
@@ -568,7 +585,8 @@ h2 {
   display: block;
 }
 
-#upload-box #choose-project, #upload-box #choose-file, #upload-box #choose-art {
+#upload-box #choose-project, #upload-box #choose-file, #upload-box #choose-art,
+#versionAppenderHolder #choose-project, #versionAppenderHolder #choose-file {
   padding: 10px;
   border: 1px solid #FFF;
   display: inline-block;
@@ -578,6 +596,12 @@ h2 {
   text-align: center;
   margin-bottom: 20px;
   transition: background-color 0.2s;
+}
+
+#versionAppenderHolder #choose-project, #versionAppenderHolder #choose-file,
+  #versionAppenderHolder .button { 
+  margin-left: 38px;
+  cursor: pointer;
 }
 
 

@@ -1,4 +1,6 @@
-$(document).ready(function(){
+$(document).ready(uploadHandler);
+
+function uploadHandler(){
 	$('#choose-project').click(function() {
 		$('#fileProject').click();
 
@@ -25,5 +27,4 @@ $(document).ready(function(){
 			$('#choose-art').css('background-color', 'rgb(7,147,72)');
 		}
 	}, 15)
-
-});
+}
