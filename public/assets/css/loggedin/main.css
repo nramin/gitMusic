@@ -599,3 +599,10 @@ h2 {
 #settings .avatar-upload-container {
   overflow: hidden;
 }
+
+.avatar-upload-photo img {
+  border: 4px solid #000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%
+}

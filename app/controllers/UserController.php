@@ -62,7 +62,7 @@ class UserController extends BaseController {
         $file = Input::all();
         if(Input::hasFile('avatar-image')){
             $img = $file['avatar-image'];
-            $dest = '/var/www/gitmusic/public/avatars';
+            $dest = base_path() . '/public/avatars';
             $avatar_filename = $user->username . '_avatar' . '.jpg';
             $destpath = $dest . '/' . $avatar_filename;
             $img->move($dest, $avatar_filename);
