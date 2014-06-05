@@ -38,7 +38,7 @@
     <body>
     <section id="topbar">
         <a href="{{ route('home') }}" id="logo"></a>
-        <div id="username">{{ Auth::user() }}</div>
+        <div id="username"><a href="{{ Auth::user() }}">{{ Auth::user() }}</a></div>
 
         @section('topnav')
         <nav>
