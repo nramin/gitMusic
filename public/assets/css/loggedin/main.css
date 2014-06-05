@@ -76,6 +76,10 @@ section#topbar nav ul li a {
   padding-top: 14px;
 }
 
+.exploreContent{
+  margin-left: 100px;
+}
+
 section#topbar nav ul li a.explore {
   background-image: url('../../img/explore.png');
   background-repeat: no-repeat;
@@ -131,7 +135,7 @@ section#content {
   width: 700px;
   float: left;
   margin-top: 139px;
-  margin-left: 400px;
+  margin-left: 302px;
 }
 
 footer {
@@ -335,7 +339,7 @@ a {
 
 #songHolder{
   float: left;
-  width: 587px;
+  width: 700px;
 }
 
 .sidebar-menu-circle {

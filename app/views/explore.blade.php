@@ -7,11 +7,9 @@
 
 @section('content')
     {{ HTML::style('assets/css/loggedin/homepage-player.css') }}
-    <h1 id='exploreHeader'>Explore</h1>
     @if (sizeof($genres) < 1)
         <p>No Genres :(</p>
     @else
-        <div class="sidebar-menu-title"></div>
             <div id='genreHolder'>
                 <ul class="genreExplore">
                     <li>Trending Music</li>
@@ -24,7 +22,8 @@
             </div>
     @endif
 
-            
+        <div class='exploreContent'> 
+            <h1 id='exploreHeader'>Explore</h1>
             <div id='songHolder'>
             @foreach ($songs as $song)
                 <div class='song'>
@@ -59,4 +58,5 @@
               </div>
             @endforeach
             </div>
+        </div>
 @stop
