@@ -6,7 +6,8 @@
 	{{ HTML::style('assets/css/loggedin/homepage-player.css') }}
 
 	<div class='artistHeaderHolder'>
-	<img class='profilePhoto' src="{{ asset('assets/img/caribou.jpg') }}" alt='wow. great pic, girl' />
+	<?php $avatar = 'avatars/' . $user->username . '_avatar_large.jpg'; ?>
+	<img class='profilePhoto' src="{{ asset($avatar) }}" alt='User avatar' />
     	<h1 class='artistHeader'>{{ $user->username }}</h1>
     </div>
 
