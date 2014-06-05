@@ -22,6 +22,7 @@
      					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
     				</div>
 	                <a href="{{ $song->zip_url }}"><img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" /></a>
+	                <div class="songInfoLikes">likes</div>
 	              </div>
 	            </div>
             @else
@@ -31,6 +32,7 @@
      					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>
     				</div>
 	                <a href="{{ $song->zip_url }}"><img class="download" src="{{ asset('assets/img/downloadWhite.png') }}" alt="Download" /></a>
+	                <div class="songInfoLikes">{{ $song->likes }} likes</div>
 	              </div>
 	            </div>
 	        @endif
