@@ -179,4 +179,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $liked_songs;
 	}
 
+	public function hasAvatar()
+	{
+		return $this->avatar_url;
+	}
+
+	public function setAvatarURL($url)
+	{
+		$this->avatar_url = $url;
+		$this->save();
+	}
+
 }

@@ -8,7 +8,11 @@
 	    <ul>
 			@foreach ($following as $follower)
 			<div class="row-user clearfix">
-				<?php $avatar = 'avatars/' . $follower->pretty_username . '_avatar_small.jpg'; ?>
+				<?php if ($follower->hasAvatar()) {
+					$avatar = 'avatars/' . $follower->pretty_username . '_avatar_small.jpg';
+				} else {
+					$avatar = 'assets/img/default_small.png';
+				} ?>
 				<img class="avatar" src="{{ asset($avatar) }}" />
 				<span class="right">{{ HTML::linkRoute('userProfile', $follower->username, array($follower->pretty_username)) }}</span>
 			</div>

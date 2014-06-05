@@ -6,7 +6,12 @@
 	{{ HTML::style('assets/css/loggedin/homepage-player.css') }}
 
 	<div class='artistHeaderHolder'>
-	<?php $avatar = 'avatars/' . $user->pretty_username . '_avatar_large.jpg'; ?>
+	<?php if ($user->hasAvatar()) {
+		$avatar = 'avatars/' . $user->pretty_username . '_avatar_large.jpg';
+	} else {
+		$avatar = 'assets/img/default_large.png';
+	} ?>
+		
 	<img class='profilePhoto' src="{{ asset($avatar) }}" alt='User avatar' />
     	<h1 class='artistHeader'>{{ $user->username }}</h1>
     </div>

@@ -16,8 +16,8 @@ class UserController extends BaseController {
 
     public function showSettings()
     {
-        $current_user = Auth::user();
-        return View::make('user.settings', array('current_user' => $current_user));
+        $user = Auth::user();
+        return View::make('user.settings', array('user' => $user));
     }
 
     public function showUsers()
@@ -81,6 +81,7 @@ class UserController extends BaseController {
             //$img->fit(100)->save($small_filepath);
             $img->fit(700)->save($large_filepath);
             $img2->fit(100)->save($small_filepath);
+            $user->setAvatarURL('avatar/' . $user->username . '_avatar');
         }
 
         return Redirect::route('userProfile', array($user->pretty_username));

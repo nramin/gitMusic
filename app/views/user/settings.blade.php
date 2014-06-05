@@ -6,7 +6,12 @@
 	    <h1>Settings</h1>
 	    <div class="avatar-upload-container">
 	    	<h2>Upload an avatar</h2>
-	    	<?php $avatar = 'avatars/' . $current_user->pretty_username . '_avatar_small.jpg'; ?>
+			<div class='artistHeaderHolder'>
+			<?php if ($user->hasAvatar()) {
+				$avatar = 'avatars/' . $user->pretty_username . '_avatar_small.jpg';
+			} else {
+				$avatar = 'assets/img/default.png';
+			} ?>
 	    	<div class="avatar-upload-photo"><img src="{{ asset($avatar) }}" /></div>
 	    	<div class="avatar-upload-file">
 			    <form method="post" action={{ route('settings') }} enctype="multipart/form-data">
