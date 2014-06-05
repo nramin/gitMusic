@@ -250,6 +250,7 @@ a {
 
 .profilePhoto {
   width: 340px;
+  height: 340px;
   display: inline-block;
   border: 8pt solid black;
   border-radius: 50%;
