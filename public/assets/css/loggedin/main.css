@@ -395,6 +395,11 @@ a {
   color: white;
 }
 
+#username a {
+  text-decoration: none;
+  color: white;
+}
+
 .songByline {
   font-size: 15.05pt;
   float: right;

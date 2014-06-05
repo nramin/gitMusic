@@ -15,6 +15,11 @@ function closeUploaderHandler(event){
 
 function showUploader(){
 	if(!showing){
+		$form = $('<form>')
+				.attr('id', 'versionForm');
+
+		$form.submit(false);
+
 		$overlay = $('<div>').attr('id', 'whiteOverlay');
 		$('body').append($overlay)
 				.hide()
@@ -39,7 +44,8 @@ function showUploader(){
 			'value': 'Upload',
 			'id': 'submit'
 		})
-		.addClass('button');
+		.addClass('button')
+		.click(submitInfo);
 
 		$mp3 = $('<input>').attr({
 			'type': 'file',
@@ -64,7 +70,9 @@ function showUploader(){
 				.append($chooseFile)
 				.append($submit);
 
-		$('body').append($holder);
+		$form.append($holder)
+
+		$('body').append($form);
 		$holder.hide().fadeIn();
 	} else {
 		$('#versionAppenderHolder').fadeOut()
@@ -83,6 +91,24 @@ function closeUploader(){
 		$('#whiteOverlay').fadeOut()
 			.remove();
 }
+
+function submitInfo(){
+	var fd = new FormData(document.getElementById("versionForm"));
+	console.log(fd);
+	
+    $.ajax({
+      url: "gitmusic.dev/version-upload",
+      type: "POST",
+      data: fd,
+      processData: false,  
+      contentType: false  
+    }).done(function (result) {
+      console.log('fuck bitches');
+    });
+
+}
+
+
 //<div id="choose-project">Choose project</div>
 //<input type="file" class="file-field" name="projectfile" accept="application/zip" id="fileProject">
 //<input type="file" class="file-field" name="songfile" accept="audio/*" id="file">
