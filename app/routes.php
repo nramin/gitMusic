@@ -18,10 +18,7 @@
 Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
 
 Route::get('test', function() {
-	$username = "a guy";
-	$username_pretty = preg_replace("![^a-z0-9]+!i", "-", $username); 
-	return $username_pretty;
-	//phpinfo();
+	phpinfo();
 });
 
 Route::get('about', array('as' => 'about', 'uses' => 'HomeController@showAbout'));
@@ -55,6 +52,9 @@ Route::group(array('before' => 'auth'), function() {
 	// Settings
 	Route::get('settings', array('as' => 'settings', 'uses' => 'UserController@showSettings'));
 
+	//profile pic settings
+	Route::post('settings', array('as' => 'settings-post', 'uses' => 'UserController@profilePic'));
+
 	// Get Upload Form
 	Route::get('upload', array('as' => 'upload', 'uses' => 'SongController@showUpload'));
 
@@ -77,11 +77,11 @@ Route::group(array('before' => 'auth'), function() {
 		
 		// Upload Post
 		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
-
-		// Comment Post
-		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
 	
 	});
+
+	// Comment Post
+	Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
 
 	// Follow Post
 	Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));

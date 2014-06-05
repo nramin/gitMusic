@@ -7,6 +7,10 @@
 @section('content')
 	{{ HTML::script('assets/js/song.js') }}
 	{{ HTML::style('assets/css/loggedin/songpage-player.css') }}
+	<div id='addVersionWrapper'>
+		<div id='addVersionCircle'><p>Add<br>Version</p></div>
+		<div id='addVersionLine'></div>
+	</div>
 	<div id="songpage-title">{{ $song->songname }}</div>
 	<div class='songWrapper'>
 

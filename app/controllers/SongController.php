@@ -20,7 +20,7 @@ class SongController extends BaseController {
             if($song = Song::where('pretty_songname', '=', $songname)->where('user_id', '=', $user->getId())->first())
             {
                 $versions = $song->getVersions();
-        	   return View::make('song.profile', array('song' => $song, 'versions' => $versions ));
+        	    return View::make('song.profile', array('song' => $song, 'versions' => $versions ));
             } else {
                 return View::make('errors.songNotFound', array('songname' => $songname));
             }
@@ -94,20 +94,28 @@ class SongController extends BaseController {
             if(Input::hasFile('songfile')){
                 $songname = $file['songname'];
                 $songname_nospaces = preg_replace("![^a-z0-9]+!i", "-", $songname);
+                //die(var_dump($songname_nospaces));
                 $song_file = $file['songfile'];
                 $project_zip = $file['projectfile'];
                 $pic_file = $file['artfile'];
                 $genre_id = 1; // Default
                 $dest = '/var/www/gitmusic/uploads';
-                $filename = $songname . '.mp3';
-                $zipname = $songname . '.zip';
-                $picname = $songname . '.jpg';
+                $filename = $songname_nospaces . '.mp3';
+                $zipname = $songname_nospaces . '.zip';
+                $picname = $songname_nospaces . '.jpg';
                 $song_file->move($dest, $filename);
                 $project_zip->move($dest, $zipname);
                 $pic_file->move($dest, $picname);
                 $destination_filepath = $dest . '/' . $filename;
                 $destination_filepath_zip = $dest . '/' . $zipname;
                 $destination_filepath_pic = $dest . '/' . $picname;
+
+                //resize image
+                $resize_imagename = $songname_nospaces . '-stream' . '.jpg';
+                $destination_filepath_pic_large = $destination_filepath_pic . $resize_imagename;
+                $img = Image::make($destination_filepath_pic)->resize(720, 500)->save($destination_filepath_pic_large);    
+
+
                 if(isset($file['genre'])) {
                     $genre = $file['genre'];
                     $genre_object = Genre::where('display_name', '=', $genre)->firstOrFail();
@@ -121,9 +129,11 @@ class SongController extends BaseController {
                     'pretty_songname' => $songname_nospaces
                 ));
 
-                $create_song->sendToS3($destination_filepath, $user, $filename); //MP3
-                $create_song->sendToS3($destination_filepath_zip, $user, $zipname); //Zip
-                $create_song->sendToS3($destination_filepath_pic, $user, $picname); //Picture
+                $create_song->sendToS3($destination_filepath, $user, $filename);
+                $create_song->sendToS3($destination_filepath_zip, $user, $zipname);
+                $create_song->sendToS3($destination_filepath_pic, $user, $picname);
+                $create_song->sendToS3($destination_filepath_pic_large, $user, $resize_imagename);
+
                 return Redirect::route('songProfile', array($user->pretty_username, $songname_nospaces));    
             } else {
                 return Redirect::route('upload')

@@ -15,6 +15,7 @@
         {{ HTML::script('assets/js/upload.js') }}
         {{ HTML::script('assets/js/circle.js') }}
         {{ HTML::script('assets/js/explore.js') }}
+        {{ HTML::script('assets/js/appendVersion.js') }}
 
         {{ HTML::style('assets/css/jplayer/360player.css') }}
         {{ HTML::style('assets/css/jplayer/flashblock.css') }}
@@ -80,7 +81,6 @@
         @yield('content')
 
     </section>
-
 
     </body>
 </html>
