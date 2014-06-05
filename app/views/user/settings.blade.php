@@ -6,7 +6,8 @@
 	    <h1>Settings</h1>
 	    <div class="avatar-upload-container">
 	    	<h2>Upload an avatar</h2>
-	    	<div class="avatar-upload-photo"><img width="100px" height="100px" src="{{ asset('avatar/avatar.png') }}" /></div>
+	    	<?php $avatar = 'avatars/' . $current_user . '_avatar_small.jpg'; ?>
+	    	<div class="avatar-upload-photo"><img src="{{ asset($avatar) }}" /></div>
 	    	<div class="avatar-upload-file">
 			    <form method="post" action={{ route('settings') }} enctype="multipart/form-data">
 			    	<input type="file" class="avatar-image" name="avatar-image" accept="image/*" id="avatar-image">

@@ -16,7 +16,8 @@ class UserController extends BaseController {
 
     public function showSettings()
     {
-        return View::make('user.settings');
+        $current_user = Auth::user();
+        return View::make('user.settings', array('current_user' => $current_user));
     }
 
     public function showUsers()
