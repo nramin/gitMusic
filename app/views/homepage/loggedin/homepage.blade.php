@@ -6,12 +6,13 @@
 
 @section('content')
 	{{ HTML::style('assets/css/loggedin/homepage-player.css') }}
+	<h1 id='streamHeader'>Stream</h1>
 	@if ($songs)
 		@foreach ($songs as $song)
           <div class='song'>
           	<div class="songLine">
             	<h2 class='songHeader'>{{ HTML::linkRoute('songProfile', $song, array($song->user->pretty_username, $song->pretty_songname)) }}</h2>
-            	<p class='songByline'>By<br>{{$song->user->username}}</p>
+            	<p class='songByline'><a href="{{$song->user->username}}">By<br>{{$song->user->username}}</a></p>
             </div>
             @if (isset($song->pic_url))
 	            <?php $pic_url = $song->pic_url;?>

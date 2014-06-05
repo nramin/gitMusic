@@ -76,6 +76,10 @@ section#topbar nav ul li a {
   padding-top: 14px;
 }
 
+.exploreContent{
+  margin-left: 100px;
+}
+
 section#topbar nav ul li a.explore {
   background-image: url('../../img/explore.png');
   background-repeat: no-repeat;
@@ -131,7 +135,7 @@ section#content {
   width: 700px;
   float: left;
   margin-top: 139px;
-  margin-left: 400px;
+  margin-left: 302px;
 }
 
 footer {
@@ -168,12 +172,11 @@ input {
   float: left;
 }
 
-#exploreHeader{
-  margin-top: 0;
+#exploreHeader, #streamHeader{
   margin-top: -20px;
 }
 
-#songpage-title, #exploreHeader {
+#songpage-title, #exploreHeader, #streamHeader {
   font-size: 69.76pt;
   font-weight: 700;
   margin-bottom: 20px;
@@ -335,7 +338,7 @@ a {
 
 #songHolder{
   float: left;
-  width: 587px;
+  width: 700px;
 }
 
 .sidebar-menu-circle {
@@ -383,6 +386,22 @@ a {
 
 .songHeader a {
   text-decoration: none;
+  transition: color .2s, background-color .2s;
+  padding-right: 1em;
+}
+
+.songHeader a:hover {
+  background-color: black;
+  color: white;
+}
+
+#username a {
+  text-decoration: none;
+  color: white;
+}
+
+#idHide{
+  display: none;
 }
 
 .songByline {
@@ -393,6 +412,16 @@ a {
   right: 0;
   margin: 0;
   bottom: 0;
+}
+
+.songByline a{
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.songByline a:hover{
+  background-color: black;
+  color: white;
 }
 
 .songHeader, #songByline {
@@ -427,18 +456,104 @@ h2 {
   display: inline-block !important;
 }
 
+#addVersionWrapper{
+  width: 120px;
+  height: 86px;
+  position: absolute;
+  top: 296px;
+  left: 189px;
+}
+
+#addVersionCircle, #addVersionLine {
+  float: left;
+}
+
+#addVersionCircle p{
+  font-size: 12pt;
+  line-height: 10pt;
+  margin-top: 30px;
+}
+
+#addVersionCircle{
+  height: 100%;
+  width: 86px;
+  text-align: center;
+  border-radius: 50%;
+  border: 3pt solid black;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#addVersionCircle:hover{
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+
+#addVersionLine{
+  width: 20px;
+  height: 3pt;
+  background-color: black;
+  margin-top: 43px;
+}
+
+#versionAppenderHolder{
+  width: 330px;
+  height: 370px;
+  background-color: black;
+  color: white;
+  position: absolute;
+  top: 220px;
+  left: 29%;
+}
+
+#versionAppenderHolder div, #versionAppenderHolder .button,
+  #upload-box .button{
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#versionAppenderHolder div:hover, #versionAppenderHolder .button:hover{
+  background-color: white;
+  color: black;
+}
+
+#whiteOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.8)
+}
+
+#versionAppenderHeader{
+  border-bottom: 1px solid #FFF;
+  display: inline-block;
+  font-size: 40px;
+  width: 280px;
+  text-align: right;
+}
+
 #upload-box {
    background-color: #000;
    color: #FFF;
    overflow: hidden;
    padding-top: 20px;
    padding-bottom: 20px;
+   margin-bottom: 10px;
 }
 
 #upload-left {
   float: left;
   width: 320px;
   text-align: right;
+}
+
+#versionAppenderHolder #submit{
+  width: 244px;
+}
+
+#versionAppenderHolder .file-field {
+  display: none;
 }
 
 #upload-right {
@@ -481,7 +596,7 @@ h2 {
   font-size: 32px;
 }
 
-#upload-box .button {
+#upload-box .button, #versionAppenderHolder .button {
   border: 0;
   border: 1px solid #FFF;
   color: #FFF;
@@ -496,9 +611,17 @@ h2 {
 #upload-box #submit {
   margin: auto;
   display: block;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
 }
 
-#upload-box #choose-project, #upload-box #choose-file, #upload-box #choose-art {
+#upload-box #submit:hover{
+  background-color: white;
+  color: black;
+}
+
+#upload-box #choose-project, #upload-box #choose-file, #upload-box #choose-art,
+#versionAppenderHolder #choose-project, #versionAppenderHolder #choose-file {
   padding: 10px;
   border: 1px solid #FFF;
   display: inline-block;
@@ -507,12 +630,38 @@ h2 {
   width: 220px;
   text-align: center;
   margin-bottom: 20px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#versionAppenderHolder #choose-project, #versionAppenderHolder #choose-file,
+  #versionAppenderHolder .button { 
+  margin-left: 38px;
+  cursor: pointer;
+}
+
+#followButton{
+  display: inline-block;
+  font-size: 24.58pt;
+  font-weight: 300;
+  position: relative;
+  top: 2px;
+  padding: 3px;
+  transition: background-color 0.2s, color 0.2s;
+  float: right;
+}
+
+#followButton:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
 }
 
 #upload-box #choose-project:hover,
 #upload-box #choose-file:hover,
 #upload-box #choose-art:hover {
   cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 #upload-box #upload-left .container {
