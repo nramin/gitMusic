@@ -606,3 +606,34 @@ h2 {
   -moz-border-radius: 50%;
   border-radius: 50%
 }
+
+.page-heading {
+  font-size: 49.76pt;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.row-user {
+  font-size: 30pt;
+  overflow: hidden;
+}
+
+.right {
+  float: right;
+}
+
+.row-user {
+  margin-bottom: 10px;
+}
+
+.row-user .avatar {
+  border: 4px solid #000;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%
+}
+
+.songInfoLikes {
+  margin-top: 10px;
+  color: #FFF;
+}
