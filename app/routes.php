@@ -77,11 +77,11 @@ Route::group(array('before' => 'auth'), function() {
 		
 		// Upload Post
 		Route::post('upload', array('as' => 'upload-post', 'uses' => 'SongController@handleUpload'));
-
-		// Comment Post
-		Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
 	
 	});
+
+	// Comment Post
+	Route::post('comment', array('as' => 'comment-post', 'uses' => 'CommentController@postComment'));
 
 	// Follow Post
 	Route::post('follow', array('as' => 'follow-post', 'uses' => 'FollowController@postFollow'));

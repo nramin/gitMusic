@@ -124,7 +124,6 @@ class Song extends Eloquent {
     {
         if(isset($url) and $song = Song::find($this->getId()))
         {
-            
             $user = Song::find($this->getId());
             if(strpos($url, '.mp3') == true){
                 $user->url = $url;
