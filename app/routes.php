@@ -69,6 +69,9 @@ Route::group(array('before' => 'auth'), function() {
 	// Song Genre By Type (hottest, newest, popular)
 	Route::get('songs/genre/{type}/{genre_id}', array('uses' => 'SongController@getGenreSongs'));
 
+	// Search Through Everything Based on Term
+	Route::get('search/{term}', array('uses' => 'SearchController@searchAll'));
+
 	//CSRF Protected Routes
 	Route::group(array('before' => 'csrf'), function() {
 		

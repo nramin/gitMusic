@@ -15,7 +15,7 @@
             </div>
             @if (isset($song->pic_url))
 	            <?php $pic_url = $song->pic_url;?>
-	            <div class='box' style="background-image: url('{{ $pic_url }}')">
+	            <div class='box' style="background-image: url({{ $pic_url }})">
 	              <div class='songInfo'>
 	              	<div id="songpage-player">
      					<div class="ui360 ui360-vis"><a href="<?php echo $song->url ?>"></a></div>

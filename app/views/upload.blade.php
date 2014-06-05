@@ -16,15 +16,11 @@
 			<div id="upload-right">
 				<h1>Genres</h1>        
 				<div id="genre-container">
-					<div>
-						<input type="radio" name="radSize" id="sizeSmall" value="small" checked="checked" /><label for="sizeSmall" class="radio-field">Parisian Lemon Orgy</label>
-					</div>
-					<div>
-						<input type="radio" name="radSize" id="sizeMed" value="medium" /><label for="sizeMed" class="radio-field">Iranian Ass-Rock</label>
-					</div>
-					<div>
-						<input type="radio" name="radSize" id="sizeLarge" value="large" /><label for="sizeLarge" class="radio-field">Belgian Blue Waffles</label>
-					</div>
+					@foreach ($genres as $genre)
+						<div>
+							<input type="radio" name="genre" value="{{ $genre }}"/><label for="sizeSmall" class="radio-field">{{ $genre }}</label>
+						</div>	
+					@endforeach
 				</div>
 			</div>
 			<div class="clearfix"></div>
