@@ -400,6 +400,10 @@ a {
   color: white;
 }
 
+#idHide{
+  display: none;
+}
+
 .songByline {
   font-size: 15.05pt;
   float: right;
@@ -499,7 +503,7 @@ h2 {
   color: white;
   position: absolute;
   top: 220px;
-  left: 28%;
+  left: 29%;
 }
 
 #whiteOverlay {

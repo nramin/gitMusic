@@ -95,7 +95,7 @@ function closeUploader(){
 function submitInfo(){
 	var fd = new FormData(document.getElementById("versionForm"));
 	console.log(fd);
-	
+	fd.append('song_id', parseInt($('#idHide').text()));
     $.ajax({
       url: "gitmusic.dev/version-upload",
       type: "POST",
@@ -103,7 +103,7 @@ function submitInfo(){
       processData: false,  
       contentType: false  
     }).done(function (result) {
-      console.log('fuck bitches');
+      console.log(result);
     });
 
 }
