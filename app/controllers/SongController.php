@@ -98,7 +98,7 @@ class SongController extends BaseController {
                 $song_file = $file['songfile'];
                 $project_zip = $file['projectfile'];
                 $pic_file = $file['artfile'];
-                $genre = 1;
+                $genre_id = 1; // Default
                 $dest = '/var/www/gitmusic/uploads';
                 $filename = $songname_nospaces . '.mp3';
                 $zipname = $songname_nospaces . '.zip';
@@ -109,17 +109,22 @@ class SongController extends BaseController {
                 $destination_filepath = $dest . '/' . $filename;
                 $destination_filepath_zip = $dest . '/' . $zipname;
                 $destination_filepath_pic = $dest . '/' . $picname;
+
                 //resize image
                 $resize_imagename = $songname_nospaces . '-stream' . '.jpg';
                 $destination_filepath_pic_large = $destination_filepath_pic . $resize_imagename;
                 $img = Image::make($destination_filepath_pic)->resize(720, 500)->save($destination_filepath_pic_large);    
 
 
-
+                if(isset($file['genre'])) {
+                    $genre = $file['genre'];
+                    $genre_object = Genre::where('display_name', '=', $genre)->firstOrFail();
+                    $genre_id = $genre_object->getId();
+                }
                 $create_song = Song::create(array(
                     'songname' => $songname,
                     'user_id' => $user_id,
-                    'genre_id' => $genre,
+                    'genre_id' => $genre_id,
                     'tags' => 'hip hop',
                     'pretty_songname' => $songname_nospaces
                 ));
@@ -128,6 +133,7 @@ class SongController extends BaseController {
                 $create_song->sendToS3($destination_filepath_zip, $user, $zipname);
                 $create_song->sendToS3($destination_filepath_pic, $user, $picname);
                 $create_song->sendToS3($destination_filepath_pic_large, $user, $resize_imagename);
+
                 return Redirect::route('songProfile', array($user->pretty_username, $songname_nospaces));    
             } else {
                 return Redirect::route('upload')
@@ -168,7 +174,8 @@ class SongController extends BaseController {
 
      public function showUpload()
     {
-        return View::make('upload');
+        $genres = Genre::all();
+        return View::make('upload', array('genres' => $genres));
     }
 
     public function showExplore()

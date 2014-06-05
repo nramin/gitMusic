@@ -5,7 +5,12 @@
 	{{ HTML::script('assets/js/user.js') }}
 	{{ HTML::style('assets/css/loggedin/homepage-player.css') }}
 
-    <h1>Artist: {{ $user->username }}</h1>
+	<div class='artistHeaderHolder'>
+	<img class='profilePhoto' src="{{ asset('assets/img/caribou.jpg') }}" alt='wow. great pic, girl' />
+    	<h1 class='artistHeader'>{{ $user->username }}</h1>
+    </div>
+
+    <!--
    	<span>Followers: <span class="user-follows">{{ $user->followers }}</span></span>
    		@if (Auth::user())
 			@if (Auth::user()->following_user($user->getId()))
@@ -18,10 +23,10 @@
 		@endif
     @if (count($user->songs) > 0)
 	    <div id="sm2-container">
-				<!-- sm2 flash goes here -->
+				sm2 flash goes here
 		</div>
-    	<h3>Songs:</h3>
-	    <ul>
+    	-->
+	    <ul class='songList'>
 			@foreach ($user->songs as $song)
 			<div class='song'>
 	          	<div class="songLine">
