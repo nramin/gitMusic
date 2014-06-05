@@ -387,6 +387,13 @@ a {
 
 .songHeader a {
   text-decoration: none;
+  transition: color .2s, background-color .2s;
+  padding-right: 1em;
+}
+
+.songHeader a:hover {
+  background-color: black;
+  color: white;
 }
 
 .songByline {
