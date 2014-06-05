@@ -120,6 +120,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Aws\Laravel\AwsServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 	),
 
@@ -187,6 +188,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'AWS' 			  => 'Aws\Laravel\AwsFacade',
+		'Image' 		  => 'Intervention\Image\Facades\Image',
 
 	),
 

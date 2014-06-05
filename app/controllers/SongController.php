@@ -19,8 +19,8 @@ class SongController extends BaseController {
         {
             if($song = Song::where('pretty_songname', '=', $songname)->where('user_id', '=', $user->getId())->first())
             {
-                $versions = $song->getVersions();
-        	   return View::make('song.profile', array('song' => $song, 'versions' => $versions ));
+                //$versions = $song->getVersions();
+        	   //return View::make('song.profile', array('song' => $song, 'versions' => $versions ));
             } else {
                 return View::make('errors.songNotFound', array('songname' => $songname));
             }
@@ -136,6 +136,18 @@ class SongController extends BaseController {
                         ->withInput();
         }
     }
+
+    // public function versionUpload()
+    // {
+    //     $file = Input::all();
+    //     $zip = $file['projectfile'];
+    //     $mp3 = $file['songfile'];
+    //     $parent_song = $file['parentfile'];
+    //     $user = Auth::user();
+    //     $song = $file['song_id'];
+
+
+    // }
 
     public function like()
     {

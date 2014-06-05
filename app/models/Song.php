@@ -101,23 +101,13 @@ class Song extends Eloquent {
         return false;
     }
 
-    public function hasParent()
-    {
-        return $this->parent_id != 0;
-    }
-
-    public function getParent()
-    {
-        $song = Song::find($this->parent_id);
-    }
-
     // return all 'child' songs
-    public function getVersions()
-    {
-        $this_song_id = $this->getId();
-        $versions = Song::where('parent_id', '=', $this_song_id)->newest()->get();
-        return $versions;
-    }
+    // public function getVersions()
+    // {
+    //     $this_song_id = $this->getId();
+    //     $versions = Song::where('parent_id', '=', $this_song_id)->newest()->get();
+    //     return $versions;
+    // }
 
     //Only to be used AFTER a song has been uploaded to S3, otherwise it won't exist
     public function setURL($url)
