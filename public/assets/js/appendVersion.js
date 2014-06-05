@@ -97,13 +97,13 @@ function submitInfo(){
 	console.log(fd);
 	fd.append('song_id', parseInt($('#idHide').text()));
     $.ajax({
-      url: "gitmusic.dev/version-upload",
+      url: "http://gitmusic.dev/version-upload",
       type: "POST",
       data: fd,
       processData: false,  
       contentType: false  
     }).done(function (result) {
-      console.log(result);
+      closeUploader();
     });
 
 }

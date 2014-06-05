@@ -8,6 +8,7 @@
 	<div class='artistHeaderHolder'>
 	<img class='profilePhoto' src="{{ asset('assets/img/caribou.jpg') }}" alt='wow. great pic, girl' />
     	<h1 class='artistHeader'>{{ $user->username }}</h1>
+    	<span id='followButton'>follow</span>
     </div>
 
     <!--

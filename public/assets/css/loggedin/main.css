@@ -506,6 +506,16 @@ h2 {
   left: 29%;
 }
 
+#versionAppenderHolder div, #versionAppenderHolder .button,
+  #upload-box .button{
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#versionAppenderHolder div:hover, #versionAppenderHolder .button:hover{
+  background-color: white;
+  color: black;
+}
+
 #whiteOverlay {
   position: absolute;
   top: 0;
@@ -601,6 +611,13 @@ h2 {
 #upload-box #submit {
   margin: auto;
   display: block;
+  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+#upload-box #submit:hover{
+  background-color: white;
+  color: black;
 }
 
 #upload-box #choose-project, #upload-box #choose-file, #upload-box #choose-art,
@@ -613,7 +630,7 @@ h2 {
   width: 220px;
   text-align: center;
   margin-bottom: 20px;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 #versionAppenderHolder #choose-project, #versionAppenderHolder #choose-file,
@@ -622,12 +639,29 @@ h2 {
   cursor: pointer;
 }
 
+#followButton{
+  display: inline-block;
+  font-size: 24.58pt;
+  font-weight: 300;
+  position: relative;
+  top: 2px;
+  padding: 3px;
+  transition: background-color 0.2s, color 0.2s;
+  float: right;
+}
 
+#followButton:hover{
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
 
 #upload-box #choose-project:hover,
 #upload-box #choose-file:hover,
 #upload-box #choose-art:hover {
   cursor: pointer;
+  background-color: white;
+  color: black;
 }
 
 #upload-box #upload-left .container {
