@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 function closeUploaderHandler(event){
 	var targetId = $(event.target).attr('id');
-	console.log(targetId);
 	if(targetId == 'whiteOverlay')
 		closeUploader();
 }
