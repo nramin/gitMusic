@@ -5,7 +5,7 @@ $(document).ready(function() {
 			var userId = $(this).data('user-id');
 			$.ajax({
 			    type: "POST",
-			    url: 'http://107.170.219.35/follow',
+			    url: 'http://gitmusic.co/follow',
 			    data: {
 			  	    'user_id': userId
 			    },
@@ -18,11 +18,12 @@ $(document).ready(function() {
 	function showFollowChange() {
 		$('.follow-user').hide();
 		$('.user-follows').html(parseInt($('.user-follows').html(), 10) + 1);
-		alert('You Liked That Shit?!');
+		var ArtistName = $('.artistHeader').text();
+		alert('You Have Successfully Followed ' + ArtistName);
 	}
 
 	function ajaxError() {
-		alert('something fucked up');
+		alert('error');
 	}
 
 });
