@@ -10,7 +10,7 @@
 			<?php if ($user->hasAvatar()) {
 				$avatar = 'avatars/' . $user->pretty_username . '_avatar_small.jpg';
 			} else {
-				$avatar = 'assets/img/default.png';
+				$avatar = 'assets/img/default_small.png';
 			} ?>
 	    	<div class="avatar-upload-photo"><img src="{{ asset($avatar) }}" /></div>
 	    	<div class="avatar-upload-file">
