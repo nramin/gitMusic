@@ -16,8 +16,7 @@ $(document).ready(function() {
 	});
 
 	function showFollowChange() {
-		$('.follow-user').hide();
-		$('.user-follows').html(parseInt($('.user-follows').html(), 10) + 1);
+		$('#followButton').removeClass('notFollowing');
 		var ArtistName = $('.artistHeader').text();
 		alert('You Have Successfully Followed ' + ArtistName);
 	}
