@@ -32,13 +32,8 @@ function populateGenre(){
 				.text(data[i].songname);
 			$h2.append($a);
 
-			$p = $('<p>')
-				.addClass('songByline')
-				.text('Lady the Beard');
-
 			$songLine
-				.append($h2)
-				.append($p);
+				.append($h2);
 
 			$song.append($songLine)
 
